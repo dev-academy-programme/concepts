@@ -1,0 +1,2 @@
+This is powerful, because if you render client-side, you don't have to wait for the server to render up an html page (and you don't have to wait for it to render some other peoples), AND you don't have to transport a bulky html page.
+We're moving into the neighbourhood where it's possible to just shoot JSON from client to server and back, and load all the page-weaving needed into our client's page.
