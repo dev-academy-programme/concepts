@@ -4,7 +4,7 @@ Essentially, an API is a point where you can access information if you ask for i
 
 Let's recall the analogy of the server being like a bank teller:
 
-![client server bank](./images/client_server_bank.png)
+![client server bank](./client_server_bank.png)
 
 In this story, there is:
   - a specific location (the window) where we ask questions of the server (this is called an **endpoint**)
