@@ -1,0 +1,2 @@
+A foreign key is a field in a table which references the primary key of another table so we might have Person [id, name] and Pet [id, name, person_id].
+In this case the field person_id on Pet is a foreign key which references the primary key on Person (id).

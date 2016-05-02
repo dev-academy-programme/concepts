@@ -11,3 +11,6 @@ Relational databases represent their records in separate _tables_ and relationsh
 | address            |     ---| user_id     |
 +--------------------+        +-------------+
 ```
+
+
+Modern databases are highly optimised to perform fast queries across multiple tables at once - these are called joins.
