@@ -1,4 +1,4 @@
-OO is a pattern of organising code that involves thinking things you're dealing with being **instances** of particular objects, and that objects of given types have functions they can be asked to run.
+Object Oriented programming (OO) is a pattern of organising code that involves thinking things you're dealing with being **instances** of particular objects, and that objects of given types have functions they can be asked to run.
 
 With OO, we pull together **state** and **behaviour** - we often want to store the particular details of a specific User with that user (e.g. age, email, health), and we want all Users to have particular behaviours (e.g. be able to asked about their state, or asked about their relation to other objects)
 
@@ -11,6 +11,10 @@ If you're ever wondering which object should own a function, you can ask yoursel
 > Should this thing know about this concept, is it this object's responsibility?
 
 e.g. Should I be able to ask a Cat what it's email is? ... No, that's that's Owner that has an eamil. I should be able to ask Cat about it's owner, and ask owner about it's email.
+
+
+
+
 
 #### Prototype-based OO
 
