@@ -1,7 +1,7 @@
 Promises are a pattern/ style/ opinion about how to write synchronous functions.
 They are a direct response to Callback Hell.
 
-Here's an example of a a promisified superagent what they look like :
+Here's an example of what a promisified superagent function looks like :
 
 ```js
 var Promise = require('promise');

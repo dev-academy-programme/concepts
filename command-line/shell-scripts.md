@@ -56,3 +56,4 @@ Now the terminal will read the first line, determine you want to run the content
 Extras for experts:
 - link the concept of an alias and a script so you can call the script from anywhere
 - read about unix _path_ and how to put your script in the path
+- check out this link for some more interesting shell scripts [Cool shell scripts](http://intuitive.com/wicked/wicked-cool-shell-script-library.shtml), try and implement them yourself!

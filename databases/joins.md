@@ -14,3 +14,17 @@ FROM pets
 INNER JOIN people
 WHERE pets.people_id = people.id;
 ```
+
+
+ten queryies one after th other - fairly ineeficient
+and so, they built SQL joins which joins the tables, so mutliple queries are no longer such a problem
+
+SELECT * FROM accessories INNER JOIN pirates ON pirates.id = accessories.pirate.id
+
+So what exactly does an inner join do?
+
+This is short for 'left inner join' There are afew different ways of doing join queries. In the example above
+[ [] ]
+
+the two tables overlap - so instead of sleect * (all the attributes for everything) it only selects the attributes that overlap (which make things more efficient)
+
