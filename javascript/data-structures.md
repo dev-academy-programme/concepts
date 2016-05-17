@@ -37,21 +37,20 @@ var response = {
 
 You might like to play with ways of explore this data structure in the Node REPL.
 
-*(side note: REPL stands for Read-Evaluate-Print-Loop, when you have node installed and you type `node` into your command line, this brings up a simple interactive programming snadbox where you can play with inputs. The console on your browser is another example of a REPL)*
+Note: REPL stands for "Read Evaluate Print Loop". When you have node installed and you type `node` in your terminal, you'll enter a simple interactive programming snadbox where you can play with JavaScript directly. The console on your browser is another type of a REPL that provides access to the browser's DOM rather than the Node.js library.
 
-Try **chaining** property calls and navigating the data structure. e.g.
+Try **chaining** property calls and navigating the data structure. For example:
 
 ```js
 results.query.totalGreaterThan
 ```
 
-If an object is too deep you can also tell it to give you its keys using the method `Object.keys()` e.g.
+If an object is too deep you can also tell it to give you its keys using the method `Object.keys()`. For example:
 
 ```js
 Object.keys(response)
 Object.keys(response.query)
 ```
 
-You will encounter a lot of objects like this over the next few weeks. It's important to not be scared off and feel comfortable with playing around; try different approaches to get information out of them.
-
+You will encounter a lot of objects like this over the next few weeks. It's important to not be scared off and feel comfortable exploring them. Try different approaches to get information out of them.
 
