@@ -8,14 +8,16 @@ The idea is that you will write less code and it will be of higher quality, whic
 
 First, we should name our expectations in the form of a test:
 
-``` console.log( addTwo(2) === 4) ```
+```js
+console.log(addTwo(2) === 4)
+```
 
 Here, I am asserting that when I pass `2` to the `addTwo` function, I expect the result to be `4`. This will of course fail (*red*), as I have yet to create this function.
 
 So, I create my function!
 
-```
-function addTwo(number) {
+```js
+function addTwo (number) {
   return 4
 }
 
@@ -24,12 +26,14 @@ console.log(addTwo(2) === 4)
 
 Now, my test will pass, turning it *green* (yay!). But if we take a wee look at this code, it's probably not going to work that well for values other than `2`, but let's write another test to be sure. 
 
-``` console.log( addTwo(4) === 6) ```
+```js
+console.log(addTwo(4) === 6)
+```
 
 Naturally this test will fail (*red*) because the `4` returned from `addTwo` does not equal the `6` we expected. So, let's get this test passing.
 
-```
-function addTwo(number) {
+```js
+function addTwo (number) {
   if (number === 2) {
     return 4
   }
@@ -45,15 +49,15 @@ console.log(addTwo(4) === 6)
 
 Now our tests are passing again (*green*), but looking at `addTwo` we can see this approach is getting unwieldy and isn't going to sustain us. That's a good indicator we should *refactor*. Refactoring is the process of improving the quality of the code without changing it's behaviour.
 
-```
-function addTwo(number) {
+```js
+function addTwo (number) {
   return number + 2
 }
 ```
 
 We should always run the tests again after we've refactored to be sure we haven't accidentally broken something.
 
-```
+```js
 console.log(addTwo(2) == 4)
 console.log(addTwo(4) == 6)
 ```
@@ -66,5 +70,4 @@ Why is test driven development so important?
 - Allows us to manage complexity in small chunks
 - Supports refactoring with confidence
 - Alerts us if we break something by mistake in the future
-
 
