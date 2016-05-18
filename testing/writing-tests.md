@@ -12,7 +12,7 @@ The *arrange* part represents the setup or context the code being tested needs i
 
 The *act* part actually performs an action using the function you are testing. This part will always be in the test.
 
-Lastly, the *assert* part verifies the result (or behaviour) of the *act* matches what you expected. This uses a function that *asserts* an expections. This part will also always be in the test.
+Lastly, the *assert* part verifies the result (or behaviour) of the *act* matches what you expected. This uses a function that *asserts* an expection. This part will also always be in the test.
 
 Let's see an example:
 
