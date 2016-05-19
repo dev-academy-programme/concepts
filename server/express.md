@@ -100,7 +100,7 @@ module.exports = {
 }
 
 function home (req, res) {
-  res.sendFile('index.html')
+  res.sendFile(__dirname + '/index.html')
 }
 
 /*
@@ -121,6 +121,8 @@ test('routes.home responds with index.html', function (t) {
   }
 })
 ```
+
+In the route, `__dirname` is a global Node.js object that refers to the name of the folder for the currently executing script.
 
 
 ### Accepting query parameters
