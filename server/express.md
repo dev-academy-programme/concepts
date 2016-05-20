@@ -88,8 +88,10 @@ Rather than responding to a request with an HTML string, we may have an HTML fil
  * server.js
  */
 
+...
 var routes = require('./routes')
-server.get('/home', routes.home)
+app.get('/home', routes.home)
+...
 
 /*
  * routes.js
@@ -134,8 +136,10 @@ One of the ways we can send data from the client to the server is to send name/v
  * server.js
  */
 
+...
 var routes = require('./routes')
-server.get('/webapps', routes.webapps)
+app.get('/webapps', routes.webapps)
+...
 
 /*
  * routes.js
@@ -156,7 +160,7 @@ function webapps (req, res) {
 var test = require('tape')
 var routes = require('./routes')
 
-test('routes.webapps responds with message that includes querystring parameter', function (t) {
+test('routes.webapps response includes a querystring parameter', function (t) {
   var res = { send: send }
   var req = { query: { name: 'Robin' } }
 
@@ -184,9 +188,10 @@ Express provides the object `app.locals` that we can use to store data on the se
 var express = require('express')
 var routes = require('./routes')
 var app = express()
-routes.setApp(app)
-server.get('/add', routes.add)
-server.get('/answer', routes.answer)
+
+app.get('/add', routes.add)
+app.get('/answer', routes.answer)
+...
 
 /*
  * routes.js
@@ -194,39 +199,18 @@ server.get('/answer', routes.answer)
 
 module.exports = {
   add: add,
-  answer: answer,
-  getApp: getApp,
-  setApp: setApp
-}
-
-var server = null
-
-function setApp (app) {
-  server = app
-}
-
-function getApp () {
-  return server
+  answer: answer
 }
 
 function add (req, res) {
-  if (storageIsUnavailable()) return
-  server.locals.op1 = parseInt(req.query.op1, 10)
-  server.locals.op2 = parseInt(req.query.op2, 10)
+  req.app.locals.op1 = parseInt(req.query.op1, 10)
+  req.app.locals.op2 = parseInt(req.query.op2, 10)
   res.send('Got it. <a href="/answer">Is this the answer?</a>')
 }
 
 function answer (req, res) {
-  if (storageIsUnavailable()) return
-  var answer = server.locals.op1 + server.locals.op2
-  res.send('I hope you are expecting ' + answer)
-}
-
-function storageIsUnavailable () {
-  if (!server) {
-    res.send('Server storage is unavailable')
-    return true
-  }
+  var result = req.app.locals.op1 + req.app.locals.op2
+  res.send('I hope you are expecting ' + result)
 }
 
 /*
@@ -237,14 +221,21 @@ var test = require('tape')
 var routes = require('./routes')
 
 test('routes.add saves numeric operands on the server', function (t) {
-  var app = {}
   var res = { send: function () {} }
-  var req = { query: { op1: '11', op2: '22' } }
+  var req = { 
+    query: { 
+      op1: '11', 
+      op2: '22'
+    }, 
+    app: {
+      locals: {} 
+    }
+  }
 
   routes.add(req, res)
 
-  t.equals(routes.getApp().locals.op1, 11)
-  t.equals(routes.getApp().locals.op2, 22)
+  t.equals(req.app.locals.op1, 11)
+  t.equals(req.app.locals.op2, 22)
   t.end()
 })
 ```
