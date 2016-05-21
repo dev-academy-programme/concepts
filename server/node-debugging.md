@@ -29,24 +29,28 @@ Now anytime the debugger gets to line 3 it will automatically stop.
 
 ## Node Inspector
 
-Being able to step through your code in a terminal-type of environment is useful, but the debugging tools available inside of your browser are much more powerful. Node Inspector gives you the ability of using the power of using your browser's development tools to debug your server-side Node application. Think about that for a minute. Yes, this is very cool. To use Node Inspector, install and run it in a terminal window or tab.
-
-```sh
-npm install -g node-inspector
-node-debug server.js
-```
-
-Node Inspector also has a nice feature that let's you change your live running code and **save** it back to the source file. To turn this on, run it like this: `node-debug server.js --save-live-edit=true`. Keep in mind that an easier way to do this is to an a script in your `package.json`:
+Being able to step through your code in a terminal-type of environment is useful, but the debugging tools available inside of your browser are much more powerful. Node Inspector gives you the ability of using the power of using your browser's development tools to debug your server-side Node application. Think about that for a minute. Yes, this is very cool. To use Node Inspector in your project, install it as a dev dependency by running `npm install node-inspector --save-dev` in your terminal, and then add a script in your `package.json`:
 
 ```js
 ...
 "scripts": {
-  "debug": "node-debug server.js --save-live-edit=true"
+  "debug": "node-debug server.js"
 }
 ...
 ```
 
-This can be run in your terminal using `npm run debug`.
+This can be run in your terminal using `npm run debug`. This will launch Google Chrome displaying its developer tools each time you run it.
+
+If you prefer to keep the dev tools open and refresh between runs, change `node-debug` to `node-inspector` in the npm script above.
+
+You can also install Node Inspector globally and run it from the terminal window. To do so, run this in your terminal:
+
+```sh
+npm install -g node-inspector
+node-debug my-script.js
+```
+
+Node Inspector isn't only useful for server-side web development. You can also use it for generic Node modules. However, if you are using it for server-side developement, you'll probably be interested in Nodemon too.
 
 
 ## Nodemon
