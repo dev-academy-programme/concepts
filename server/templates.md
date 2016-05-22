@@ -2,11 +2,11 @@ Templates are combined with data, during a process called view _rendering_. This
 
 [Handlebars](http://handlebarsjs.com) is a popular templating library which evolved from another popular templating library called [Mustache](https://mustache.github.io). Both of these libraries boast being _logic-less_, meaning the template language doesn't encourage complex logic in the views. They do contain rudimentary conditionals and iterators, but lack a lot of features compared to other templating options. Other templating libraries offer a lot of language features and some provide the full capabilities of the JavaScript language. The authors of Handlebars/Mustache and many other developers consider the logic-less decision a feature. Their premise is the view should not contain complex logic and its data should be specific to the template. EDA tends to agree, so we'll use Handlebars (it has some nice composition features missing from Mustache).
 
-The placeholder syntax in Handlebars (and Mustache) looks like, well, mustaches:
+The placeholder syntax in Handlebars (and Mustache) looks like, well, mustaches (double curly braces). **_Double square brackets are being used in the snippets below because GitBook trips up on double curly braces because it also uses them for templating._**
 
 ```xml
 <!-- index.hbs -->
-<p>{{para}}</p>
+<p>[[para]]</p>
 ```
 
 ```js
@@ -28,7 +28,7 @@ To see how to use the template engine, we'll first do this outside of Express by
 ```js
 var handlebars = require('handlebars')
 
-var simpleTemplate = '<p>{{para}}</p>'
+var simpleTemplate = '<p>[[para]]</p>'
 var createSimpleResult = handlebars.compile(simpleTemplate)
 var simpleResult = createSimpleResult(data)
 
@@ -51,11 +51,11 @@ var data = {
 
 // conditional
 var conditionalTemplate = '<p>' +
-  '{\{#if trueBool}}' +
+  '[[#if trueBool]]' +
   'truthy :)' +
-  '{{else}}' +
+  '[[else]]' +
   'falsey :(' +
-  '{\{/if}}' +
+  '[[/if]]' +
   '</p>'
 var createConditionalResult = handlebars.compile(conditionalTemplate)
 var conditionalResult = createConditionalResult(data)
@@ -63,16 +63,16 @@ console.log(conditionalResult)
 
 // iterator
 var iteratorTemplate = '<ul>\n' +
-  '{\{#each colours}}' +
-  '  <li>{{this}}</li>\n' +
-  '{\{/each}}' +
+  '[[#each colours]]' +
+  '  <li>[[this]]</li>\n' +
+  '[[/each]]' +
   '</ul>'
 var createIteratorResult = handlebars.compile(iteratorTemplate)
 var iteratorResult = createIteratorResult(data)
 console.log(iteratorResult)
 
 // nested objects
-var nestedTemplate = '<p>{{obj.prop}}</p>'
+var nestedTemplate = '<p>[[obj.prop]]</p>'
 var createNestedResult = handlebars.compile(nestedTemplate)
 var nestedResult = createNestedResult(data)
 console.log(nestedResult)
