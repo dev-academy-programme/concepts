@@ -55,7 +55,7 @@ var conditionalTemplate = '<p>' +
   'truthy :)' +
   '{{else}}' +
   'falsey :(' +
-  '{{/if}}' +
+  '{\{/if}}' +
   '</p>'
 var createConditionalResult = handlebars.compile(conditionalTemplate)
 var conditionalResult = createConditionalResult(data)
@@ -65,7 +65,7 @@ console.log(conditionalResult)
 var iteratorTemplate = '<ul>\n' +
   '{\{#each colours}}' +
   '  <li>{{this}}</li>\n' +
-  '{{/each}}' +
+  '{\{/each}}' +
   '</ul>'
 var createIteratorResult = handlebars.compile(iteratorTemplate)
 var iteratorResult = createIteratorResult(data)
