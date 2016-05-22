@@ -6,5 +6,4 @@ Separating the data from how that data is displayed gives us a lot of flexibilit
 
 A real-world example of a template is a paint-by-numbers kit. The paper with lines and numbers (an empty picture) is the template and the paint is the data. Multiple copies of empty pictures will have very different outcomes with different combinations of paint.
 
-![paint by numbers](../images/paint-by-numbers.jpg)
-
+![paint by numbers](https://raw.githubusercontent.com/dev-academy-programme/concepts/master/images/paint-by-numbers.jpg)
