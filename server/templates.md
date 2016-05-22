@@ -51,7 +51,7 @@ var data = {
 
 // conditional
 var conditionalTemplate = '<p>' +
-  '\{{#if trueBool}}' +
+  '{\{#if trueBool}}' +
   'truthy :)' +
   '{{else}}' +
   'falsey :(' +
@@ -63,7 +63,7 @@ console.log(conditionalResult)
 
 // iterator
 var iteratorTemplate = '<ul>\n' +
-  '\{{#each colours}}' +
+  '{\{#each colours}}' +
   '  <li>{{this}}</li>\n' +
   '{{/each}}' +
   '</ul>'
