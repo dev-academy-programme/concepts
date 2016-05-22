@@ -1,5 +1,5 @@
-When your asynchronous function leads to another asynchronous function, which leads to another asynchronous function - as you will experience today - your callbacks can get quite nested.
+When your asynchronous function calls another asynchronous function, which calls another asynchronous function, your callbacks can get quite nested.
 
-This pattern can make your code harder to read, and feel a little intimidating.
+This anti-pattern can make your code very difficult to read and maintain.
 
-It's affectionately known as called "[callback hell](http://callbackhell.com/)"
+It's affectionately, and appropriately, known as called "[callback hell](http://callbackhell.com/)"

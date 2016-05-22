@@ -13,12 +13,12 @@ test('reads a json file', function (t) {
 
 However if we read our file asynchronously with `fs.readFile`, it's impossible for `readJson` to return synchronously. This is because `fs.readFile` is async: the filesystem read takes time and subsequent lines of code will be run before the contents of the file are ready to be used.
 
-In synchronous code,
+In synchronous code
 
 * to send data to the caller we use `return data`.
 * to send an error to the caller we use `throw err`.
 
-In asynchronous code,
+In asynchronous code
 
 * to send data to the caller we use `callback(null, data)`.
 * to send an error to the caller we use `callback(err)`.

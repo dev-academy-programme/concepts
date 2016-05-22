@@ -14,11 +14,9 @@ request.get('http://google.com')
   .catch(function onError(err) {
     //err.response has the response from the server
   });
-
-
 ```
-from : https://www.npmjs.com/package/superagent-promise
 
+from : https://www.npmjs.com/package/superagent-promise
 
 Here's a more 'nested' example of Promises, which also using `Promise.denodeify` to convert callback-style async functions into promise-style async functions:
 
@@ -47,6 +45,5 @@ promiseRead( './package.json', 'utf8' )
   })
   .catch( function(err) { console.log("oh nose") }  )
 ```
-
 
 https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
