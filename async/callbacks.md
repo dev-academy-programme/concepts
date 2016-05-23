@@ -50,3 +50,61 @@ Notice how the synchronous version (`readFileSync`) doesn't accept a callback, b
 For more information about `fs`, check out the docs at https://nodejs.org/api/fs.html.
 
 
+## Creating async functions
+
+To create an async function in JavaScript, simply make a call to another async function. The other async function may be another async function you've written or a built in async function. One of the most popular built-in async function in JavaScript is `setTimeout(fn, ms)`. Its first parameter is a function (`fn`) to call after an amount of time, and its second parameter (`ms`) is the amount of time in milliseconds to wait before calling the function.
+
+```js
+function startWork () {
+  console.log('starting work')
+  setTimeout(finishWork, 100)
+  console.log('now working')
+}
+
+function finishWork () {
+  console.log('finished work')
+}
+```
+
+This will create the following console output:
+
+```sh
+starting work
+now working
+finished work
+```
+
+You can increase the number of milliseconds from 100 to a few seconds to visually see the delay.
+
+When you need to return a value from an async function, pass that value as a parameter to the callback.
+
+```js
+function getGroceries () {
+  buyFruit(eatFruit)
+}
+
+function eatFruit (err, fruit) {
+  if(!err) {
+    console.log('eating ' + fruit)
+  } else {
+    console.log(err.message)
+  }
+}
+
+function buyFruit (deliver) {
+  console.log('starting')
+  setTimeout(function () {
+    deliver(null, 'bananas')
+    // or
+    // var err = new Error('fuit is sold out')
+    // deliver(err, null)
+  }, 1000)
+}
+```
+
+Notice how the `getGroceries` function is using `eatFruit` as the callback, but the `buyFruit` function refers to it as `deliver`. This is because the asynchronous `buyFruit` function doesn't know what the callback will do ... it's just calling it. It could be something completely different each time it's called.
+
+Also notice how we're using an anonymous function as the callback to `setTimeout`, but we're using a named function when we call `buyFruit` from inside `getGroceries`.
+
+The calling conventions of async functions might take a little getting used to in the beginning, but you'll use them a LOT in your JavaScript programming and they will become second nature before you know it.
+
