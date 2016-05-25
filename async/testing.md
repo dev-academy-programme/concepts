@@ -30,7 +30,7 @@ Let's try again:
 ```js
 test('reads a json file', function (t) {
   var path = __dirname + '/data.json'
-  var object = readJson(path, function (err, object) {
+  readJson(path, function (err, object) {
     t.error(err)
     t.ok(object)
     t.end()
