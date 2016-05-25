@@ -54,20 +54,18 @@ app.get('/greetings', function (req, res) {
 ...
 ```
 
-If we use `post`, we must parse the body of the request. To do this, we need a couple of more modules:
+If we use `post`, we must parse the body of the request. To do this, we need an additional module:
 
 ```js
 var express = require('express')
 var bodyParser = require('body-parser')
-var multer = require('multer')
-var parse = multer()
-var app = express()
 
-app.use(bodyParser.urlencoded({extended: true}))
+var app = express()
+app.use(bodyParser.urlencoded())
 
 ...
 
-app.get('/greetings', parse.array(), function (req, res) {
+app.get('/greetings', function (req, res) {
   var greeting = req.body.say
   var recipient = req.body.to
   ...
@@ -75,4 +73,4 @@ app.get('/greetings', parse.array(), function (req, res) {
 ...
 ```
 
-The `body-parser` module is Node.js middleware that parses the body of requests and `multer` uses `body-parser` to extract the parameters out of the requests and place them as properties on `req.body`. 
+The `body-parser` module is Node.js middleware that parses the body of requests and places the parameters as properties on `req.body`. 
