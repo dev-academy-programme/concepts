@@ -8,7 +8,7 @@ When our users request a page in our app, their browser issues an HTTP GET reque
 </form>
 ```
 
-And it will create this HTTP request:
+This form it will create this HTTP request:
 
 ```
 GET /greetings?say=Hi&to=Mom HTTP/1.1
@@ -27,7 +27,7 @@ We can also use the `post` method like this:
 </form>
 ```
 
-And it will create this HTTP request:
+This form will create this HTTP request:
 
 ```
 POST /greetings HTTP/1.1
@@ -67,7 +67,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 ...
 
-app.get('/', parse.array(), function (req, res) {
+app.get('/greetings', parse.array(), function (req, res) {
   var greeting = req.body.say
   var recipient = req.body.to
   ...
@@ -75,3 +75,4 @@ app.get('/', parse.array(), function (req, res) {
 ...
 ```
 
+The `body-parser` module is Node.js middleware that parses the body of requests and `multer` uses `body-parser` to parse extract the parameters out of the requests and place them as properties on `req.body`. 
