@@ -1,4 +1,4 @@
-When our users request a page in our app, their browser issues an HTTP GET request. When they submit a form in our app, the form's `method`, which is the HTTP method/verb our form should use, determines how their browser will send the form data to our server-side code. We can use the `get` method like this: 
+When our users request a page in our app, their browser issues an HTTP GET request. When they submit a form in our app, the form's `method` attribute, which is the HTTP method/verb our form should use, determines how their browser will send the form data to our server-side code. We can use the `get` method like this: 
 
 ```xml
 <form action="http://foo.com/greetings" method="get">
@@ -8,7 +8,7 @@ When our users request a page in our app, their browser issues an HTTP GET reque
 </form>
 ```
 
-This form will create this HTTP request:
+And it will create this HTTP request:
 
 ```
 GET /greetings?say=Hi&to=Mom HTTP/1.1
@@ -27,7 +27,7 @@ We can also use the `post` method like this:
 </form>
 ```
 
-This form will create this HTTP request:
+And it will create this HTTP request:
 
 ```
 POST /greetings HTTP/1.1
@@ -54,7 +54,7 @@ app.get('/greetings', function (req, res) {
 ...
 ```
 
-If we use `post`, we must parse the body of the request. To do this, we need a couple more modules:
+If we use `post`, we must parse the body of the request. To do this, we need a couple of more modules:
 
 ```js
 var express = require('express')
