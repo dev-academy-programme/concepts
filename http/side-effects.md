@@ -1,4 +1,4 @@
-A `get` requests is a _read_ operation, and read operations shouldn't have _side effects_ - meaning, nothing should change as the result of just reading it. The parameters sent in the URL are called _querystring parameters_ and are designed to be used to filter the data the request is requesting - not for saving.
+A `get` requests is a _read_ operation, and read operations shouldn't have _side effects_ - meaning, nothing should change as the result of just reading it. The parameters sent in the URL are called the _query_ part of the URL and are designed to be used to filter the data the request is requesting - not for saving data on the server.
 
 If you're sending data to the server to be saved, you expect side effects - the saving of the data. That's fine, you should just be more explicit in your intent - by using `post`.
 

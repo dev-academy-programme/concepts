@@ -1,4 +1,4 @@
-When our users request a page in our app, their browser issues an HTTP GET request. When they submit a form in our app, the `method`, which is the HTTP method/verb our form should use, determines how their browser will send the form data to our server-side code. We can use the the `get` method like this: 
+When our users request a page in our app, their browser issues an HTTP GET request. When they submit a form in our app, the form's `method`, which is the HTTP method/verb our form should use, determines how their browser will send the form data to our server-side code. We can use the `get` method like this: 
 
 ```xml
 <form action="http://foo.com/greetings" method="get">
@@ -8,7 +8,7 @@ When our users request a page in our app, their browser issues an HTTP GET reque
 </form>
 ```
 
-This form it will create this HTTP request:
+This form will create this HTTP request:
 
 ```
 GET /greetings?say=Hi&to=Mom HTTP/1.1
@@ -75,4 +75,4 @@ app.get('/greetings', parse.array(), function (req, res) {
 ...
 ```
 
-The `body-parser` module is Node.js middleware that parses the body of requests and `multer` uses `body-parser` to parse extract the parameters out of the requests and place them as properties on `req.body`. 
+The `body-parser` module is Node.js middleware that parses the body of requests and `multer` uses `body-parser` to extract the parameters out of the requests and place them as properties on `req.body`. 
