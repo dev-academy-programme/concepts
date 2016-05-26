@@ -65,7 +65,7 @@ app.use(bodyParser.urlencoded())
 
 ...
 
-app.get('/greetings', function (req, res) {
+app.post('/greetings', function (req, res) {
   var greeting = req.body.say
   var recipient = req.body.to
   ...
