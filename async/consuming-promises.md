@@ -43,7 +43,7 @@ So long as each function in the chain returns a data object, this will help ensu
 
 ## Knex.js
 
-We can see this being put to work with the Knex library when accessing a database. A simple example: inserting a row, then querying the table and displaying the results:
+We can see this being put to work with the Knex library when accessing a database. A simple example: inserting a row, then querying the table and displaying the results.
 ```
 knex.insert({
   name: 'Daisy',
