@@ -16,15 +16,17 @@ Relational databases represent their records in separate _tables_ and relationsh
 
 Modern databases are highly optimised to perform fast queries across multiple tables at once - these are called joins.
 
+
 ### Types of relationship
 
 The relationship between tables is often described using broad _types_ that reflect a relationship modelled on 'real life'. These are usually described as _one-to-one_, _one-to-many_, and _many-to-many_.
 
 One of the canonical examples is the relationship authors have with books: for example, one book may have many authors, and one author may have written many books. We often say an author _HAS MANY_ books, and a book _HAS MANY_ authors. (Even if it doesn't, it _could_!)
 
+
 ### One to one
 
-A user _HAS ONE_ username. Most of the time this is true: although we might have display names and aliases, but we normally only have one string that we use to login.
+A user _HAS ONE_ profile.
 
 ***users***
 
@@ -35,6 +37,16 @@ A user _HAS ONE_ username. Most of the time this is true: although we might have
 | 3  | rms        |
 | 4  | greenblatt |
 | 5  | gosper     |
+
+***profiles***
+
+| id | website              | profile_image | user_id  |
+|----|----------------------|---------------|----------|
+| 1  | https://xkcd.com     | randall.jpg   | 1        |
+| 2  | https://stallman.org | rms.jpg       | 3        |
+
+Each `user_id` will occur only once within the `profiles` table.
+
 
 ### One to many
 
@@ -52,13 +64,14 @@ A user _HAS MANY_ blog posts. Even if they've only written one so far, they _cou
 
 ***posts***
 
-| id | title             | author_id |
-|----|-------------------|-----------|
-| 1  | Thing Explainer   | 1         |
-| 2  | The GNU Manifesto | 3         |
-| 3  | GNU Emacs Manual  | 3         |
+| id | title             | user_id |
+|----|-------------------|---------|
+| 1  | Thing Explainer   | 1       |
+| 2  | The GNU Manifesto | 3       |
+| 3  | GNU Emacs Manual  | 3       |
 
-Notice that `author_id` is not unique in the `posts` table: it can appear as many times as each author has posts.
+Notice that `user_id` is not unique in the `posts` table: it can appear as many times as each user has posts.
+
 
 ### Many to many
 
