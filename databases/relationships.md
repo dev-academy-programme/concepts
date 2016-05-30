@@ -27,6 +27,7 @@ One of the canonical examples is the relationship authors have with books: for e
 A user _HAS ONE_ username. Most of the time this is true: although we might have display names and aliases, but we normally only have one string that we use to login.
 
 ***users***
+
 | id | username   |
 |----|------------|
 | 1  | xkcd       |
@@ -40,6 +41,7 @@ A user _HAS ONE_ username. Most of the time this is true: although we might have
 A user _HAS MANY_ blog posts. Even if they've only written one so far, they _could_ have thousands! So we think of the relationship as _one-to-many_.
 
 ***users***
+
 | id | username   |
 |----|------------|
 | 1  | xkcd       |
@@ -49,6 +51,7 @@ A user _HAS MANY_ blog posts. Even if they've only written one so far, they _cou
 | 5  | gosper     |
 
 ***posts***
+
 | id | title             | author_id |
 |----|-------------------|-----------|
 | 1  | Thing Explainer   | 1         |
@@ -62,6 +65,7 @@ Notice that `author_id` is not unique in the `posts` table: it can appear as man
 In our hypothetical system, much like Facebook, users can have 'friends'. There is practically no limit on the number of friends a user can have. A user _HAS MANY_ friends, and each friend might have many friends.
 
 ***users***
+
 | id | username   |
 |----|------------|
 | 1  | xkcd       |
@@ -71,6 +75,7 @@ In our hypothetical system, much like Facebook, users can have 'friends'. There 
 | 5  | gosper     |
 
 ***friends***
+
 | id | user_id | friend_id |
 |----|---------|-----------|
 | 1  | 4       | 5         |
