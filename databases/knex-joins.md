@@ -2,11 +2,15 @@
 
 Sometimes we need information from more than one table. If we keep our users in one table, and our user demographic data in another, we need some way to associate (say) a user's name with their age:
 
+***users***
+
 | id | name           |
 |----|----------------|
 | 8  | Orinocco       |
 | 12 | Tomsk          |
 | 3  | Uncle Bulgaria |
+
+*** user_demographics ***
 
 | id | user_id | age |
 |----|---------|-----|
@@ -38,11 +42,15 @@ knex('dogs')
   .select('dogs.name', 'breeds.name as breed')
 ```
 
+*** dogs ***
+
 | id | name   | breed_id |
 |----|--------|----------|
 | 1  | Daisy  | 5        |
 | 2  | Dexter | 3        |
 | 3  | Clarry | 2        |
+
+*** breeds ***
 
 | id | name                  |
 |----|-----------------------|
