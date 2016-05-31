@@ -42,7 +42,7 @@ Primary keys can't be null or 0. Every record in a table with a primary key has 
 
 ### Foreign keys
 
-Often we'll need to _relate_ a record in one table to a record in another. Foreign keys link records from different tables together. Using _constraints_, they can help maintain the integrity of the data and enable joins to combine tables.
+Often we'll need to relate a record in one table to a record in another. Foreign keys link records from different tables together. Using _constraints_, they can help maintain the integrity of the data and enable joins to combine tables.
 
 Here's how Knex defines foreign keys:
 
@@ -69,6 +69,8 @@ exports.down = function (knex, Promise) {
 }
 ```
 
+Notice the `.references('breeds.id')`? That tells the database that we want `dogs.breed_id` to refer to `breeds.id`: we're linking the two tables together using `breed_id` as the key.
+
 ***dogs***
 
 | id (PK) | name   | breed_id (FK) |
@@ -84,14 +86,14 @@ exports.down = function (knex, Promise) {
 | 2       | Spoodle |
 | 3       | Mutt    |
 
-Here, `breed_id` is a foreign key that references `id` on the `breeds` table.
+Put another way, `breed_id` is a foreign key that references `id` on the `breeds` table.
 
 
 ### Constraints
 
 We've touched on the _unique constraint_ that applies to primary keys (no two can be the same value). Foreign keys can have constraints too, that define what should happen when an attempt is made to remove or alter the record that the key is pointing to.
 
-Take the above table for example. Say someone tries to delete the 'Mutt' row in the `breeds` table, with `id` 3. We already have a record that refers to that row: 'Daisy' in `dogs` would be left without a breed! This seems like a bad thing, and it is. We don't want ids that point off into nowhere, referring to no record. If someone later managed to add a completely different breed having an `id` of 3, Daisy's breed would be changed without anyone asking her permission.
+Take the above table for example. Say someone tries to delete the 'Mutt' row in the `breeds` table, with `id` 3. We already have a record that refers to that row: 'Daisy' in `dogs` would be left without a breed! This seems like a bad thing, and it is. We don't want IDs that point off into nowhere, referring to no record. If someone later managed to add a completely different breed having an `id` of 3, Daisy's breed would be changed without anyone asking her permission.
 
 The solution is to add a constraint defining what should happen if a breed is deleted. We call this constraint _ON DELETE_. There are several possible values for the constraint. Two of the most important are _RESTRICT_ and _CASCADE_. 
 
