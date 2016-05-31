@@ -2,17 +2,15 @@ Different types of databases represent their records in different ways. For exam
 
 Relational databases represent their records in separate _tables_ and relationships are established between tables. In our bookmarks example, there would be two tables: users and bookmarks. Each bookmark record would include a `user_id` field that refers to the `id` field of an associated record in the users table.
 
-| Users              |
-|--------------------|
-| *id* :arrow_left:  |
-| name               |
-| address            | 
-
-| Bookmarks              |
-|------------------------|
-| id                     |
-| link                   |
-| *user_id* :arrow_left: |
+```
++--------------------+        +-------------+
+| Users              |        | Bookmarks   |
++--------------------+        +-------------+
+| id                 |<---    | id          |
+| name               |    \   | link        |
+| address            |     ---| user_id     |
++--------------------+        +-------------+
+```
 
 Modern databases are highly optimised to perform fast queries across multiple tables at once - these are called joins.
 
