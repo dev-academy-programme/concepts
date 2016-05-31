@@ -30,7 +30,7 @@ function home (req, res) {
 
 ### Plugging it in
 
-Here's a rather braindead routes file that could provide you with some hints on getting database access up and running.
+Here's a rather braindead routes file that could provide you with some hints on getting database access up and running:
 
 ```
 var development = require('./knexfile').development
@@ -74,13 +74,13 @@ function insertUser () {
 
 ### Exercise
 
-This isn't a good implementation by any means! It's designed to get you started. From here, can you figure out:
+This isn't a good implementation by any means! It's designed as a prompt to get you started. From here, can you figure out:
 
  * How to display users more sensibly in a Handlebars.js template?
  * How to add a user by submitting a form?
  * How to delete a user by name?
  * How to update a user's details?
 
-You should also think about whether you really want direct references to knex in your routes. Is there another way you could organise your code so that it's not so cluttered?
+You should also think about whether you really want direct references to Knex in your routes. Is there another way you could organise your code so that it's not so cluttered?
 
 Create your own server, create a SQLite database using `knex init` and `knex migrate:make initial` (for example), and have a play.
