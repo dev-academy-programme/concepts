@@ -1,4 +1,4 @@
-## Combining tables for fun and profit
+### Combining tables for fun and profit
 
 Sometimes we need information from more than one table. If we keep our users in one table, and our user demographic data in another, we need some way to associate (say) a user's name with their age:
 
@@ -23,12 +23,12 @@ A **join** allows us to combine the information based on the values in a column 
 | Uncle Bulgaria | 61  |
 
 
-## A nod to normalisation
+### A nod to normalisation
 
 The question you're probably asking is, "Why not put all the information in one table to begin with?" Well, several reasons, centering around a concept called _normalisation_. This is a huge topic in itself, but can be summarised at a beginning level by saying, "Keep information in lots of small tables and link them to each other using unique IDs." This has a number of benefits including reducing redundancy, ease of adding new types of data, and reducing complexity. 
 
 
-## Knex joins
+### Knex joins
 
 Using Knex.js we can perform joins without having to know the SQL syntax for the query:
 
@@ -64,7 +64,7 @@ Note a few things about the above result:
  2. Only the columns we asked for are returned, and they are labelled `name` and `breed`.
 
 
-## Name conflicts
+### Name conflicts
 
 Let's talk about that second point for a moment. Why do we use this syntax?
 ```
