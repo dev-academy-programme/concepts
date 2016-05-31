@@ -23,7 +23,7 @@ function home (req, res) {
     })
     .catch(function (err) {
       console.error(err.message)
-      res.send("Couldn't show you the users!")
+      res.status(500).send("Couldn't show you the users!")
     })
 }
 ```
@@ -48,18 +48,18 @@ function index (req, res) {
     })
     .catch(function (err) {
       console.error(err.message)
-      res.send("Can't display users!")
+      res.status(500).send("Can't display users!")
     })
 }
 
 function create (req, res) {
   return insertUser()
     .then(function () {
-      res.send('Inserted a user.')
+      res.sendStatus(200)
     })
     .catch(function (err) {
       console.error(err.message)
-      res.send("Couldn't insert a user.")
+      res.status(500).send("Couldn't insert a user.")
     })
 }
 
