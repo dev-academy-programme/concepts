@@ -1,6 +1,6 @@
 ### A key, you say?
 
-Keys are integral to Relational Database Management Systems (RDMS). Each _record_ or _row_ can contain one or more keys, and there are several different types.
+Keys are integral to Relational Database Management Systems (RDBMS). Each _record_ or _row_ can contain one or more keys, and there are several different types.
 
 Records can be identified either by a single key or a combination of keys. Often, but not always, they'll be numbers. There are two types we'll concern ourselves with for now: **primary** and **foreign** keys.
 
