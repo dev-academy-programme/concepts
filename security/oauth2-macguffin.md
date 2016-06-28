@@ -18,20 +18,21 @@ However, it's a good idea to understand what's going on. We're going to look at 
 
 Put simply, _third-party authentication_ partially shifts the burden of authentication to someone else. In the past, it was usual for web sites to store usernames and passwords for all their users. When a user visited the site, they would be asked for a password and the server would compare it with the passwords stored in the database to determine if the user would be granted access or not.
 
-The trouble is, many sites were _really bad at it_. You may like to read up on some of the worst database intrusions in [World's Biggest Data Breaches](http://www.informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/). If some of those big players can get it badly wrong, so can you! Increasingly, for convenience and security, web sites _outsource_ their authentication needs to larger providers like Facebook, Google, and GitHub. This can be a two-edged sword, and has some interesting privacy implications. [The dangers of OAuth/Social Login](https://mortoray.com/2014/02/21/the-dangers-of-oauthsocial-login/) is an interesting treatment of the subject. However, for many modern applications it's a must, and clients will often request login via Facebook and Twitter.
+The trouble is, many sites were _really bad at it_. You may like to read up on some of the worst database intrusions in [World's Biggest Data Breaches](http://www.informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/). If some of those big players can get it badly wrong, so can you! Increasingly, for convenience and security, web sites _outsource_ their authentication needs to larger providers like Facebook, Google, and GitHub. This can be a two-edged sword, and has some privacy implications. [The dangers of OAuth/Social Login](https://mortoray.com/2014/02/21/the-dangers-of-oauthsocial-login/) is an interesting treatment of the subject. However, for many modern applications it's a must, and clients will often request login via Facebook and Twitter.
 
 
 ## The Hunt for the MacGuffin: an OAuth Tale
 
 Alfred Hitchcock used the term "MacGuffin" to refer to an object of desire, the _great and glorious thing_ that the protagonist (and the villains!) must obtain. We don't actually have to care what it is, exactly. We only know that it's hard to obtain.
 
-Imagine that a user can obtain this _MacGuffin_ by logging into your site.
+Imagine that a user can obtain this _MacGuffin_ by logging into your site. So:
 
  - your site contains a _MacGuffin_
  - the user can only gain access to the _MacGuffin_ once they prove themselves
  - the way to prove themselves lies _outside_ your site, at the feet of the mighty Facebook
+ - if they pass the Trial of Facebook, Facebook will give your site some unique way of identifying the user
 
-It's just like the [_Maltese Falcon_](https://en.wikipedia.org/wiki/The_Maltese_Falcon_(1941_film)) already. (If you want a more modern example, think _unobtainium_ in [_Avatar_](https://en.wikipedia.org/wiki/Avatar_(2009_film))).
+It's just like the [_Maltese Falcon_](https://en.wikipedia.org/wiki/The_Maltese_Falcon_(1941_film)) already. (If you want a more modern example, think _unobtainium_ in [_Avatar_](https://en.wikipedia.org/wiki/Avatar_(2009_film)).)
 
 ### Requesting the MacGuffin
 Your site has a job: it is the _Keeper of the MacGuffin_. This is a weighty task indeed: no-one must gain access to the MacGuffin if they are not deemed worthy! The user must prove themselves, and to do that we send them on a quest: to the hallowed servers of Facebook.
@@ -62,9 +63,3 @@ With the _ACCESS TOKEN_, your site has all the information it needs to prove tha
  - Your site takes the code and exchanges it for an access token.
  - The access token lets your site query information about the user from Facebook, including a unique ID.
  - You use the unique ID to check that the user is who they say they are, and give them their MacGuffin.
-
-
-## Resources
-
-[Digital Ocean: An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
-
