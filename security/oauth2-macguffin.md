@@ -31,14 +31,14 @@ Imagine that a user can obtain this _MacGuffin_ by logging into your site.
  - the user can only gain access to the _MacGuffin_ once they prove themselves
  - the way to prove themselves lies _outside_ your site, at the feet of the mighty Facebook
 
-It's just like the [_Maltese Falcon_](https://en.wikipedia.org/wiki/The_Maltese_Falcon_(1941_film)) already. (If you want a more modern example, think _unobtainium_ in [_Avatar_](https://en.wikipedia.org/wiki/Avatar_(2009_film)).
+It's just like the [_Maltese Falcon_](https://en.wikipedia.org/wiki/The_Maltese_Falcon_(1941_film)) already. (If you want a more modern example, think _unobtainium_ in [_Avatar_](https://en.wikipedia.org/wiki/Avatar_(2009_film))).
 
 ### Requesting the MacGuffin
 Your site has a job: it is the _Keeper of the MacGuffin_. This is a weighty task indeed: no-one must gain access to the MacGuffin if they are not deemed worthy! The user must prove themselves, and to do that we send them on a quest: to the hallowed servers of Facebook.
 
 So, the user has visited our site and clicked on our "GIVE ME THE MACGUFFIN" button, which looks a lot like this:
 
-<img href="https://www.facebook.com/images/fb_icon_325x325.png" alt="The MacGuffin Button">
+![The MacGuffin Button](https://www.facebook.com/images/fb_icon_325x325.png)
 
 This is but the beginning of their journey. They are shown a Facebook login form, but not just any form! This form was obtained with a URL containing directions back to your site... after the user logs in, they are sent back to your site at the location you specify. With it, Facebook sends back a _CODE_. The user still can't access the MacGuffin: all that has happened is that they have proven themselves to Facebook!
 
@@ -48,6 +48,7 @@ This is but the beginning of their journey. They are shown a Facebook login form
 When your site receives the _CODE_, it needs to check it. After all, anyone could visit the URL and provide any old code. It can do that by requesting an _ACCESS TOKEN_ using the _CODE_. To do so, it communicates directly with the mountain again: almighty Facebook.
 
   Your site: "O mighty Facebook! You are the keeper of the ACCESS TOKENS. Here is my CODE: grant me an ACCESS TOKEN, that I may authenticate this lowly user."
+
   Facebook: ***ACCESS TOKEN***
 
 With the _ACCESS TOKEN_, your site has all the information it needs to prove that the user is who they say they are. Then, and only then, can they be granted the wonderous _MacGuffin_.
