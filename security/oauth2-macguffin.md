@@ -1,4 +1,4 @@
-## What is the best way to implement any form of authentication?
+What is the best way to implement any form of authentication?
 
  1. "Roll your own", or
  2. "Use a library?"
