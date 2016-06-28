@@ -54,6 +54,16 @@ When your site receives the _CODE_, it needs to check it. After all, anyone coul
 With the _ACCESS TOKEN_, your site has all the information it needs to prove that the user is who they say they are. Then, and only then, can they be granted the wonderous _MacGuffin_.
 
 
+### Tell the story again
+
+ - The user needs a MacGuffin. Your site has the MacGuffin. The user must prove themselves.
+ - You redirect the user to Facebook, providing a URL on your site where the user will be redirected later.
+ - The user logs in at Facebook and is sent back to the redirect URL with a code.
+ - Your site takes the code and exchanges it for an access token.
+ - The access token lets your site query information about the user from Facebook, including a unique ID.
+ - You use the unique ID to check that the user is who they say they are, and give them their MacGuffin.
+
+
 ## Resources
 
 [Digital Ocean: An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
