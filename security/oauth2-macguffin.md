@@ -38,7 +38,7 @@ Your site has a job: it is the _Keeper of the MacGuffin_. This is a weighty task
 
 So, the user has visited our site and clicked on our "GIVE ME THE MACGUFFIN" button, which looks a lot like this:
 
-![The MacGuffin Button](https://www.facebook.com/images/fb_icon_325x325.png)
+![The MacGuffin Button](fb_icon_325x325.png)
 
 This is but the beginning of their journey. They are shown a Facebook login form, but not just any form! This form was obtained with a URL containing directions back to your site... after the user logs in, they are sent back to your site at the location you specify. With it, Facebook sends back a _CODE_. The user still can't access the MacGuffin: all that has happened is that they have proven themselves to Facebook!
 
