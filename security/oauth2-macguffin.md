@@ -48,9 +48,8 @@ This is but the beginning of their journey. They are shown a Facebook login form
 
 When your site receives the _CODE_, it needs to check it. After all, anyone could visit the URL and provide any old code. It can do that by requesting an _ACCESS TOKEN_ using the _CODE_. To do so, it communicates directly with the mountain again: almighty Facebook.
 
-  Your site: "O mighty Facebook! You are the keeper of the ACCESS TOKENS. Here is my CODE: grant me an ACCESS TOKEN, that I may authenticate this lowly user."
-
-  Facebook: ***ACCESS TOKEN***
+ - Your site: "O mighty Facebook! You are the keeper of the ACCESS TOKENS. Here is my CODE: grant me an ACCESS TOKEN, that I may authenticate this lowly user."
+ - Facebook: ***ACCESS TOKEN***
 
 With the _ACCESS TOKEN_, your site has all the information it needs to prove that the user is who they say they are. Then, and only then, can they be granted the wonderous _MacGuffin_.
 
