@@ -30,4 +30,4 @@ Classes are similar to Constructors, but they have a number of additional featur
 - instance
 - instantiate
 - state + behaviour
-- protottpe (like a template)
+- prototype (like a template)
