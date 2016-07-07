@@ -17,7 +17,6 @@ If everything seems unclear now, don't worry. Time and practice are the best way
 
 ## Prerequisites
 
-...
 - GitHub account
 - [GitHub basics 1]({{ book.phase0.concept }}github-basics)
 - [Command line basics]({{ book.phase0.concept }}command-line-basics)
