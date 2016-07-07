@@ -17,9 +17,10 @@ If everything seems unclear now, don't worry. Time and practice are the best way
 
 ## Prerequisites
 
+...
 - GitHub account
-- [GitHub basics 1]({{ book.concept }}github-basics)
-- [Command line basics]({{ book.concept }}command-line-basics)
+- [GitHub basics 1]({{ book.phase0.concept }}github-basics)
+- [Command line basics]({{ book.phase0.concept }}command-line-basics)
 
 
 ## Capabilities
@@ -42,13 +43,13 @@ You can use Git and GitHub to collaborate on projects. You can:
 
 Use these resources (and others you find) to learn the capabilities above! There will be other capabilities in the resources - focus on learning the capabilities above, you'll learn the rest when you need it.
 
-- [Git beginners steps part 2 (Interactive)]({{ book.resources }}git-basics-INTERACTIVE)
-- [Git merge messages (ARTICLE)]({{ book.resources }}git-merge-message-ARTICLE)
-- [GitHub Pull, Branch, Merge (Video)]({{ book.resources }}github-pull-branch-merge-team-VIDEO)
-- [GitHub/Git glossary (Text)]({{ book.resources }}git-glossary-TEXT)
-- [How to write a Git commit message (Article)]({{ resources }}git-commit-messages-ARTICLE)
-- [Git for beginners (Article)]({{ book.resources }}git-basics-ARTICLE)
-- [Example GitHub workflows and common errors (Text/Tutorial)]({{ book.resources }}github-phase-0-workflow-TUTORIAL)
+- [Git beginners steps part 2 (Interactive)]({{ book.phase0.resource }}git-basics-INTERACTIVE)
+- [Git merge messages (ARTICLE)]({{ book.phase0.resource }}git-merge-message-ARTICLE)
+- [GitHub Pull, Branch, Merge (Video)]({{ book.phase0.resource }}github-pull-branch-merge-team-VIDEO)
+- [GitHub/Git glossary (Text)]({{ book.phase0.resource }}git-glossary-TEXT)
+- [How to write a Git commit message (Article)]({{ book.phase0.resource }}git-commit-messages-ARTICLE)
+- [Git for beginners (Article)]({{ book.phase0.resource }}git-basics-ARTICLE)
+- [Example GitHub workflows and common errors (Text/Tutorial)]({{ book.phase0.resource }}github-phase-0-workflow-TUTORIAL)
 
 
 ## Further study
