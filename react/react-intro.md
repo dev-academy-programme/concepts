@@ -1,12 +1,3 @@
-React is some swish client-side js rendering... and more.
-More to follow.
+React was built by Facebook and is a JavaScript library for building user interfaces. There are a lot requirements when building a client-side web user interface that behaves like a native application. Many frameworks such as Backbone.js and Angular.js aim to address all of these requirements. React has chosen a different approach and focuses predominately on constructing the view. For example, it does not directly address routing or making API calls.
 
-To get introduced to the wonders of React, we suggest you dive into these:
-  - watch: https://egghead.io/lessons/react-core-concepts-of-react-components-props-and-state
-  - watch: https://www.youtube.com/watch?v=4ZAEBxGipoA&list=PL6gx4Cwl9DGBhLZx_5C-jqECBE4HIID_k
-  - read: https://facebook.github.io/react/docs/thinking-in-react.html
-  - read: https://github.com/uberVU/react-guide/blob/master/props-vs-state.md
-  - do/ try: https://facebook.github.io/react/docs/tutorial.html (might be challenging)
-
-Make sure you do at least one each of watch/ read and have a go at the do.
-The videos are fairly short.
+React has also taken a very innovative approach to how it builds the user interface by abstracting away the user interface technology - on the web this is the DOM - so it can build the view intelligently. Making changes to the DOM creates a lot of work for web browsers. The more changes you make, the harder it has to work. React's approach is to do all of the hard work in the Virtual DOM.
