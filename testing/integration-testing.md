@@ -7,5 +7,6 @@ There are many packages which you can use to write tests which drive Selenium.
 Examples of integrationg test frameworks that js:
   - [Nightwatch](http://nightwatchjs.org)
   - [Pioneer.js](http://pioneerjs.com/)
+  - [Chimp](https://chimp.readme.io/)
 
 These can take a bit of configuring, so it's worth shopping around and seeing what the best practice is before choosing a technology (this can change from year to year).
