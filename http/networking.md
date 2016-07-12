@@ -1,4 +1,6 @@
-A server is often referred to as the physical or virtual machine. A service:
+A server is often referred to as the physical or virtual machine. It's what responds when we visit a web site, sending us all the information our browser needs to display the site correctly.
+
+A service:
 
  - Just an application that runs on a particular computer
  - Listens for requests and then serves responses
