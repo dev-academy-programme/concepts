@@ -81,7 +81,7 @@ test('routes.index responds with Hello world', function (t) {
 
 ### Responding with a file
 
-Rather than responding to a request with an HTML string, we may have an HTML file prepared to send. We can easily send that file using the `sendFile` method.
+Rather than responding to a request with an HTML string, we may have an HTML file prepared to send. We can easily send that file using the [`sendFile`](http://expressjs.com/en/api.html#res.sendFile) method.
 
 ```js
 /*
