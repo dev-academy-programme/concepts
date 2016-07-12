@@ -77,7 +77,7 @@ Nodemon and Node Inspector can also be used together. This allows you to debug u
 ...
 ```
 
-Understanding how to debug your applications with tools more robust than `console.log` put you in the driver seat to explore the entire runtime environment of your application. Be sure you use this capability to increase your understanding.
+Understanding how to debug your applications with tools more robust than `console.log` will put you in the driver seat to explore the entire runtime environment of your application. Be sure you use this capability to increase your understanding.
 
-**Challenge**: try to complete todays exercise without writing a single `console.log` for debugging.
+**Challenge**: try to complete todays exercise without writing a single `console.log` for debugging!
 
