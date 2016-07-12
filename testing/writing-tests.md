@@ -1,5 +1,3 @@
-So yesterday we were introduced to Tape, a simple testing framework. Today, we're going to use it to write some tests.
-
 It's important that tests are clear, and state exactly what you expect the code to do. Very often, a developer starting on a new project will look at the the tests of a codebase to understand what is going on. It's important that your tests are as clear as possible.
 
 To enable this, it's common to write tests according to a simple formula. Each test should be made up of 3 distinct parts:
