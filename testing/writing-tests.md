@@ -25,7 +25,7 @@ test("can create a 2x2 matrix", function (t) {
   var result = makeEmptyMatrix(2)
 
   // assert
-  t.equal(result, expected, "makeEmptyMatrix makes an empty square matrix")
+  t.deepEqual(result, expected)
   t.end()
 }
 ```
