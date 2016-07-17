@@ -4,7 +4,7 @@ This means that functions are treated as first-class citizens, just like numbers
 
 Let's look at this example:
 
-```
+```js
 // A named function
 function triple (x) {
   return x * 3
@@ -23,7 +23,7 @@ var triple = function (x) {
 
 Because the last example uses a variable, you can do some cool things like this:
 
-```
+```js
 var engorgio = triple
 var value = engorgio(30) // value is 90
 ```
