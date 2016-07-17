@@ -29,7 +29,7 @@ Now anytime the debugger gets to line 3 it will automatically stop.
 
 ## Node Inspector
 
-Being able to step through your code in a terminal-type of environment is useful, but the debugging tools available inside of your browser are much more powerful. Node Inspector gives you the ability of using the power of using your browser's development tools to debug your server-side Node application. Think about that for a minute. Yes, this is very cool. To use Node Inspector in your project, install it as a dev dependency by running `npm install node-inspector --save-dev` in your terminal, and then add a script in your `package.json`:
+Being able to step through your code in a terminal-type of environment is useful, but the debugging tools available inside of your browser are much more powerful. Node Inspector gives you the ability to use your browser's development tools to debug your server-side Node application. Think about that for a minute. Yes, this is very cool. To use Node Inspector in your project, install it as a dev dependency by running `npm install node-inspector --save-dev` in your terminal, and then add a script in your `package.json`:
 
 ```js
 ...
@@ -77,7 +77,7 @@ Nodemon and Node Inspector can also be used together. This allows you to debug u
 ...
 ```
 
-Understanding how to debug your applications with tools more robust than `console.log` put you in the driver seat to explore the entire runtime environment of your application. Be sure you use this capability to increase your understanding.
+Understanding how to debug your applications with tools more robust than `console.log` will put you in the driver seat to explore the entire runtime environment of your application. Be sure you use this capability to increase your understanding.
 
-**Challenge**: try to complete todays exercise without writing a single `console.log` for debugging.
+**Challenge**: try to complete todays exercise without writing a single `console.log` for debugging!
 

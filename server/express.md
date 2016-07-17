@@ -1,9 +1,9 @@
-Express is a minimalist web framework for Node.js. Express makes it easy to create server-side web applications by providing and easy way to read and manipulate the HTTP requests and responses.
+Express is a minimalist web framework for Node.js. Express makes it easy to create server-side web applications by providing an easy way to read and manipulate the HTTP requests and responses.
 
 
 ### Responding with a string
 
-Responding to a client request is often just a matter of using the `res` argument. This argument is actually a Node.js response object that is provided through Express. The following is a simple web server that only responds with "Hello world" when a `GET` request is made to the root of the application, which is listening on port 3000.
+Responding to a client request is often just a matter of using the `res` parameter. This is a Node.js response object that is provided through Express. The following is a simple web server that only responds with "Hello world" when a `GET` request is made to the root of the application. It listens for connections on port 3000.
 
 ```js
 // server.js
@@ -23,7 +23,7 @@ app.listen(PORT, function () {
 
 To see this in action, start the server by running `node server` in your terminal, and visit http://localhost:3000 in your browser. You can also run `curl http://localhost:3000` in another terminal tab or window.
 
-The `app.get()` call allows us to define endpoints, also called routes, such as `/`. The server will only to respond to routes our application defines. Attempts at any other endpoint will respond with a `404 File not found`. If you start the server and run `curl http://localhost:3000/foo` in your terminal, you should see `Cannot GET /foo`.
+The `app.get()` call allows us to define endpoints, also called routes, such as `/`. The server will only to respond to routes our application defines. Attempts to reach any other endpoint will cause Express to send a `404 File not found` response. If you start the server and run `curl http://localhost:3000/foo` in your terminal, you should see `Cannot GET /foo`.
 
 
 ### Separation of concerns
@@ -81,7 +81,7 @@ test('routes.index responds with Hello world', function (t) {
 
 ### Responding with a file
 
-Rather than responding to a request with an HTML string, we may have an HTML file prepared to send. We can easily send that file using the `sendFile` method.
+Rather than responding to a request with an HTML string, we may have an HTML file prepared to send. We can easily send that file using the [`sendFile`](http://expressjs.com/en/api.html#res.sendFile) method.
 
 ```js
 /*

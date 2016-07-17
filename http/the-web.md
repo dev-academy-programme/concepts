@@ -1,4 +1,4 @@
-The web is a subset the wider internet. The parts, roughly speaking, are web sites you can visit with your browser. Examples of things on the internet that are not on the web: 
+The web is a subset of the wider internet. The parts, roughly speaking, are web sites you can visit with your browser. Examples of things on the internet that are not on the web: 
 
  - Email
  - Skype
