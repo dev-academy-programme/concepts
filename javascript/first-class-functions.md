@@ -6,7 +6,7 @@ http://helephant.com/2008/08/19/functions-are-first-class-objects-in-javascript/
 
 So lets looks at this example:
 
-```
+```js
 // A named function
 function triple(x) {
   return x * 3
@@ -25,7 +25,7 @@ var triple = function (x) {
 
 Because the last example is a variable, you can do some cool things like this:
 
-```
+```js
 var engorgio = triple
 var value = engorgio(30) // value is 90
 ```
