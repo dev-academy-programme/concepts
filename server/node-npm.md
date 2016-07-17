@@ -4,7 +4,7 @@
 
 We'll cover this in a lot more detail later this week. Suffice to say it's very exciting and incredibly powerful.
 
-![]({{ book.concept-image }}shoulders_of_giants.jpg)
+![](https://raw.githubusercontent.com/dev-academy-programme/concepts/master/images/shoulders_of_giants.jpg)
 
 Make sure you're using an up to date version of Node (6.x) and NPM (v3.x):
 
