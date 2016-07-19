@@ -15,7 +15,7 @@ test("test some basic js", function (t) {
   t.deepEqual(result, ['dave', 'sharon', 'flora'], "pushing to arrays works")
 
   t.end()
-}
+})
 ```
 
 You'll probably want to improve the output of the test run with one of the recommended modules on the Tape website, for example `tap-spec` which turns tests red when they fail, and green when they pass. Remember, *red | green | refactor*!
