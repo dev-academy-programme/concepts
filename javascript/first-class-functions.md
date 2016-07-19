@@ -10,7 +10,7 @@ function triple (x) {
   return x * 3
 }
 
-// An annonymous function
+// An anonymous function
 function (x) {
   return x * 3
 }
