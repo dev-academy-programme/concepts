@@ -27,7 +27,7 @@ test("can create a 2x2 matrix", function (t) {
   // assert
   t.deepEqual(result, expected)
   t.end()
-}
+})
 ```
 
 Let's have another play with this by revisting our simple tape demo, {{ book.cohort }}tape-demo.
