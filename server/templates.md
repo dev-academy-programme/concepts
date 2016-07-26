@@ -2,7 +2,7 @@ Templates are combined with data, during a process called view _rendering_. This
 
 [Handlebars](http://handlebarsjs.com) is a popular templating library which evolved from another library called [Mustache](https://mustache.github.io). Both of these libraries boast being _logic-less_, meaning the template language doesn't encourage complex logic in the views. They do contain rudimentary conditionals and iterators, but lack a lot of features compared to other templating options. Other templating libraries offer a lot of language features and some provide the full capabilities of the JavaScript language. The authors of Handlebars/Mustache and many other developers consider the logic-less decision a feature. Their premise is the view should not contain complex logic and its data should be specific to the template. EDA tends to agree, so we'll use Handlebars. We choose Handlebars over Mustache because it has some nice composition features.
 
-The placeholder syntax in Handlebars (and Mustache) looks like, well, mustaches! Each placeholder name is surrounded by `{{ }}` (double curly braces).
+The placeholder syntax in Handlebars (and Mustache) looks like, well, mustaches! Each placeholder name is surrounded by {% raw %}  `{{ }}` {% endraw %} (double curly braces).
 
 {% raw %}
 ```xml
