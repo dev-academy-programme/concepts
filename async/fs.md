@@ -53,7 +53,7 @@ function writeAsync () {
 function verifyExists (teacherFile) {
   fs.exists(teacherFile, function(exists) {
     console.log(teacherFile, 'exists:', exists)
-  }))
+  })
 }
 ```
 
