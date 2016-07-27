@@ -5,7 +5,7 @@ One way to represent a feature you'd like your program to have is the [user stor
 
 User stories follow a distinct format:
 
-> As a _[ blank ]_ I want _[ blank ]_ so that I can _[ blank ]_.
+> As a _[ persona ]_ I want _[ feature ]_ so that I can _[ outcome ]_.
 
 Some examples:
 
