@@ -1,7 +1,7 @@
 One way to represent a feature you'd like your program to have is the [user story](https://manifesto.co.uk/agile-concepts-user-stories/). This is a formulaic description of a 'want' that the user has.
 
 
-## Format
+### Format
 
 User stories follow a distinct format:
 
@@ -15,6 +15,6 @@ Some examples:
   * As an administrator I can view a list of users so that I can manage my site.
 
 
-## Why?
+### Why?
 
 User stories divide our programs into discrete 'chunks' that can easily be worked on separately. They help us understand and manage the _scope_ of our work: which features we should add next, and which are _must have_ as opposed to _nice to have_. They also help us to keep the end user in mind: you know, that person we're actually developing all this for!
