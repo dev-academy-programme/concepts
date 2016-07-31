@@ -16,7 +16,7 @@ This example is about as simple as it gets. We don't need to understand the exac
 2. The `catch` function will call `handleError` if there is an error, and `handleError` will be passed an error (often a JavaScript `Error` object).
 
 It may be helpful to see the same code again using inline anonymous functions (though we should still try to use named functions for clarity):
-```
+```js
 getDataFromServer()
   .then(function (data) {
     console.log(data)
@@ -31,7 +31,7 @@ If `getDataFromServer` returns a _resolved_ promise, `then` will be called (and 
 
 We can also string together quite long 'promise chains' which define the order certain tasks should occur in:
 
-```
+```js
 getDataFromServer()
   .then(checkTheData)
   .then(displayTheData)
@@ -44,11 +44,11 @@ So long as each function in the chain returns a data object, this will help ensu
 ## Knex.js
 
 We can see this being put to work with the Knex library when accessing a database. A simple example: inserting a row, then querying the table and displaying the results.
-```
+```js
 knex.insert({
-  name: 'Daisy',
-  age: 15
-})
+    name: 'Daisy',
+    age: 15
+  })
   .into('dogs')
   .then(getNames)
   .then(showNames)
