@@ -1,7 +1,7 @@
 Promises are another approach to asynchronous programming - one which conveniently allows us to sidestep callback-hell.
 
 They let you call an asynchronous command, and pass on a promise which is **then** _resolved_ later.
-If that promise can't be kept (something is _rejected), then we can **catch** the error and deal with it.
+If that promise can't be kept (something is _rejected_), then we can **catch** the error and deal with it.
 
 ## `then` and `catch`
 
