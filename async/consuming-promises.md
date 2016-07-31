@@ -1,6 +1,6 @@
 Promises are another approach to asynchronous programming - one which conveniently allows us to sidestep callback-hell.
 
-Functions which perform asynchornous operations (such as interacting with the file system or a database) can return a promise which is **then** _resolved_ later. If that promise can't be kept (something is _rejected_) we can **catch** the error and deal with it.
+Functions which perform asynchronous operations (such as interacting with the file system or a database) can return a promise which is **then** _resolved_ later. If that promise can't be kept (something is _rejected_) we can **catch** the error and deal with it.
 
 ## `then` and `catch`
 
