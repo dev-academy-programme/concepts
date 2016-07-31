@@ -5,7 +5,7 @@ Sometimes we need information from more than one table. If we keep our users in 
 ***users***
 
 | id | name           |
-|----|----------------|
+|:---|:---------------|
 | 8  | Orinocco       |
 | 12 | Tomsk          |
 | 3  | Uncle Bulgaria |
@@ -13,7 +13,7 @@ Sometimes we need information from more than one table. If we keep our users in 
 *** user_demographics ***
 
 | id | user_id | age |
-|----|---------|-----|
+|:---|:--------|:----|
 | 1  | 8       | 3   |
 | 2  | 12      | 4   |
 | 3  | 3       | 61  |
@@ -21,7 +21,7 @@ Sometimes we need information from more than one table. If we keep our users in 
 A **join** allows us to combine the information based on the values in a column that exists in both tables, in this case combining values when `id` is equal to `user_id`:
 
 | name           | age |
-|----------------|-----|
+|:---------------|:----|
 | Orinocco       | 3   |
 | Tomsk          | 4   |
 | Uncle Bulgaria | 61  |
@@ -36,7 +36,7 @@ The question you're probably asking is, "Why not put all the information in one 
 
 Using Knex.js we can perform joins without having to know the SQL syntax for the query:
 
-```
+```js
 knex('dogs')
   .join('breeds', 'dogs.breed_id', '=', 'breeds.id')
   .select('dogs.name', 'breeds.name as breed')
@@ -45,7 +45,7 @@ knex('dogs')
 *** dogs ***
 
 | id | name   | breed_id |
-|----|--------|----------|
+|:---|:-------|:---------|
 | 1  | Daisy  | 5        |
 | 2  | Dexter | 3        |
 | 3  | Clarry | 2        |
@@ -53,7 +53,7 @@ knex('dogs')
 *** breeds ***
 
 | id | name                  |
-|----|-----------------------|
+|:---|:----------------------|
 | 1  | Boxer                 |
 | 2  | Spoodle               |
 | 3  | King Charles Cavalier |
@@ -61,7 +61,7 @@ knex('dogs')
 | 5  | Mutt                  |
 
 | name      | breed                 |
-|-----------|-----------------------|
+|:----------|:----------------------|
 | Daisy     | Mutt                  |
 | Dexter    | King Charles Cavalier |
 | Clarry    | Spoodle               |
@@ -75,11 +75,11 @@ Note a few things about the above result:
 ### Name conflicts
 
 Let's talk about that second point for a moment. Why do we use this syntax?
-```
+```js
   .select('dogs.name', 'breeds.name as breed')
 ```
 The trick is, Knex returns column names as object properties. What's wrong with this picture?
-```
+```js
   [ 
     {
       name: 'Daisy',
@@ -88,7 +88,7 @@ The trick is, Knex returns column names as object properties. What's wrong with 
   ]
 ```
 Of course, we can't have an object with two properties the same, so what actually happens is the second one gets overwritten:
-```
+```js
   [
     {
       name: 'Mutt'
@@ -96,7 +96,7 @@ Of course, we can't have an object with two properties the same, so what actuall
   ]
 ```
 Obviously that's not what we want! The solution is to provide another name, an _alias_, for any properties that conflict in this way. We can write `'tablename.columnname as foobar'` to achieve this. In the example above, our output from Knex looks like so:
-```
+```js
   [
     {
       name: 'Daisy',

@@ -5,7 +5,7 @@ When we start out with Express, we often create routes that show static (unchang
 
 The main difference of course is that Knex functions return promises. We won't actually have any data to work with unless we wait for the promises to _resolve_ or _reject_. For example, this sort of thing won't work:
 
-```
+```js
 function home (req, res) {
   var users = knex('users').select()
   res.send(users)
@@ -14,7 +14,7 @@ function home (req, res) {
 
 Instead, we'll need to make use of the `.then()` and `.catch()` functions to ensure that the data is available for us to use (and grab any errors that might occur):
 
-```
+```js
 function home (req, res) {
   knex('users')
     .select()
@@ -32,7 +32,7 @@ function home (req, res) {
 
 Here's a rather braindead routes file that could provide you with some hints on getting database access up and running:
 
-```
+```js
 var development = require('./knexfile').development
 var knex = require('knex')(development)
 
