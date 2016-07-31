@@ -1,7 +1,6 @@
-You don't have to understand every facet of writing promises in order to be able to use libraries that return them. There are a few things to keep in mind, however. Especially:
+Promises are another approach to asynchronous programming - one which conveniently allows us to sidestep callback-hell.
 
-1. How to 'wait' for data being returned in a _resolved_ promise, and
-2. How to handle errors being returned in a _rejected_ promise.
+Functions which perform asynchronous operations (such as interacting with the file system or a database) can return a promise which is **then** _resolved_ later. If that promise can't be kept (something is _rejected_) we can **catch** the error and deal with it.
 
 ## `then` and `catch`
 
@@ -26,6 +25,19 @@ getDataFromServer()
   })
 ```
 If `getDataFromServer` returns a _resolved_ promise, `then` will be called (and `catch` won't be). If it returns a _rejected_ promise, `catch` will be called (and `then` won't be).
+
+If you are familiar with callbacks, you'll notice it's like a callback that has had the `err` and the `data` handling parts separated. The same thing might be written like this with callbacks: 
+
+```js
+getDataFromServer( function(err, data) {
+  if (err) {
+    console.error(err.message)
+    return
+  }
+  
+  console.log(data)
+})
+```
 
 ## Promise chains
 
