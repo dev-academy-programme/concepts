@@ -28,21 +28,40 @@ function home (req, res) {
 }
 ```
 
-### Plugging it in
+### Extracting the database details to one place
 
-Here's a rather braindead routes file that could provide you with some hints on getting database access up and running:
+Leaving details about database queries to clutter up your routes can be untidy.
+Here's how you could extract them :
 
 ```js
+// queries.js
+
 var development = require('./knexfile').development
 var knex = require('knex')(development)
 
-module.exports = {
-  index: index,
-  create: create
+function getUsers () {
+  return knex('users').select()
 }
 
-function index (req, res) {
-  return getUsers()
+function insertUser (userName) {
+  return knex('users').insert({ name: userName})
+}
+
+module.exports = {
+  getUsers: getUsers,
+  insertUser: insertUser
+}
+```
+
+
+```js
+// app.js
+// ... 
+
+var queries = require('./queries')
+
+app.get('/users', function (req, res) {
+  return queries.getUsers()
     .then(function (data) {
       res.send(data)
     })
@@ -50,10 +69,12 @@ function index (req, res) {
       console.error(err.message)
       res.status(500).send("Can't display users!")
     })
-}
+})
 
-function create (req, res) {
-  return insertUser()
+app.post('/users', function (req, res) {
+  var name = req.body.name  // name stored in a submitted form body
+  
+  return queries.insertUser(name)
     .then(function () {
       res.sendStatus(200)
     })
@@ -61,15 +82,8 @@ function create (req, res) {
       console.error(err.message)
       res.status(500).send("Couldn't insert a user.")
     })
-}
+})
 
-function getUsers () {
-  return knex('users').select()
-}
-
-function insertUser () {
-  return knex('users').insert({ name: 'Wombat' })
-}
 ```
 
 ### Exercise
