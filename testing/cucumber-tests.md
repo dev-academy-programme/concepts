@@ -15,6 +15,17 @@ A Behaviour Driven Development cycle that uses Cucumber might follow the followi
 
 ## Intention clarification (user stories / jobs to be done)
 
+At this stage the client and software team clarify the problems that the user faces or the jobs that the software will help them perform. 
+
+For example, a weather app we may define a User Story as the following:
+
+```yml
+As a User,
+I want to View the Rain Likelihood for my GPS coordinates
+So that, when I go outside I know whether I need to take my jacket
+
+```
+
 ## Feature specification
 
 ## App scaffolding
