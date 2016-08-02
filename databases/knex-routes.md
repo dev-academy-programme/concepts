@@ -6,7 +6,7 @@ When we start out with Express, we often create routes that show static (unchang
 The main difference of course is that Knex functions return promises. We won't actually have any data to work with unless we wait for the promises to _resolve_ or _reject_. For example, this sort of thing won't work:
 
 ```js
-function home (req, res) {
+app.get('/users', function (req, res) {
   var users = knex('users').select()
   res.send(users)
 }
@@ -15,7 +15,7 @@ function home (req, res) {
 Instead, we'll need to make use of the `.then()` and `.catch()` functions to ensure that the data is available for us to use (and grab any errors that might occur):
 
 ```js
-function home (req, res) {
+app.get('/users', function (req, res) {
   knex('users')
     .select()
     .then(function (data) {
@@ -43,9 +43,10 @@ function getUsers () {
   return knex('users').select()
 }
 
-function insertUser (userName) {
-  return knex('users').insert({ name: userName})
+function insertUser (userObject) {
+  return knex('users').insert(userObject)
 }
+// this takes a userObject, e.g. {name: 'feroze', email: 'feroze@gmail.com'}
 
 module.exports = {
   getUsers: getUsers,
@@ -61,7 +62,7 @@ module.exports = {
 var queries = require('./queries')
 
 app.get('/users', function (req, res) {
-  return queries.getUsers()
+  queries.getUsers()
     .then(function (data) {
       res.send(data)
     })
@@ -72,9 +73,12 @@ app.get('/users', function (req, res) {
 })
 
 app.post('/users', function (req, res) {
-  var name = req.body.name  // name stored in a submitted form body
+  var newUser = {
+    name:  req.body.name,  // name stored in a submitted form body
+    email: req.body.email
+  }
   
-  return queries.insertUser(name)
+  queries.insertUser(newUser)
     .then(function () {
       res.sendStatus(200)
     })
