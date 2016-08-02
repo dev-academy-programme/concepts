@@ -30,8 +30,7 @@ app.get('/users', function (req, res) {
 
 ### Extracting the database details to one place
 
-Leaving details about database queries to clutter up your routes can be untidy.
-Here's how you could extract them :
+Following the [Single Responsibily Principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), it's much cleaner to have the routes focus on the request and response and extract the details of database access into a separate module. Here's how you could extract them:
 
 ```js
 // queries.js
@@ -43,17 +42,16 @@ function getUsers () {
   return knex('users').select()
 }
 
-function insertUser (userObject) {
-  return knex('users').insert(userObject)
+// An example user object: {name: 'feroze', email: 'feroze@gmail.com'}
+function insertUser (user) {
+  return knex('users').insert(user)
 }
-// this takes a userObject, e.g. {name: 'feroze', email: 'feroze@gmail.com'}
 
 module.exports = {
   getUsers: getUsers,
   insertUser: insertUser
 }
 ```
-
 
 ```js
 // app.js
@@ -63,8 +61,8 @@ var queries = require('./queries')
 
 app.get('/users', function (req, res) {
   queries.getUsers()
-    .then(function (data) {
-      res.send(data)
+    .then(function (users) {
+      res.send(users)
     })
     .catch(function (err) {
       console.error(err.message)
@@ -84,10 +82,9 @@ app.post('/users', function (req, res) {
     })
     .catch(function (err) {
       console.error(err.message)
-      res.status(500).send("Couldn't insert a user.")
+      res.status(500).send("Couldn't insert a new user.")
     })
 })
-
 ```
 
 ### Exercise
