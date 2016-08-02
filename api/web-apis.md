@@ -66,7 +66,7 @@ There are a number of different ways to expose routes in Express.js.
 
 The code snippets above use `res.json` to return JSON to the caller. Notice how they just use a normal JavaScript object. The `.json()` method will take care of serialising the object to JSON.
 
-Using the `body-parser` middleware module, Express.js is also capable of receiving JSON in the request body. This is common when using the POST and PUT verbs to insert and update resources. This illustrates how to add this functionality.
+Using the `body-parser` middleware module, Express.js is also capable of receiving JSON in the request body. This is common when using the POST and PUT verbs to insert and update resources.
 
 ```js
 // server.js
