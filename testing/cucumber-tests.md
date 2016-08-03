@@ -58,10 +58,11 @@ Feature: Rain likelihood for location
   Scenario: Request rain likelihood
     Given I am signed in
       And I view the main page
-      And my Longitude and Latitude are [-42.2865, 174.7762] #Wellington
-      And the time is "09.00"
+      And my location is
+        | latitude | longitude  |
+        | -42.2865 | 174.7762   | #Wellington
     When I click "Will it rain?"
-    Then I can see the text "It is likely to rain at your location in the next hour"
+    Then I see the text "It is likely to rain at your location in the next hour"
 ```
 
 We can see from this example how the 
@@ -72,7 +73,6 @@ Second, gherkin syntax is very specific. Does the user need to be signed in? Doe
 
 Third, we see that the feature spec contains some very specific information:
  * the longitude and latitude
- * the time 
  * the text displayed on the button, "Will it rain?"
  * the resulting forecast text, "It is likely to rain at your location in the next hour".
 
@@ -110,6 +110,18 @@ module.exports = function () {
     browser.url('localhost:3000/')
   })
 
+  this.Given('my location is', table => {
+    browser.location(table.hashes()[0])
+  })
+
+  this.When('I click "$string"', text => {
+    browser.click(`=${text}`)
+  })
+
+  this.Then('I see the text "$string", (text, callback) => {
+    browser.waitForExist(`=${text}`, 3000)
+    assert.equal(browser.getText(`=${text}`, text, callback)
+  })
 }
 ```
 
