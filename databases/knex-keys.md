@@ -11,7 +11,7 @@ Typically your `id` column will be a primary key. They have a _unique constraint
 
 Here's a Knex.js migration that creates a simple table with a primary key:
 
-```
+```js
 exports.up = function (knex, Promise) {
   return Promise.all([
     knex.schema.createTable('users', function (table) {
@@ -31,7 +31,7 @@ exports.down = function (knex, Promise) {
 ***users***
 
 | id (PK) | name       |
-|---------|------------|
+|:--------|:-----------|
 | 1       | basie      |
 | 2       | fitzgerald |
 | 3       | coltrane   |
@@ -46,7 +46,7 @@ Often we'll need to relate a record in one table to a record in another. Foreign
 
 Here's how Knex defines foreign keys:
 
-```
+```js
 exports.up = function (knex, Promise) {
   return Promise.all([
     knex.schema.createTable('dogs', function (table) {
@@ -74,14 +74,14 @@ Notice the `.references('breeds.id')`? That tells the database that we want `dog
 ***dogs***
 
 | id (PK) | name   | breed_id (FK) |
-|---------|--------|---------------|
+|:--------|:-------|:--------------|
 | 1       | Daisy  | 3             |
 | 2       | Clarry | 2             |
 
 ***breeds***
 
 | id (PK) | name    |
-|---------|---------|
+|:--------|:--------|
 | 1       | Boxer   |
 | 2       | Spoodle |
 | 3       | Mutt    |
@@ -105,7 +105,7 @@ We can also apply similar values to an _ON UPDATE_ constraint, which as you migh
 
 Here's how Knex handles these constraints:
 
-```
+```js
   table.integer('breed_id')
     .references('breeds.id')
     .onDelete('RESTRICT')
