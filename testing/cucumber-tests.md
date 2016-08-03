@@ -65,7 +65,7 @@ Feature: Rain likelihood for location
     Then I see the text "It is likely to rain at your location in the next hour"
 ```
 
-We can see from this example how the 
+Let's see how this style of feature specification can clarify its development:
 
 First, the Job Story that the feature targets is written directly into the specification. This helps the team and the client understand how the software achieves the broad goals more specifically. Or at least our assumptions about these.
 
@@ -80,6 +80,8 @@ This can help the client and team understand what we need for the feature to wor
 
 Sometimes clients leave page content up to the software team and then want it changed later when it doesn't meet their understanding. Also note that the likelihood is expressed in human readable terms "likely to rain". The software team know that the response from a weather API is alomost certainly going to be in percentage terms and transforming this into "likely" or "unlikely" will take additional code.
 
+Note: to get this code to work we're spoofing the browser location `browser.location()`. We'd also have to spoof the Weather API call so that the response is consistent.  
+
 In the later steps we will write code to automate a browser that interacts with our software in the specific way detailed in the specification.
 
 ## App scaffolding
@@ -88,7 +90,7 @@ The team can begin scaffolding the app, setting up the directory, the testing, b
 
 ## Cucumber automation
 
-At the moment we have some text in a `/features/rain-likelihood.feature` file and you might be wondering how we will program a browser to run the test. This is the magic of cucumber which interfaces betwen readable gherkin specs into less read browser automation code. We still need to write the latter though.
+At the moment we have some text in a `/features/rain-likelihood.feature` file and you might be wondering how we will program a browser to run the test. This is the magic of cucumber. Cucumber interfaces betwen readable gherkin specs and less readable browser automation code. We still need to write this code and the following give an example of the automation code written with [WebDriver](http://webdriver.io/) that drives the feature spec above:
 
 ```js
 #/features/step_definitions/steps.js
@@ -100,14 +102,14 @@ const user = { name: 'Frodo', password: 'the0n3r1ng' }
 module.exports = function () {
   
   this.Given('I am signed in', () => {
-    browser.url('localhost:3000/login')
+    browser.url('http://localhost:3000/login')
     browser.setValue('input#username', user.name)
     browser.setValue('input#password', user.password)
     browser.click('button#login')
   })
 
   this.Given('I view the main page', () => {
-    browser.url('localhost:3000/')
+    browser.url('http://localhost:3000/')
   })
 
   this.Given('my location is', table => {
@@ -118,19 +120,24 @@ module.exports = function () {
     browser.click(`=${text}`)
   })
 
-  this.Then('I see the text "$string", (text, callback) => {
+  this.Then('I see the text "$string"', (text, callback) => {
     browser.waitForExist(`=${text}`, 3000)
     assert.equal(browser.getText(`=${text}`, text, callback)
   })
 }
 ```
 
+A good thing about cucumber steps is that many of them will be reusable in other feature specs. Webdriver has a powerful set of selectors that allow us to select elements based on their text content.  `When I click "$string"` is a generic step that we can reuse in any other feature which involves a user clicking on a button or link.
+
+The above  example code is specific to the Webdriver API and could be written with a different browser automation library.
 
 ## Development
 
-## Passing integration tests
+We can now start developing our features. With the features specc'd out developers can estimate their relative complexity. The Client or the Product Owner can prioritise the features they would like to developed. As development progresses a set of passing cucumber specs provide living documentation on what the software can and cannot do. 
 
 ## Acceptance tests
+
+When a feature is complete and its cucumber test passes the development team can deploy the latest version of the app to a staging server. This allows the client to see a live version of the app and provide feedback and clarifications before features go live on production and the development team to conduct user testing. Near the end of the release cycle the team and the client may sit down and work through the new features on the staging app and their specs before the features are formally accepted. 
 
 
 
