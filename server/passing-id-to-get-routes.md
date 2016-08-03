@@ -1,12 +1,14 @@
-Say you have a `POST` `/cats/:id` route to update cats. (Note: this would ideally be a `PUT`, but browsers can't reliably use it). So to update the cat with ID 3, we would visit `/cats/3/edit`. On this page would be a form that looks like:
+When rendering on the server, we often redirect to another route when submitting a form. When we update an existing entity, we need to provide an `id` to the route so we can tell the database which entity to modify.
 
+Say you have a `POST` `/cats/:id` route to update cats. (Note: this would ideally be a `PUT`, but browsers can't reliably use it.) To update the cat with ID 3, we would visit `/cats/3/edit`. On this page would be a form that looks like:
+{% raw %}
 ```xml
 <form action="/cats/{{cat.id}}" method="post">
   <input type="text"   name="name" value="{{cat.name}}">
   <button>Update cat</button>
 </form>
 ```
-
+{% endraw %}
 Notice we're setting the form to post to `/cats/{{cat.id}}` which would be rendered to `/cats/3` in our case.
 
 On the server our routes would look something like:
