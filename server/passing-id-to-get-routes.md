@@ -9,7 +9,7 @@ Say you have a `POST` `/cats/:id` route to update cats. (Note: this would ideall
 </form>
 ```
 {% endraw %}
-Notice we're setting the form to post to `/cats/{{cat.id}}` which would be rendered to `/cats/3` in our case.
+Notice we're setting the form to post to {% raw %}`/cats/{{cat.id}}`{% endraw %} which would be rendered to `/cats/3` in our case.
 
 On the server our routes would look something like:
 
