@@ -1,4 +1,5 @@
 const parse = require('markdown-to-ast').parse
+const remark = require('remark') // better parser
 const pull = require('pull-stream')
 const glob = require('pull-glob')
 const file = require('pull-file')
