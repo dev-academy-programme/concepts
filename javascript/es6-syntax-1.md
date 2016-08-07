@@ -20,7 +20,7 @@ export default function joinStrings (s1, s2) {
 }
 ```
 
-There are multiple ways to import items from modules. To import default values like the `joinStrings` function above:
+This makes it available to _import_. There are multiple ways to import items from modules. To import default values like the `joinStrings` function above:
 
 ```js
 // app.js
@@ -33,7 +33,7 @@ For more information, see [ES6 In Depth: Modules](https://hacks.mozilla.org/2015
 
 ### Variable declaration with `let` and `const`
 
-In ES5, we use `var` to declare variables. Variables declared with `var` are available to the entire function regardless where it is defined. This is not true for most languages, which have block-level scoping, rather than function-level scoping. `let` and `const` apply block level scoping to JavaScript. This means we can define variables inside `if` statements and `for` loops (and other block constructs) that are not available outside of the blocks they are defined in. `const` defines a variable that cannot be reassigned with a different value. For example:
+In ES5, we use `var` to declare variables. Variables declared with `var` are available to the entire function regardless of where it is defined. This is not true for most languages, which have _block-level_ scoping, rather than _function-level_ scoping. `let` and `const` apply block level scoping to JavaScript. This means we can define variables inside `if` statements and `for` loops (and other block constructs) that are not available outside of the blocks they are defined in. `const` defines a variable that cannot be reassigned with a different value. For example:
 
 ```js
 function testVar () {
@@ -78,7 +78,7 @@ It essentially removes the `function` keyword and places the arrow between the p
 
 Some notes about arrow functions: 
 
-* The parenthesis are optional around the parameters if there is only a single parameter. They are required if there are no parameters or more than one.
+* The parentheses are optional around the parameters if there is only a single parameter. They are required if there are no parameters or more than one.
 
 * Curly braces are optional when the body of the function can fit on one line.
 
