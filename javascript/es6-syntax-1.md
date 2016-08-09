@@ -71,7 +71,7 @@ var fn = function (op1, op2) {
 With ES6 arrow functions, we can write:
 
 ```js
-var fn = (op1, op2) => {op1 + op2}
+const fn = (op1, op2) => op1 + op2
 ```
 
 It essentially removes the `function` keyword and places the arrow between the parameters and the body of the function.
@@ -82,7 +82,17 @@ Some notes about arrow functions:
 
 * Curly braces are optional when the body of the function can fit on one line.
 
-* Arrow functions automatically return the result of the last line of the function without the need for the `return` keyword.
+* If there are no curly braces, arrow functions automatically return the result of the statement to the right of the arrow. This is called _implicit_ return.
+
+* If there are curly braces, we still need to use the `return` keyword:
+
+```js
+// Doesn't need return
+const fn1 = (op1, op2) => op1 - op2
+
+// Needs return
+const fn2 = (op1, op2) => { return op1 - op2 }
+```
 
 For more information, check out [ES6 In Depth: Arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/).
 
