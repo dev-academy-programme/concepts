@@ -41,9 +41,9 @@ Most people use user stories, but either is fine.
 
 Once we have clarified the intentions we can begin "speccing out" how users will flow through the app and how particular software features will meet the user's needs. 
 
-Gherkin syntax follows the [Given, When, Then](https://github.com/cucumber/cucumber/wiki/Given-When-Then) steps. Given will put the app into a particular state (on a particular page, signed-in, signed-out etc). When refers to actions the user takes (clicking a button etc). Then refers to the expected outcomes (updated information, notifications etc).
+Gherkin syntax follows the [Given, When, Then](https://github.com/cucumber/cucumber/wiki/Given-When-Then) steps. "Given" steps put the app into a particular state (on a particular page, signed-in, signed-out etc). "When" refers to actions the user takes (clicking a button etc). "Then" refers to the expected outcomes (updated information, notifications etc).
 
-We often do this in conjunction with generating mockups or a clickable UI prototype using [Invision](https://www.invisionapp.com/), [Atomic](https://atomic.io/), [UXPin](https://www.uxpin.com/) or similar. 
+Often the development team and the client do this in conjunction with creating mockups or a clickable UI prototype using [Invision](https://www.invisionapp.com/), [Atomic](https://atomic.io/), [UXPin](https://www.uxpin.com/) or similar. 
 
 For example, taking the Job Story above we might spec out the feature as follows:
 
