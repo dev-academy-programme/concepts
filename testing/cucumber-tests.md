@@ -154,7 +154,7 @@ Concepts:
   * [Behaviour Driven Development (BDD)](https://en.wikipedia.org/wiki/Behavior-driven_development)
   * [Integration testing](/integration-testing.md)
   * [Unit testing](https://en.wikipedia.org/wiki/Unit_testing)
-  * [User Sories](https://www.mountaingoatsoftware.com/agile/user-stories)
+  * [User Sories](../agile/user-stories.md)
   * [Job Stories](https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27#.g9p9ceubs)
   * [User Acceptance tests](http://www.tutorialspoint.com/software_testing_dictionary/use_acceptance_testing.htm)
   
