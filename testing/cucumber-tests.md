@@ -145,7 +145,7 @@ When a feature is complete and its cucumber test passes the development team can
 
 [The cucumber branch of meowtown]({{ book.cohort }}meowtown/tree/cucumber) has some example cucumber testing setup and exercises to practice implementation.
 
-For more on how cucumber testing can be integrated into continuous delivery process see this [checklist](https://github.com/dev-academy-challenges/continuous-deployment-circle-docker) 
+For more on how cucumber testing can be integrated into continuous delivery process see this [checklist]({{ book.cohort }}/continuous-deployment-circle-docker) 
 
 ## Further information
 This document references the following concepts and tools:
