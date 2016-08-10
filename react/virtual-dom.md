@@ -1,5 +1,5 @@
 The virtual DOM is a construct that sits outside of the browser's DOM, and it is able to output changes to the browser's DOM all at once. This minimizes the amount of work the browser must do, which makes changes a _lot_ faster. The real killer feature of the virtual DOM is its ability to compare changes before and after updates. This allows it to only make changes to the parts of the DOM that have changed instead of the whole thing.
 
-While React may have been the first to adopt the concept of a virtual DOM, it has since been adopted by the other frontend frameworks: Angular 2.0 and Ember 1.13. There are also a number of alternative implementations of virtual DOMs. 
+While React may have been the first to adopt the concept of a virtual DOM, it has since been adopted by the other frontend frameworks: Angular 2.0 and Ember (versions after 1.13). There are also a number of alternative implementations of virtual DOMs. 
 
 React includes a new syntax for creating user interfaces that work with virtual DOMs called JSX. JSX is a syntax that combines JavaScript with a markup syntax that looks a lot like HTML. The use of JSX is not mandatory, but is the most common way of building React views. JSX was created from the recognition that views and the associated data have a one-to-one relationship that doesn't make sense to spread across multiple files.
