@@ -10,10 +10,12 @@ The significant features of cucumber testing are:
   * can be linked directly to the the team and client's broader intentions for the software such as User Stories or [Jobs-to-be-done](https://blog.intercom.io/using-job-stories-design-features-ui-ux/) - this provides 
 
 
+## Cucumber in a BDD cycle
+
 A Behaviour Driven Development cycle that uses Cucumber might follow the following steps:
 
 
-## 1. Intention clarification (user stories / jobs to be done)
+### 1. Intention clarification (user stories / jobs to be done)
 
 At this stage the client and software team clarify the problems that the user faces and how the software assists them. 
 
@@ -36,7 +38,7 @@ So I know whether or not to take my jacket
 
 Most people use user stories, but either is fine. 
 
-## 2. Gherkin feature specification
+### 2. Gherkin feature specification
 
 Once we have clarified the intentions we can begin "speccing out" how users will flow through the app and how particular software features will meet the user's needs. 
 
@@ -84,11 +86,11 @@ Note: to get this code to work we're spoofing the browser location `browser.loca
 
 In the later steps we will write code to automate a browser that interacts with our software in the specific way detailed in the specification.
 
-## App scaffolding
+### 3. App scaffolding
 
 The team can begin scaffolding the app, setting up the directory, the testing, build and deployment script etc. We'll need a basic server for our automated browser to interact with.  
 
-## Cucumber automation
+### 4. Cucumber automation
 
 At the moment we have some text in a `/features/rain-likelihood.feature` file and you might be wondering how we will program a browser to run the test. This is the magic of cucumber. Cucumber interfaces betwen readable gherkin specs and less readable browser automation code. We still need to write this code and the following give an example of the automation code written with [WebDriver](http://webdriver.io/) that drives the feature spec above:
 
@@ -131,17 +133,37 @@ A good thing about cucumber steps is that many of them will be reusable in other
 
 The above  example code is specific to the Webdriver API and could be written with a different browser automation library.
 
-## Development
+### 5. Development
 
 We can now start developing our features. With the features specc'd out developers can estimate their relative complexity. The Client or the Product Owner can prioritise the features they would like to developed. As development progresses a set of passing cucumber specs provide living documentation on what the software can and cannot do. 
 
-## Acceptance tests
+### 6. User acceptance tests
 
 When a feature is complete and its cucumber test passes the development team can deploy the latest version of the app to a staging server. This allows the client to see a live version of the app and provide feedback and clarifications before features go live on production and the development team to conduct user testing. Near the end of the release cycle the team and the client may sit down and work through the new features on the staging app and their specs before the features are formally accepted. 
 
+## Exercises
 
+[The cucumber branch of meowtown]({{ book.cohort }}meowtown/tree/cucumber) has some example cucumber testing setup and exercises to practice implementation.
 
+For more on how cucumber testing can be integrated into continuous delivery process see this [checklist](https://github.com/dev-academy-challenges/continuous-deployment-circle-docker) 
 
+## Further information
+This document references the following concepts and tools:
 
+Concepts:
+
+  * [Behaviour Driven Development (BDD)](https://en.wikipedia.org/wiki/Behavior-driven_development)
+  * [Integration testing](/integration-testing.md)
+  * [Unit testing](https://en.wikipedia.org/wiki/Unit_testing)
+  * [User Sories](https://www.mountaingoatsoftware.com/agile/user-stories)
+  * [Job Stories](https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27#.g9p9ceubs)
+  * [User Acceptance tests](http://www.tutorialspoint.com/software_testing_dictionary/use_acceptance_testing.htm)
+  
+  
+Tools: 
+  
+  * [Gherkin syntax](https://github.com/cucumber/cucumber/wiki/Gherkin)
+  * [Webdriver](http://webdriver.io/)
+  * [Selenium](http://www.seleniumhq.org/)
 
 
