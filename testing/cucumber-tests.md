@@ -2,12 +2,11 @@
 
 Cucumber is a flavour of integration tests that aim to improve collaboration between technical and non-technical people in developing software. 
 
-The significant features of cucumber testing are:
+tests are written in [Gherkin syntax](https://cucumber.io/docs/reference) which means that:
   * tests are human readable - people without technical understanding can participate directly in reading and writing tests
-  * tests are written in [Gherkin syntax](https://cucumber.io/docs/reference) which:
-  * clarifies what the software should do from a user's perspective, and
-  * follows a familiar pattern analogous to that of unit testing:  Given (arrange), When (act) Then (assert), and 
-  * can be linked directly to the the team and client's broader intentions for the software such as User Stories or [Jobs-to-be-done](https://blog.intercom.io/using-job-stories-design-features-ui-ux/) - this provides 
+  * tests can clarify what the software should do from a user's perspective
+  * tests follow a familiar pattern analogous to that of unit testing:  Given (arrange), When (act) Then (assert), and 
+  * tests can be linked directly to the the team and client's broader intentions for the software such as User Stories or [Jobs-to-be-done](https://blog.intercom.io/using-job-stories-design-features-ui-ux/)
 
 
 ## Cucumber in a BDD cycle
@@ -42,9 +41,9 @@ Most people use user stories, but either is fine.
 
 Once we have clarified the intentions we can begin "speccing out" how users will flow through the app and how particular software features will meet the user's needs. 
 
-Gherkin syntax follows the [Given, When, Then](https://github.com/cucumber/cucumber/wiki/Given-When-Then) steps. Given will put the app into a particular state (on a particular page, signed-in, signed-out etc). When refers to actions the user takes (clicking a button etc). Then refers to the expected outcomes (updated information, notifications etc).
+Gherkin syntax follows the [Given, When, Then](https://github.com/cucumber/cucumber/wiki/Given-When-Then) steps. "Given" steps put the app into a particular state (on a particular page, signed-in, signed-out etc). "When" refers to actions the user takes (clicking a button etc). "Then" refers to the expected outcomes (updated information, notifications etc).
 
-We often do this in conjunction with generating mockups or a clickable UI prototype using [Invision](https://www.invisionapp.com/), [Atomic](https://atomic.io/), [UXPin](https://www.uxpin.com/) or similar. 
+Often the development team and the client do this in conjunction with creating mockups or a clickable UI prototype using [Invision](https://www.invisionapp.com/), [Atomic](https://atomic.io/), [UXPin](https://www.uxpin.com/) or similar. 
 
 For example, taking the Job Story above we might spec out the feature as follows:
 
@@ -155,7 +154,7 @@ Concepts:
   * [Behaviour Driven Development (BDD)](https://en.wikipedia.org/wiki/Behavior-driven_development)
   * [Integration testing](/integration-testing.md)
   * [Unit testing](https://en.wikipedia.org/wiki/Unit_testing)
-  * [User Sories](https://www.mountaingoatsoftware.com/agile/user-stories)
+  * [User Sories](../agile/user-stories.md)
   * [Job Stories](https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27#.g9p9ceubs)
   * [User Acceptance tests](http://www.tutorialspoint.com/software_testing_dictionary/use_acceptance_testing.htm)
   
