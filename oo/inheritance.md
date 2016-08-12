@@ -4,14 +4,9 @@ In Object Oriented programming objects can *inherit* properties and behaviours f
 
 When we *instantiate* objects from their class or prototype our objects will have the properties and behaviour of their class or constructor as well as the properties and behaviour of the class or prototype *ancestors* 
 
-## Diagram
-
-
-
-
 ## Implementation
 
-There are two main methods of implementing inheritance in JavaScript
+JavaScript has two methods for implementing inheritance
 
 
 ### Constructor Functions and Prototypical Inheritance (ES5)
