@@ -87,7 +87,29 @@ meaning that whenever we instantiate a `Comment` or `Discussion` passing in our 
 React.js uses a `Component` class as one method for creating UI components:
 
 ```js
+import { Component } from 'react'
 
+class Comment extends Component {
+  constuctor(props) {
+    super(props)
+    
+    this.state = {
+      likeCount: this.props.likeCount || 0
+    }
+  }
+
+  render() {
+    const { author, content, createdAt } = this.props
+
+    return (
+      <p>{`At ${createdAt} {author} wrote`}</p>
+      <p>{`At ${createdAt} {author} wrote`}</p>
+
+
+    )
+  
+  }
+}
 
 
 
