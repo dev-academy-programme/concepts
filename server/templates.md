@@ -1,13 +1,15 @@
-Templates are combined with data, during a process called view _rendering_. This is done by a _template engine_ and there are a number of different template engines for every web framework. Express.js is no different. Each template engine has an associated a template language that's used inside the view language, in our case HTML. The template language defines how to create placeholders that it can later replace with data during rendering. If a paint-by-numbers kit is metaphor for templates and data, rendering is painting and the template engine is the painter.
+Templates are combined with data, during a process called view _rendering_. This is done by a _template engine_ and there are a number of different template engines for every web framework (including Express.js). Each template engine has an associated template language that's used inside the view language, in our case HTML. The template language defines how to create placeholders that it can later replace with data during rendering. If a paint-by-numbers kit is metaphor for templates and data, rendering is painting and the template engine is the painter.
 
-[Handlebars](http://handlebarsjs.com) is a popular templating library which evolved from another popular templating library called [Mustache](https://mustache.github.io). Both of these libraries boast being _logic-less_, meaning the template language doesn't encourage complex logic in the views. They do contain rudimentary conditionals and iterators, but lack a lot of features compared to other templating options. Other templating libraries offer a lot of language features and some provide the full capabilities of the JavaScript language. The authors of Handlebars/Mustache and many other developers consider the logic-less decision a feature. Their premise is the view should not contain complex logic and its data should be specific to the template. EDA tends to agree, so we'll use Handlebars (it has some nice composition features missing from Mustache).
+[Handlebars](http://handlebarsjs.com) is a popular templating library which evolved from another library called [Mustache](https://mustache.github.io). Both of these libraries boast being _logic-less_, meaning the template language doesn't encourage complex logic in the views. They do contain rudimentary conditionals and iterators, but lack a lot of features compared to other templating options. Other templating libraries offer a lot of language features and some provide the full capabilities of the JavaScript language. The authors of Handlebars/Mustache and many other developers consider the logic-less decision a feature. Their premise is the view should not contain complex logic and its data should be specific to the template. EDA tends to agree, so we'll use Handlebars. We choose Handlebars over Mustache because it has some nice composition features.
 
-The placeholder syntax in Handlebars (and Mustache) looks like, well, mustaches (double curly braces). **_Double square brackets are being used in the snippets below because GitBook trips up on double curly braces because it also uses them for templating._**
+The placeholder syntax in Handlebars (and Mustache) looks like, well, mustaches! Each placeholder name is surrounded by {% raw %}  `{{ }}` {% endraw %} (double curly braces).
 
+{% raw %}
 ```xml
 <!-- index.hbs -->
-<p>[[para]]</p>
+<p>{{para}}</p>
 ```
+{% endraw %}
 
 ```js
 var data = {
@@ -25,18 +27,21 @@ In this example, `para` refers to a property on the `data` object used as the da
 
 To see how to use the template engine, we'll first do this outside of Express by using only JavaScript, Node.js and the `handlebars` npm package.
 
+{% raw %}
 ```js
 var handlebars = require('handlebars')
 
-var simpleTemplate = '<p>[[para]]</p>'
+var simpleTemplate = '<p>{{para}}</p>'
 var createSimpleResult = handlebars.compile(simpleTemplate)
 var simpleResult = createSimpleResult(data)
 
 console.log(simpleResult)
 ```
+{% endraw %}
 
 Notice how the `compile` step returns a function that accepts the data to apply to the template. How about the conditionals and iterations that was mentioned earlier?
 
+{% raw %}
 ```js
 var handlebars = require('handlebars')
 
@@ -51,11 +56,11 @@ var data = {
 
 // conditional
 var conditionalTemplate = '<p>' +
-  '[[#if trueBool]]' +
+  '{{#if trueBool}}' +
   'truthy :)' +
-  '[[else]]' +
+  '{{else}}' +
   'falsey :(' +
-  '[[/if]]' +
+  '{{/if}}' +
   '</p>'
 var createConditionalResult = handlebars.compile(conditionalTemplate)
 var conditionalResult = createConditionalResult(data)
@@ -63,20 +68,21 @@ console.log(conditionalResult)
 
 // iterator
 var iteratorTemplate = '<ul>\n' +
-  '[[#each colours]]' +
-  '  <li>[[this]]</li>\n' +
-  '[[/each]]' +
+  '{{#each colours}}' +
+  '  <li>{{this}}</li>\n' +
+  '{{/each}}' +
   '</ul>'
 var createIteratorResult = handlebars.compile(iteratorTemplate)
 var iteratorResult = createIteratorResult(data)
 console.log(iteratorResult)
 
 // nested objects
-var nestedTemplate = '<p>[[obj.prop]]</p>'
+var nestedTemplate = '<p>{{obj.prop}}</p>'
 var createNestedResult = handlebars.compile(nestedTemplate)
 var nestedResult = createNestedResult(data)
 console.log(nestedResult)
 ```
+{% endraw %}
 
 In the iterator example, because we want to output the current item of the array, and it isn't named, we simply refer to it as `this`. While the syntax of the template doesn't change, the way we invoke the template engine is much easier when we're using Express.js.
 
@@ -107,5 +113,5 @@ app.listen(3000, function () {
 })
 ```
 
-Notice how this uses `res.render` in our route to tell Express to use the Handlebars engine we registered for `*.hbs` template files. We also told Expres that our views are located in the `views` folder. Therefore, our `/` route is applying `data.home` to the template located at `views/home.hbs`.
+Notice how this uses `res.render` in our route to tell Express to use the Handlebars engine we registered for `*.hbs` template files. We also told Express that our views are located in the `views` folder. Therefore, our `/` route is applying `data.home` to the template located at `views/home.hbs`.
 

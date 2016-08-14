@@ -1,4 +1,4 @@
-Reading and writing files on the filesystem (the hard drive) is a common asynchronous operation. Node.js provides both synchronous and asynchronous functions to read and write files. You can see this in the documentation for [`readFile`](https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback) (the async version) and [`readFileSync`](https://nodejs.org/api/fs.html#fs_fs_readfilesync_file_options) (the synchronous version). As you can see from the documentation for the [`fs`]() module, it provides a _lot_ of functionality.
+Reading and writing files on the filesystem (the hard drive) is a common asynchronous operation. Node.js provides both synchronous and asynchronous functions to read and write files. You can see this in the documentation for [`readFile`](https://nodejs.org/api/fs.html#fs_fs_readfile_file_options_callback) (the async version) and [`readFileSync`](https://nodejs.org/api/fs.html#fs_fs_readfilesync_file_options) (the synchronous version). As you can see from the documentation for the [`fs`](https://nodejs.org/api/fs.html) module, it provides a _lot_ of functionality.
 
 Filesystem access is part of a broader type of operations called **IO**, which stands for Input/Output. IO also includes accessing databases and communicating on a network. We're spending most of our time using the HTTP protocol when communicating over networks, but IO includes all protocols and data formats, and databases. All IO operations should be performed asynchronously because they often take much longer than performing the in-memory tasks most of our application is written to do.
 
@@ -53,7 +53,7 @@ function writeAsync () {
 function verifyExists (teacherFile) {
   fs.exists(teacherFile, function(exists) {
     console.log(teacherFile, 'exists:', exists)
-  }))
+  })
 }
 ```
 

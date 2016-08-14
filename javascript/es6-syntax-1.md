@@ -20,7 +20,7 @@ export default function joinStrings (s1, s2) {
 }
 ```
 
-There are multiple ways to import items from modules. To import default values like the `joinStrings` function above:
+This makes it available to _import_. There are multiple ways to import items from modules. To import default values like the `joinStrings` function above:
 
 ```js
 // app.js
@@ -33,7 +33,7 @@ For more information, see [ES6 In Depth: Modules](https://hacks.mozilla.org/2015
 
 ### Variable declaration with `let` and `const`
 
-In ES5, we use `var` to declare variables. Variables declared with `var` are available to the entire function regardless where it is defined. This is not true for most languages, which have block-level scoping, rather than function-level scoping. `let` and `const` apply block level scoping to JavaScript. This means we can define variables inside `if` statements and `for` loops (and other block constructs) that are not available outside of the blocks they are defined in. `const` defines a variable that cannot be reassigned with a different value. For example:
+In ES5, we use `var` to declare variables. Variables declared with `var` are available to the entire function regardless of where it is defined. This is not true for most languages, which have _block-level_ scoping, rather than _function-level_ scoping. `let` and `const` apply block level scoping to JavaScript. This means we can define variables inside `if` statements and `for` loops (and other block constructs) that are not available outside of the blocks they are defined in. `const` defines a variable that cannot be reassigned with a different value. For example:
 
 ```js
 function testVar () {
@@ -71,18 +71,28 @@ var fn = function (op1, op2) {
 With ES6 arrow functions, we can write:
 
 ```js
-var fn = (op1, op2) => {op1 + op2}
+const fn = (op1, op2) => op1 + op2
 ```
 
 It essentially removes the `function` keyword and places the arrow between the parameters and the body of the function.
 
 Some notes about arrow functions: 
 
-* The parenthesis are optional around the parameters if there is only a single parameter. They are required if there are no parameters or more than one.
+* The parentheses are optional around the parameters if there is only a single parameter. They are required if there are no parameters or more than one.
 
 * Curly braces are optional when the body of the function can fit on one line.
 
-* Arrow functions automatically return the result of the last line of the function without the need for the `return` keyword.
+* If there are no curly braces, arrow functions automatically return the result of the statement to the right of the arrow. This is called _implicit_ return.
+
+* If there are curly braces, we still need to use the `return` keyword:
+
+```js
+// Doesn't need return
+const fn1 = (op1, op2) => op1 - op2
+
+// Needs return
+const fn2 = (op1, op2) => { return op1 - op2 }
+```
 
 For more information, check out [ES6 In Depth: Arrow functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/).
 

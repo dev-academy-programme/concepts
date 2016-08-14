@@ -1,31 +1,46 @@
-Say you have an `/edit` route to update widgets. To target the specific widget with an ID of 3, you can use `/edit?id=3`. This route will use the value of `req.query.id` to find the record in the database and use this record to populate the form.
+When rendering on the server, we often redirect to another route when submitting a form. When we update an existing entity, we need to provide an `id` to the route so we can tell the database which entity to modify.
 
+Say you have a `POST` `/cats/:id` route to update cats. (Note: this would ideally be a `PUT`, but browsers can't reliably use it.) To update the cat with ID 3, we would visit `/cats/3/edit`. On this page would be a form that looks like:
+{% raw %}
 ```xml
-<form action="/update" method="post">
-  <input type="text" name="widgetName" value="{{widget.name}}">
-  <input type="hidden" name="widgetId" value="{{widget.id}}">
-  <button>Update widget</button>
+<form action="/cats/{{cat.id}}" method="post">
+  <input type="text"   name="name" value="{{cat.name}}">
+  <button>Update cat</button>
 </form>
 ```
+{% endraw %}
+Notice we're setting the form to post to {% raw %}`/cats/{{cat.id}}`{% endraw %} which would be rendered to `/cats/3` in our case.
 
-Notice how this uses the hidden input field to post the ID back to the `/update` route so it will know which widget to update. This is what these routes look like:
+On the server our routes would look something like:
 
 ```js
-app.get('/edit', routes.add)
-app.post('/update', routes.create)
+app.get('/cats/:id/edit', routes.edit)
+app.post('/cats', routes.create)
+app.post('/cats/:id', routes.update)
 ```
 
-Because `/update` is a post, we know we shouldn't `res.render()` in its route. However, after the changes are saved, we should show the widget that was changed so the user can see their saved changes. To do this, we need to redirect to the specific widget. If the route for a specific widget is `/widget`, we would `res.redirect('/widget?id=' + id)`, assuming `id` is available. Here's a more complete example:
+The update route will be able to access the id of the cat we're updating by looking in `req.params`. Specifically for a form posted to `/cats/3`, `req.params` will equal:
+
+```js
+{
+  id: '3'
+}
+```
+
+(notice that 3 is a string not a number)
+
+Here's a more complete example:
 
 ```js
 function update (req, res) {
-  var id = req.body.widgetId
-  var name = req.body.widgetName
-  data.updateWidget({
+  var id = Number(req.params.id)
+  var name = req.body.name
+
+  data.updateCat({
     name: name
   })
   .then(function () {
-    return res.redirect('/widget?id=' + id)
+    return res.redirect('/cats/' + id)
   })
   .catch(function (err) {
     return res.send(500, err)

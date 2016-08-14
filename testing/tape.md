@@ -8,14 +8,16 @@ Here's a basic Tape setup:
 var test = require('tape')
 
 test("test some basic js", function (t) {
-  t.true( 2+2 == 4 , "addition works" )
-  t.equal( 3*3 , 9, "multiplication works" )
+  t.true(2+2 === 4, "addition works")
+  t.equal(3*3, 9, "multiplication works")
 
-  result = ['dave', 'sharon'].push('flora')
-  t.deepEqual( result, ['dave', 'sharon', 'flora'], "pushing to arrays works" )
+  var testArray = ['dave', 'sharon']
+  testArray.push('flora')
+
+  t.deepEqual(testArray, ['dave', 'sharon', 'flora'], "pushing to arrays works")
 
   t.end()
-}
+})
 ```
 
 You'll probably want to improve the output of the test run with one of the recommended modules on the Tape website, for example `tap-spec` which turns tests red when they fail, and green when they pass. Remember, *red | green | refactor*!

@@ -1,7 +1,7 @@
 Components receive their data in the form of props. If we wanted to make the header text of the example above more flexible, we could pass the text as a prop.
 
 ```js
-// ApodHeader.jsx
+// Header.jsx
 import React from 'react'
 
 export default React.createClass({
@@ -20,13 +20,13 @@ Notice how it is using `this.props.text` to get the value. This prop is passed i
 ```js
 // App.jsx
 import React from 'react'
-import ApodHeader from './ApodHeader'
+import Header from './Header'
 
 export default React.createClass({
   render() {
     return (
     <div>
-      <ApodHeader text="Astronomy Picture of the Day"/>
+      <Header text="This Page is About Cats" />
     </div>
     )
   }

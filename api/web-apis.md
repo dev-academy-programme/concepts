@@ -66,7 +66,7 @@ There are a number of different ways to expose routes in Express.js.
 
 The code snippets above use `res.json` to return JSON to the caller. Notice how they just use a normal JavaScript object. The `.json()` method will take care of serialising the object to JSON.
 
-Using the `body-parser` middleware module, Express.js is also capable of receiving JSON in the request body. This is common when using the POST and PUT verbs to insert and update resources. This illustrates how to add this functionality.
+Using the `body-parser` middleware module, Express.js is also capable of receiving JSON in the request body. This is common when using the POST and PUT verbs to insert and update resources.
 
 ```js
 // server.js
@@ -78,7 +78,7 @@ app.use(bodyParser.json())
 
 ## Consuming APIs with jQuery
 
-The APIs we expose can be consumed by any HTTP client. jQuery has a number of methods with varying features and complexity. The `$.ajax()` method is a low-level method the other methods use. It has a lot of features, but is also the most complex. Here is a simple way to use it:
+The APIs we expose can be _consumed_ by any HTTP client. jQuery has a number of methods with varying features and complexity. The `$.ajax()` method is a low-level method the other methods use. It has a lot of features, but is also the most complex. Here is a simple way to use it:
 
 ```js
 function getWidget () {
