@@ -55,9 +55,9 @@ const frodoComment = new Comment({
 })
 
 
-console.log(myComment.getCreatedAt())
-oneRingdiscussion.addComment(myComment)
-console.log(myComment === oneRingDiscussion.getCommentAtIndex(0))
+console.log(frodoComment.getCreatedAt())
+oneRingdiscussion.addComment(frodoComment)
+console.log(frodoComment === oneRingDiscussion.getCommentAtIndex(0))
 // => true
 
 ```
