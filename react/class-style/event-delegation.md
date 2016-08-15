@@ -62,5 +62,5 @@ import React from 'react'
 export default Item
 ```
 
-The `addToCart` event handler is used directly from `this.props` as is already bound to the correct `item`.
+The `addToCart` event handler is used directly from `this.props` in Item.js.
 
