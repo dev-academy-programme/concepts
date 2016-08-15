@@ -55,13 +55,13 @@ const frodoComment = new Comment({
 })
 
 
-console.log(myComment.getCreatedAt())
-oneRingdiscussion.addComment(myComment)
-console.log(myComment === oneRingDiscussion.getCommentAtIndex(0))
+console.log(frodoComment.getCreatedAt())
+oneRingdiscussion.addComment(frodoComment)
+console.log(frodoComment === oneRingDiscussion.getCommentAtIndex(0))
 // => true
 
 ```
-The code above implements a parent class `Post` and its two child classes `Discussion` and `Comment`. We might imagine that this code drives an online discussion forum. `Post` has three properties `author`, `content` and `createdAt` and one method `getCreatedAt()`. When we define `Comment` and `Discussion` we use the `extends` keword to indicate that these child classes inherit `Post`'s properties and the `getCreatedAt()` method. These child classes can also implement their own properties and methods.
+The code above implements a parent class `Post` and its two child classes `Discussion` and `Comment`. We might imagine that this code drives an online discussion forum. `Post` has three properties `author`, `content` and `createdAt` and one method `getCreatedAt()`. When we define `Comment` and `Discussion` we use the `extends` keword to inherit `Post`'s properties and the `getCreatedAt()` method. These child classes can also implement their own properties and methods.
 
 Inside each of the child classes' `constructor()` we can see the usage of `super`:
 ```js
