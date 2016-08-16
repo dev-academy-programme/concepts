@@ -1,11 +1,12 @@
-Integration testing is the process of testing how all your different units are working in concert.
+[Integration testing](https://en.wikipedia.org/wiki/Integration_testing) is the process of testing how all your different modules are working in concert.
 
-Often with integration testing on the client side, this involves spinning up a browser and automating clicking.
-Clicks and other browser actions are usually automated using a tool called Selenium as a driver (this is common across programming languages).
+Client-side integration testing involves automating a browser and instructing it to visit specific pages, fill in fields and click on buttons in specified steps.
 
-There are many packages which you can use to write tests which drive Selenium.
-Examples of integrationg test frameworks that js:
+Most client-side tests use a tool called [Selenium](http://www.seleniumhq.org/) to automate the browser (this is common across programming languages).
+
+JavaScript packages which you can use to write tests which drive Selenium include:
   - [Nightwatch](http://nightwatchjs.org)
   - [Pioneer.js](http://pioneerjs.com/)
+  - [Chimp](https://chimp.readme.io/)
 
 These can take a bit of configuring, so it's worth shopping around and seeing what the best practice is before choosing a technology (this can change from year to year).
