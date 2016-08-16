@@ -8,7 +8,6 @@ import Item from './Item'
  class ItemList extends React.Component {
   constructor(props) {
     super(props)
-    this.addToCart = this.addToCart.bind(this)
   }
 
   addToCart (itemID) {
@@ -22,7 +21,7 @@ import Item from './Item'
           return <Item
             key={item.id}
             name={item.name}
-            addToCart={this.addToCart}
+            addToCart={this.addToCart.bind(this)}
           />
         })}
       </div>
