@@ -1,4 +1,6 @@
-Before the introduction of classses in ES6 it was common to mimic class inheritance with constructor Functions and [Object.create()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create). Its also possible to use factory functions for this purpose. As these are not true classes we sometimes call these "pseudo-classes". The examples below show how to implement classical inheritance with the tools available in ES5:
+Many programming languages use the concepts of `class`, `subclass` and `inheritance` to assist with code reuse. When we create objects of a particular subclass these objects inherit properties and methods from their parent class. This allows us to write code once on the parent class and have it inherited and reused on its descendants. 
+
+JavaScript ES5 does not implement "classical inheritance" as cleanly as other languages but its common to mimic classical inheritance with both constructor functions and factory functions in ES5 codebases. As these are not true classes we sometimes call these "pseudo-classes". The examples below show how to implement classical inheritance with the tools available in ES5:
 
 ## Classical inheritance with constructor functions
 
@@ -151,7 +153,7 @@ Discussion.prototype.addComment = function (comment) {
 }
 ```
 
-Other developers may prefer the simplicty of factory functions.
+Other developers may prefer the simplicity of factory functions.
 
 ## Further Information
 
