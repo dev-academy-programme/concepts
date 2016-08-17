@@ -1,8 +1,8 @@
 Many programming languages use the concepts of `class`, `subclass` and `inheritance` to assist with code reuse. When we create objects of a particular subclass these objects inherit properties and methods from their parent class. This allows us to write code once on the parent class and have it inherited and reused on its descendants. 
 
-JavaScript ES5 does not implement "classical inheritance" as cleanly as other languages but its common to mimic classical inheritance with both constructor functions and factory functions in ES5 codebases. As these are not true classes we sometimes call these "pseudo-classes". The examples below show how to implement classical inheritance with the tools available in ES5:
+JavaScript ES5 does not implement "classical inheritance" in the same way as other languages. Instead its common to use "prototypal inheritance" to mimic classical inheritance with constructor functions. Its also possible to use factory functions to implement inheritance. As these are not true classes we sometimes call these "pseudo-classes". The examples below show how to implement the classical inheritance pattern with the tools available in ES5:
 
-## Classical inheritance with constructor functions
+## Prototypal inheritance with constructor functions
 
 ```js
 function Post (options) {
@@ -16,7 +16,7 @@ Post.prototype.getCreatedAt = function () {
 }
 
 function Comment () {
-  Post.prototype.constructor.apply(this, arguments) // call the "parent" pseudo-class constructor 
+  Post.apply(this, arguments) // call the "parent" pseudo-class constructor 
   this.likeCount = 0
 }
 
@@ -28,7 +28,7 @@ Comment.prototype = Object.create(Post.prototype)
 Comment.prototype.constructor = Comment
 
 function Discussion (options) {
-  Post.prototype.constructor.apply(this, arguments)
+  Post.apply(this, arguments)
   this.title = options.title
   this.comments = []
 }
@@ -63,12 +63,14 @@ console.log(frodoComment instanceof Comment)
 
 ```
 
-The code above implements a parent constructor function `Post` and its two child constructor functions `Discussion` and `Comment`. We might imagine that this code drives an online discussion forum. `Post` has three properties `author`, `content` and `createdAt` and one method `getCreatedAt()`. When we define `Comment` and `Discussion` we call the parent constructor method passiing in a reference the current context `this` and the child's `arguments`. This lets `Discussion` and `Comment` inherit `Post`'s properties and the `getCreatedAt()` method and is equivalent to calling `super` in ES6. Child constructor functions can also implement their own properties and methods.
+The code above implements a parent constructor function `Post` and its two child constructor functions `Discussion` and `Comment`. We might imagine that this code drives an online discussion forum. `Post` has three properties `author`, `content` and `createdAt` and one method `getCreatedAt()`. When we define `Comment` and `Discussion` we call the parent constructor method passiing in a reference the current context `this` and the child's `arguments`. This lets `Discussion` and `Comment` inherit `Post`'s properties and the `getCreatedAt()` method (this is equivalent to calling `super` in ES6). Child constructor functions can also implement their own properties and methods.
 
 We then instantiate `Comment` and `Discussion` instances using the `new` keyword as we would do with ES6 classes.
 
 
-## Inheritance with factory functions 
+## The inheritance pattern with factory functions 
+
+Its possible to implement pseudo-classical inheritance with factory functions, though this is not standard. Child "pseudo-classes" instantiate a plain object instance of their parent inside the scope, then mutate these objects adding new properties. The code below shows how we might implement our forum software inheritance pattern with factory functions.
 
 ```js
 function Post (options) {
@@ -135,9 +137,6 @@ console.log(frodoComment instanceof Object)
 
 ```
 
-To use factory functions we simply `return` plain objects. We may mutate these objects inside the factory function scope and add new properties.
-
-
 ## Differences
 
 We call Constructor functions using the `new` keyword while we call factory functions like regular functions. Constructor function instances can be checked against their constructor with the `instanceof` keyword while factory function instances are regular `Object` instances.
@@ -153,10 +152,9 @@ Discussion.prototype.addComment = function (comment) {
 }
 ```
 
-Other developers may prefer the simplicity of factory functions.
-
 ## Further Information
 
+  * [http://javascript.crockford.com/inheritance.html](http://javascript.crockford.com/inheritance.html)
   * [Pseudo-classical pattern](http://javascript.info/tutorial/pseudo-classical-pattern)
   * [Classical inheritance with Object.create()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#Classical_inheritance_with_Object.create())
   * [FunFunFunction - Factory Functions](https://www.youtube.com/watch?v=ImwrezYhw4w)
