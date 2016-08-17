@@ -92,4 +92,4 @@ React.js uses a `Component` class for [one of its methods](https://facebook.gith
 ## Further Information
 
   * [MDN - Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
-  * Dan Abramov outlines some [best practices](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.wdmybk5py) for using the class keyword in JavaScript
+  * Dan Abramov outlines some [best practices](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.wdmybk5py) for using the `class` keyword in JavaScript
