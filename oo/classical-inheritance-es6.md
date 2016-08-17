@@ -1,4 +1,4 @@
-ES6 introduced the `class` and `extends` and `super` keywords. These keywords provide another way to express prototypal inheritance using a syntax that may be more familiar to developers accustomed to it in many other programming languages. An example is shown below:
+ES6 introduced the `class` and `extends` and `super` keywords. These keywords provide another way to express [prototypal inheritance](https://developer.mozilla.org/en/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) using a syntax that may be more familiar to developers accustomed to it in many other programming languages. An example is shown below:
 
 ## Example
 
@@ -92,4 +92,4 @@ React.js uses a `Component` class for [one of its methods](https://facebook.gith
 ## Further Information
 
   * [MDN - Classes](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes)
-  * Dan Abramov outlines some [best practices](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.wdmybk5py) for using the class keyword in Javacript
+  * Dan Abramov outlines some [best practices](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.wdmybk5py) for using the class keyword in JavaScript
