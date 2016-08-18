@@ -80,8 +80,8 @@ To specify a route parameter (a variable in the URL which will be available in t
 ```jsx
 <Router history={hashHistory}>
   <Route path='/' component={App} />
-  <Route path='/wombats/:id' component={Wombats}
-  <Route path='/aardvarks/:name' component={Aardvarks}
+  <Route path='/wombats/:id' component={Wombats} />
+  <Route path='/aardvarks/:name' component={Aardvarks} />
 </Router>
 ```
 
