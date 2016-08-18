@@ -5,7 +5,7 @@ When the view changes, the user sees a different URL. The URL can be linked to f
 In React, we can manage client-side routing using [React Router](https://github.com/reactjs/react-router).
 
 
-## Routing to components
+### Routing to components
 
 ```jsx
 import React from 'react'
@@ -46,7 +46,7 @@ When we want to add a new route, we just add it inside the `Router` component:
 Each time you add a new route, you'll need to `import` the component that it references. Visitors to `/#/users` will see the `Users` component and not `App`.
 
 
-## Linking to routes
+### Linking to routes
 
 We can create links between our routes, but we don't do it using an anchor tag (`<a href=""></a>`). Instead, React Router provides us with a `Link` component:
 
@@ -73,7 +73,7 @@ import {Link} from 'react-router'
 The `to` prop in each `Link` tells us which route it's going to.
 
 
-## Route parameters
+### Route parameters
 
 To specify a route parameter (a variable in the URL which will be available in the route's component) React Router uses a similar scheme to many other libraries: a colon followed by the variable name.
 
@@ -98,7 +98,7 @@ render () {
 ```
 
 
-## Nesting routes and layouts
+### Nesting routes and layouts
 
 Routes can be nested inside each other. This is a bit like Handlebars templates using layouts and partials. For example, if we want all `/kumquat` routes to use a particular look and feel (perhaps a consistent header and footer) we can put that content in a component and specify it in our routing:
 
