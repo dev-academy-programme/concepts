@@ -31,5 +31,5 @@ function findImages(searchterm) {
 Some key ideas from this:
 
 - We track progress of Async calls using normal actions and state
-- The function returned by the is handled by thunk middleware
+- The function returned by the action creator is handled by thunk middleware
 - We return a promise we can do fancy stuff later
