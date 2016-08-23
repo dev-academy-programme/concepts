@@ -1,19 +1,22 @@
-The docs provide an excellent introduction on how to write asynchronous operations in the context of Redux.
+The [Redux docs](http://redux.js.org/docs/advanced/AsyncActions.html) provide an excellent introduction on how to write asynchronous operations in the context of Redux.
 
-http://redux.js.org/docs/advanced/AsyncActions.html
+We can dispatch async actions like this:
 
-> **Useful context** : on Reddit, a sub-forum is called a _subreddit_  e.g. www.reddit.com/r/NewZealand is a subreddit all about NZ, www.reddit.com/r/frontend is a subreddit about frontend dev.
+```jsx
+import {connect} from 'react-redux'
 
-The solution leads you to dispatching actions like this:
-
-```js
-store.dispatch(findImages('dragon')).then(() =>
-  // 
-  console.log(store.getState())
+let ShowImages = ({dispatch}) => (
+  <button
+    onClick={() => dispatch(findImages('wombats'))}>
+    Show wombat pics</button>
 )
+
+// Use react-redux to hook up the component to redux.
+// This will make `dispatch` available to the component as a prop.
+ShowImages = connect()(ShowImages)
 ```
 
-Here `findImages` is just an action creator, but a slightly fancy one (let's assume we're using [Superagent](https://github.com/visionmedia/superagent) to make the API call):
+Here `findImages` is just an action creator, but a slightly fancy one. Let's assume we're using [Superagent](https://github.com/visionmedia/superagent) to make the API call:
 
 ```js
 function findImages (searchterm) {
