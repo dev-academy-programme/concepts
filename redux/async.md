@@ -13,23 +13,28 @@ store.dispatch(findImages('dragon')).then(() =>
 )
 ```
 
-Here `findImages` is just an action creator, but a slightly fancy one:
+Here `findImages` is just an action creator, but a slightly fancy one (let's assume we're using [Superagent](https://github.com/visionmedia/superagent) to make the API call):
 
 ```js
-function findImages(searchterm) {
-
+function findImages (searchterm) {
   return (dispatch) => {
     dispatch(requestImages(searchterm))
 
-    return request.get(`https://api.instagram.com/v1/tags/search?q=${searchterm}`)
-      .then(response => response.json())
-      .then(json => dispatch(receiveImages(subreddit, json)))
+    request
+      .get(`https://api.instagram.com/v1/tags/search?q=${searchterm}`)
+      .end((err, res) => {
+        if (err) {
+          return dispatch(retrievalError(err))
+        }
+        dispatch(receiveImages(searchterm, res.body)))
+      })
   }
 }
 ```
 
 Some key ideas from this:
 
-- We track progress of Async calls using normal actions and state
-- The function returned by the action creator is handled by thunk middleware
-- We return a promise we can do fancy stuff later
+- We track progress of async calls using normal actions.
+- We can call dispatch more than once during the process.
+  - For example, we could display a loading spinner when the `REQUEST_IMAGES` action is dispatched.
+- The function returned by the action creator is handled by thunk middleware (which takes care of providing the `dispatch` parameter, and `getState` is also available if required).
