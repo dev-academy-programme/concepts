@@ -152,7 +152,7 @@ render () {
 Notice there's no leading `/` before the two nested routes. You'd need to reference `{this.props.children}` inside both `Wombats` and `Wombat`.
 
 
-## Resources
+### Resources
 
 - https://github.com/reactjs/react-router
 - https://medium.com/@dabit3/beginner-s-guide-to-react-router-53094349669#.6jw7gtaic
