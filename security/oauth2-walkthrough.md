@@ -33,7 +33,7 @@ The trouble is, many sites were _really bad at it_. You may like to read up on s
 
 Your site has a job: to protect the page (say, the user's settings page). The user must prove themselves, and to do that we send them to Facebook. They click on our "login with Facebook" button:
 
-![Authenticate with Facebook](facebook.png)
+![Authenticate with Facebook](https://raw.githubusercontent.com/dev-academy-programme/concepts/master/security/facebook.png)
 
 They are shown a Facebook login form, but not just any form! This form was obtained with a URL containing directions back to your site... after the user logs in, they are sent back to your site at the location you specify. With it, Facebook sends back a _CODE_. The user still can't access the protected page: all that has happened is that they have proven themselves to Facebook.
 
