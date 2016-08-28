@@ -1,4 +1,4 @@
-A [session](https://en.wikipedia.org/wiki/Session_(computer_science)) is a way our server can remember who a client is on repeated HTTP calls. If we didn't have sessions you would need to reenter your password every time you wanted to view a restricted page.
+A <a href="https://en.wikipedia.org/wiki/Session_(computer_science)">session</a> is a way our server can remember who a client is on repeated HTTP calls. If we didn't have sessions you would need to reenter your password every time you wanted to view a restricted page.
 
 In Express, sessions are provided by [middleware](https://expressjs.com/en/guide/using-middleware.html). You can install it like so:
 
