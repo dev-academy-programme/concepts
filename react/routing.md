@@ -45,6 +45,16 @@ When we want to add a new route, we just add it inside the `Router` component:
 
 Each time you add a new route, you'll need to `import` the component that it references. Visitors to `/#/users` will see the `Users` component and not `App`.
 
+We can use an `IndexRoute` component instead of a `Route` component if we want to specify a default route for our app. For example, we may wish to render a landing/home page when a user first loads our app. Notice how we don't have to specify a path. This is not needed because the `Landing` component is the default child for our `App` component and therefore the path would be `/`:
+
+```jsx
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Landing} />
+    </Route>
+  </Router>
+```
+
 
 ### Linking to routes
 
@@ -140,3 +150,9 @@ render () {
 ```
 
 Notice there's no leading `/` before the two nested routes. You'd need to reference `{this.props.children}` inside both `Wombats` and `Wombat`.
+
+
+### Resources
+
+- https://github.com/reactjs/react-router
+- https://medium.com/@dabit3/beginner-s-guide-to-react-router-53094349669#.6jw7gtaic
