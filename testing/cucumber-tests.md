@@ -1,5 +1,3 @@
-# Cucumber Tests
-
 Cucumber is a flavour of integration tests that aim to improve collaboration between technical and non-technical people in developing software. 
 
 tests are written in [Gherkin syntax](https://cucumber.io/docs/reference) which means that:
@@ -140,16 +138,10 @@ We can now start developing our features. With the features specc'd out develope
 
 When a feature is complete and its cucumber test passes the development team can deploy the latest version of the app to a staging server. This allows the client to see a live version of the app and provide feedback and clarifications before features go live on production and the development team to conduct user testing. Near the end of the release cycle the team and the client may sit down and work through the new features on the staging app and their specs before the features are formally accepted. 
 
-## Exercises
-
-[The cucumber branch of meowtown]({{ book.cohort }}meowtown/tree/cucumber) has some example cucumber testing setup and exercises to practice implementation.
-
-For more on how cucumber testing can be integrated into continuous delivery process see this [checklist]({{ book.cohort }}/continuous-deployment-circle-docker) 
-
 ## Further information
 This document references the following concepts and tools:
 
-Concepts:
+Related Concepts:
 
   * [Behaviour Driven Development (BDD)](https://en.wikipedia.org/wiki/Behavior-driven_development)
   * [Integration testing](/integration-testing.md)
