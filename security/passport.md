@@ -19,9 +19,9 @@ Strategies are kept in separate npm packages, contributed by a wide variety of a
 Passport's `local-strategy` package is what most people think of when they think authentication: the user registers with a username and password, which we store on the server. When they login, Passport checks their password using a function that we provide during configuration:
 
 ```js
-const localStrategy = require('local-strategy')
+const localStrategy = require('passport-local')
 
-app.use(new localStrategy((username, password, done) => {
+passport.use(new localStrategy((username, password, done) => {
   knex('users')
     .select()
     .where('username', username)
