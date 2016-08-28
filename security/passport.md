@@ -6,6 +6,12 @@ To install Passport:
 npm install passport --save
 ```
 
+Like any middleware, we need to tell Express about Passport:
+
+```js
+app.use(passport.initialize())
+```
+
 
 ### Strategies
 
@@ -16,7 +22,28 @@ Strategies are kept in separate npm packages, contributed by a wide variety of a
 
 ### Local strategy
 
-Passport's `local-strategy` package is what most people think of when they think authentication: the user registers with a username and password, which we store on the server. When they login, Passport checks their password using a function that we provide during configuration:
+Passport's `local-strategy` package is what most people think of when they think authentication: the user registers with a username and password, which we store on the server.
+
+There are a number of steps involved in configuring Passport for this strategy:
+
+ - we usually need to use forms which involves the `body-parser` package
+ - we need to configure our sessions
+ - if we're using flash messages, we have to tell Express
+
+All of this ends up looking a bit like the following:
+
+```js
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(expressSession({
+  resave: false,
+  secret: 'CHANGE THIS IN PRODUCTION!',
+  saveUninitialized: false
+}))
+app.use(passport.session())
+app.use(flash())
+```
+
+When the user logs in, Passport checks their password using a function that we provide during configuration:
 
 ```js
 const localStrategy = require('passport-local')
