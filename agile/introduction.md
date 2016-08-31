@@ -1,4 +1,4 @@
-Agile is an often-misused label for a development methodology that many profess to practice, but few actually implement.
+Agile is a methodology for software development whose aims include responsiveness, flexibility, and early/continuous delivery of products.
 
 
 ### Why?
@@ -34,12 +34,24 @@ Traditional teams are often siloed: all the management/architects together, all 
 
 ### Iteration
 
-In Agile, we try to incorporate a little of each phase of development into short cycles, often called _sprints_. The idea is to have code that could potentially be _shipped_ (deployed, published) at the end of each sprint. Two week sprints are common.
+In Agile, we try to incorporate a little of each phase of development (requirements, design, develop, etc) into short cycles, often called _sprints_. The idea is to have code that could potentially be _shipped_ (deployed, published) at the end of each sprint. Two week sprints are common.
 
 ![](https://raw.githubusercontent.com/dev-academy-programme/concepts/master/agile/agile.png)
 [Source](https://commons.wikimedia.org/wiki/File:Agile_Project_Management_by_Planbox.png)
 
 
+### The backlog
+
+A backlog is a list of tasks that together make up an application: if you completed all of them, you'd have a great product! Some are product features, but not all: documentation and bug fixes are also entered on the backlog. Items on the backlog may be further classified with labels: is it a feature or a bug? Is it considered part of the Minimum Viable Product? Is it frontend or backend, or both?
+
+
+### Sprint planning
+
+At the start of each sprint, a meeting is held which 
+
+
+
 ### Resources
 
  - http://agilemethodology.org/
+ - http://scrumreferencecard.com/
