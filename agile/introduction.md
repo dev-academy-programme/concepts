@@ -5,7 +5,7 @@ Agile is an often-misused label for a development methodology that many profess 
 
 Agile's origins date back to the 1970s. People started becoming frustrated with the traditional 'waterfall' model of development:
 
-![](https://raw.githubusercontent.com/dev-academy-programme/concepts/master/agile/waterfall.jpg)
+![](https://raw.githubusercontent.com/dev-academy-programme/concepts/master/agile/waterfall.png)
 
 Another way of describing this model is to think of it as a production line:
 
@@ -36,7 +36,7 @@ Traditional teams are often siloed: all the management/architects together, all 
 
 In Agile, we try to incorporate a little of each phase of development into short cycles, often called _sprints_. The idea is to have code that could potentially be _shipped_ (deployed, published) at the end of each sprint. Two week sprints are common.
 
-![](https://raw.githubusercontent.com/dev-academy-programme/concepts/master/agile/agile.jpg)
+![](https://raw.githubusercontent.com/dev-academy-programme/concepts/master/agile/agile.png)
 [Source](https://commons.wikimedia.org/wiki/File:Agile_Project_Management_by_Planbox.png)
 
 
