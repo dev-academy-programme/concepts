@@ -44,14 +44,39 @@ In Agile, we try to incorporate a little of each phase of development (requireme
 
 A backlog is a list of tasks that together make up an application: if you completed all of them, you'd have a great product! Some are product features, but not all: documentation and bug fixes are also entered on the backlog. Items on the backlog may be further classified with labels: is it a feature or a bug? Is it considered part of the Minimum Viable Product? Is it frontend or backend, or both?
 
+The backlog is likely to feature _user stories_, and may break each story into multiple tasks to be completed.
+
 
 ### Sprint planning
 
-At the start of each sprint, a meeting is held which 
+At the start of each sprint, a [meeting](http://www.leadingagile.com/2012/08/simple-cheat-sheet-to-sprint-planning-meeting/) is held to set the scope of the sprint, deciding which tasks will be completed by the end of it.
 
+
+### Stand-up
+
+Held daily, the stand-up (or "scrum") should be carefully timeboxed and starts even with missing team members. Everybody should report:
+
+ - what I did yesterday
+ - what I will do today
+ - any blocks
+
+This isn't the time for long discussions! Standups are for quick summaries. For most teams they shouldn't take longer than 15 minutes. A scrum master or similar role will keep track of blocks that might affect the ability of the team to deliver on time, and who on the team is assigned to resolve the block.
+
+
+### Sprint review
+
+Review the work that was completed, and what was not completed. Demo the working code. Don't demo what was not completed!
+
+
+### Sprint retrospective
+
+What went well? What could we do differently or better next time?
+
+This is a great chance to learn from the previous weeks. It should not be used as an opportunity to cast _blame_, however. Instead, identify _systemic_ problems. How could our team improve to overcome the difficulties we experienced?
 
 
 ### Resources
 
  - http://agilemethodology.org/
  - http://scrumreferencecard.com/
+ - http://www.leadingagile.com/2012/08/simple-cheat-sheet-to-sprint-planning-meeting/
