@@ -3,11 +3,6 @@ Software projects commonly require developers to write code that conforms to a s
  * Style guides have rules that catch common bugs
  * Developers use tools to automate the process of formatting and checking code to see if it conforms to a style (linting).
 
-## Exercise 
-
-{{book.cohort}}linting
-
-
 ## Resources
 
   * [Douglas Crokford: Programming Style & Your Brain](https://www.youtube.com/watch?v=_EANG8ZZbRs)
