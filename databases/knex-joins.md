@@ -10,7 +10,7 @@ Sometimes we need information from more than one table. If we keep our users in 
 | 12 | Tomsk          |
 | 3  | Uncle Bulgaria |
 
-*** user_demographics ***
+***user_demographics***
 
 | id | user_id | age |
 |:---|:--------|:----|
@@ -50,7 +50,7 @@ FROM dogs
 INNER JOIN breeds ON dogs.breed_id = breeds.id
 ```
 
-*** dogs ***
+***dogs***
 
 | id | name   | breed_id |
 |:---|:-------|:---------|
@@ -58,7 +58,7 @@ INNER JOIN breeds ON dogs.breed_id = breeds.id
 | 2  | Dexter | 3        |
 | 3  | Clarry | 2        |
 
-*** breeds ***
+***breeds***
 
 | id | name                  |
 |:---|:----------------------|
