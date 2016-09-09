@@ -42,6 +42,14 @@ knex('dogs')
   .select('dogs.name', 'breeds.name as breed')
 ```
 
+In raw SQL this translates to: 
+
+```sql
+SELECT dogs.name, breeds.name AS breed 
+FROM dogs
+INNER JOIN breeds ON dogs.breed_id = breeds.id
+```
+
 *** dogs ***
 
 | id | name   | breed_id |
@@ -108,3 +116,6 @@ Obviously that's not what we want! The solution is to provide another name, an _
     }
   ]
 ```
+So if we were to describe the above query in English we could say:
+
+"Join the dogs table and the breeds table where the breed id matches. Then return the data in two columns: "name" (the name column in the dogs table) and "breed" (the name column in the breeds table)."
