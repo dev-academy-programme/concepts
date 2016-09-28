@@ -113,7 +113,7 @@ render () {
 Routes can be nested inside each other. This is a bit like Handlebars templates using layouts and partials. For example, if we want all `/kumquat` routes to use a particular look and feel (perhaps a consistent header and footer) we can put that content in a component and specify it in our routing:
 
 ```jsx
-<Router history={hashHistory>
+<Router history={hashHistory}>
   <Route path='/' component={App} />
   <Route component={KumquatLayout}>
     <Route path='/kumquats' component={Kumquats} />
