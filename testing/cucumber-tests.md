@@ -1,6 +1,6 @@
 Cucumber is a flavour of integration tests that aim to improve collaboration between technical and non-technical people in developing software. 
 
-tests are written in [Gherkin syntax](https://cucumber.io/docs/reference) which means that:
+Tests are written in [Gherkin syntax](https://cucumber.io/docs/reference) which means that:
   * tests are human readable - people without technical understanding can participate directly in reading and writing tests
   * tests can clarify what the software should do from a user's perspective
   * tests follow a familiar pattern analogous to that of unit testing:  Given (arrange), When (act) Then (assert), and 
@@ -9,7 +9,7 @@ tests are written in [Gherkin syntax](https://cucumber.io/docs/reference) which 
 
 ## Cucumber in a BDD cycle
 
-A Behaviour Driven Development cycle that uses Cucumber might follow the following steps:
+A Behaviour Driven Development cycle that uses Cucumber might follow the following steps.
 
 
 ### 1. Intention clarification (user stories / jobs to be done)
@@ -64,16 +64,16 @@ Feature: Rain likelihood for location
     Then I see the text "It is likely to rain at your location in the next hour"
 ```
 
-Let's see how this style of feature specification can clarify its development:
+Let's see how this style of feature specification can clarify its development.
 
 First, the Job Story that the feature targets is written directly into the specification. This helps the team and the client understand how the software achieves the broad goals more specifically. Or at least our assumptions about these.
 
 Second, gherkin syntax is very specific. Does the user need to be signed in? Does the user need to click a button to request forecasts (maybe these should just be displayed by default). Clarifying these states and actions at this stage is much cheaper than re-building features later. 
 
 Third, we see that the feature spec contains some very specific information:
- * the longitude and latitude
- * the text displayed on the button, "Will it rain?"
- * the resulting forecast text, "It is likely to rain at your location in the next hour".
+ * The longitude and latitude
+ * The text displayed on the button, "Will it rain?"
+ * The resulting forecast text, "It is likely to rain at your location in the next hour"
 
 This can help the client and team understand what we need for the feature to work, and the specific content of the page. This feature will likely make use of a weather API which will need the user's location. If we don't have this information currently we'll have to find some way to get it first. 
 
@@ -89,7 +89,7 @@ The team can begin scaffolding the app, setting up the directory, the testing, b
 
 ### 4. Cucumber automation
 
-At the moment we have some text in a `/features/rain-likelihood.feature` file and you might be wondering how we will program a browser to run the test. This is the magic of cucumber. Cucumber interfaces betwen readable gherkin specs and less readable browser automation code. We still need to write this code and the following give an example of the automation code written with [WebDriver](http://webdriver.io/) that drives the feature spec above:
+At the moment we have some text in a `/features/rain-likelihood.feature` file and you might be wondering how we will program a browser to run the test. This is the magic of cucumber. Cucumber interfaces between readable gherkin specs and less readable browser automation code. We still need to write this code and the following gives an example of the automation code written with [WebDriver](http://webdriver.io/) that drives the feature spec above.
 
 ```js
 #/features/step_definitions/steps.js
@@ -132,16 +132,15 @@ The above  example code is specific to the Webdriver API and could be written wi
 
 ### 5. Development
 
-We can now start developing our features. With the features specc'd out developers can estimate their relative complexity. The Client or the Product Owner can prioritise the features they would like to developed. As development progresses a set of passing cucumber specs provide living documentation on what the software can and cannot do. 
+We can now start developing our features. With the features spec'd out, developers can estimate their relative complexity. The Client or the Product Owner can prioritise the features they would like developed. As development progresses, a set of passing cucumber specs provide living documentation about what the software can and cannot do. 
 
 ### 6. User acceptance tests
 
-When a feature is complete and its cucumber test passes the development team can deploy the latest version of the app to a staging server. This allows the client to see a live version of the app and provide feedback and clarifications before features go live on production and the development team to conduct user testing. Near the end of the release cycle the team and the client may sit down and work through the new features on the staging app and their specs before the features are formally accepted. 
+When a feature is complete and its cucumber tests pass, the development team can deploy the latest version of the app to a staging server. This allows the client to see a live version of the app and provide feedback and clarifications before features go live on production and the development team to conduct user testing. Near the end of the release cycle the team and the client may sit down and work through the new features on the staging app and their specs before the features are formally accepted. 
 
 ## Further information
-This document references the following concepts and tools:
 
-Related Concepts:
+This document references the following concepts and tools:
 
   * [Behaviour Driven Development (BDD)](https://en.wikipedia.org/wiki/Behavior-driven_development)
   * [Integration testing](/integration-testing.md)
@@ -156,5 +155,3 @@ Tools:
   * [Gherkin syntax](https://github.com/cucumber/cucumber/wiki/Gherkin)
   * [Webdriver](http://webdriver.io/)
   * [Selenium](http://www.seleniumhq.org/)
-
-
