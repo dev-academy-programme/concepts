@@ -113,5 +113,5 @@ app.listen(3000, function () {
 })
 ```
 
-Notice how this uses `res.render` in our route to tell Express to use the Handlebars engine we registered for `*.hbs` template files. We also told Express that our views are located in the `views` folder. Therefore, our `/` route is applying `data.home` to the template located at `views/home.hbs`.
+Notice how this uses `res.render` in our route to tell Express to use the Handlebars engine we registered for `*.handlebars` template files. We also told Express that our views are located in the `views` folder. Therefore, our `/` route is applying `data.home` to the template located at `views/home.handlebars`.
 
