@@ -27,30 +27,30 @@ Another useful way to specify a breakpoint in your code is by putting `debugger`
 Now anytime the debugger gets to line 3 it will automatically stop.
 
 
-## Node Inspector
+## Debugging in the browser and the `--inspect` flag
 
-Being able to step through your code in a terminal-type of environment is useful, but the debugging tools available inside of your browser are much more powerful. Node Inspector gives you the ability to use your browser's development tools to debug your server-side Node application. Think about that for a minute. Yes, this is very cool. To use Node Inspector in your project, install it as a dev dependency by running `npm install node-inspector --save-dev` in your terminal, and then add a script in your `package.json`:
+Historically, one of the most popular debugging tools in Node development was [Node Inspector](https://github.com/node-inspector/node-inspector). More recent versions of Node support the `--inspect` flag, which allows the V8 Inspector to attach to a node process. This means that you can use the Chrome DevTools debugger without the need for Node Inspector (in fact, Node Inspector does not work with Node versions greater than 6.3, and the project appears to have been shelved or abandoned).
+
+Being able to step through your code in a terminal-type of environment is useful, but the debugging tools available inside of your browser are much more powerful. Using `--inspect` gives you the ability to use your browser's development tools to debug your server-side Node application. Think about that for a minute. Yes, this is very cool. To use `--inspect` in your project, add a script in your `package.json`:
 
 ```js
-...
 "scripts": {
-  "debug": "node-debug server.js"
+  "debug": "node --inspect server.js"
 }
-...
 ```
 
-This can be run in your terminal using `npm run debug`. This will launch Google Chrome displaying its developer tools each time you run it.
+This can be run in your terminal using `npm run debug`. You'll see a console notification that looks like this:
 
-If you prefer to keep the dev tools open and refresh between runs, change `node-debug` to `node-inspector` in the npm script above.
-
-You can also install Node Inspector globally and run it from the terminal window. To do so, run this in your terminal:
-
-```sh
-npm install -g node-inspector
-node-debug my-script.js
+```
+Debugger listening on port 9229.
+Warning: This is an experimental feature and could change at any time.
+To start debugging, open the following URL in Chrome:
+    chrome-devtools://devtools/remote/serve_file/@60cd6e859b9f557d2312f5bf532f6aec5f284980/inspector.html?experiments=true&v8only=true&ws=localhost:9229/node
 ```
 
-Node Inspector isn't only useful for server-side web development. You can also use it for generic Node modules. However, if you are using it for server-side developement, you'll probably be interested in Nodemon too.
+Copy/paste that URL into your browser to start debugging. (If you want the debugger to stop on the very first line of code, you can add the `--debug-brk` flag to your script.)
+
+`--inspect` isn't only useful for server-side web development. You can also use it for generic Node modules. However, if you are using it for server-side developement, you'll probably be interested in Nodemon too.
 
 
 ## Nodemon
@@ -67,14 +67,12 @@ nodemon server
 
 ## Better together
 
-Nodemon and Node Inspector can also be used together. This allows you to debug using the rich developer tools in your browser and the application will restart each time you make a change. You can run the terminal commands above in two different terminal windows/tabs, but it is probably easier to create an npm script like this one:
+Nodemon and `--inspect` can also be used together. This allows you to debug using the rich developer tools in your browser and the application will restart each time you make a change. You can run the terminal commands above in two different terminal windows/tabs, but it is probably easier to create an npm script like this one:
 
 ```js
-...
 "scripts": {
-  "debug": "node-inspector & nodemon --debug server.js"
+  "debug": "nodemon --inspect server.js"
 }
-...
 ```
 
 Understanding how to debug your applications with tools more robust than `console.log` will put you in the driver seat to explore the entire runtime environment of your application. Be sure you use this capability to increase your understanding.
