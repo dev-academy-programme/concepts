@@ -77,5 +77,11 @@ Nodemon and `--inspect` can also be used together. This allows you to debug usin
 
 Understanding how to debug your applications with tools more robust than `console.log` will put you in the driver seat to explore the entire runtime environment of your application. Be sure you use this capability to increase your understanding.
 
+
+## Node Monkey
+
+Another debugging tool worth checking out is [Node Monkey](https://github.com/jwarkentin/node-monkey), which provides a way to show server output in the browser console, as well as issue debugging commands to your running program.
+
+
 **Challenge**: try to complete todays exercise without writing a single `console.log` for debugging!
 
