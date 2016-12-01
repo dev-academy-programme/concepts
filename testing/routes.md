@@ -6,9 +6,12 @@ We can test server routes using [Supertest](https://github.com/visionmedia/super
 We do this first and foremost by _exporting_ the Express `app` object from `server.js` (or wherever it happens to be defined):
 
 ```
+// server.js
 var app = express()
 
-// ...
+app.get('/example', function (req, res) {
+  res.send('WOMBAT')
+})
 
 module.exports = app
 ```
@@ -18,6 +21,8 @@ Importantly, we want to put the `app.listen()` call in another file (`index.js`,
 `index.js` can be pretty simple:
 
 ```
+// index.js
+
 var app = require('./server')
 var PORT = process.env.PORT || 3000
 
@@ -46,6 +51,7 @@ test('/example returns WOMBAT', function (t) {
     .get('/example')
     .end(function (err, res) {
       // Assert
+      t.error(err)
       t.equal(res.text, expected)
       t.end()
     })
