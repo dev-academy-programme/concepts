@@ -35,11 +35,11 @@ Being able to step through your code in a terminal-type of environment is useful
 
 ```js
 "scripts": {
-  "debug": "node --inspect server.js"
+  "debug": "node --debug-brk --inspect server.js"
 }
 ```
 
-This can be run in your terminal using `npm run debug`. You'll see a console notification that looks like this:
+(The `--debug-brk` flag stops execution on the first line, and is optional.) This can be run in your terminal using `npm run debug`. You'll see a console notification that looks like this:
 
 ```
 Debugger listening on port 9229.
@@ -71,9 +71,11 @@ Nodemon and `--inspect` can also be used together. This allows you to debug usin
 
 ```js
 "scripts": {
-  "debug": "nodemon --inspect server.js"
+  "debug": "nodemon --debug-brk --inspect server.js"
 }
 ```
+
+With current versions of Node, the debugger URL will change each time the server is restarted. The pain of this can be alleviated somewhat with [NIM](https://chrome.google.com/webstore/detail/nim/gnhhdgbaldcilmgcpfddgdbkhjohddkj), a Chrome plugin which reloads the debugger each time the URL changes. 
 
 Understanding how to debug your applications with tools more robust than `console.log` will put you in the driver seat to explore the entire runtime environment of your application. Be sure you use this capability to increase your understanding.
 
