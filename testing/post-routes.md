@@ -2,7 +2,8 @@ We can send 'fake' data to our POST routes to check that the response is what we
 
 We _could_ do this manually, by entering data into a form on a browser. However, we don't need to do this and it's probably better not to. We want to test in a way that's _automated_ and _repeatable_. We'll use [Supertest](https://github.com/visionmedia/supertest) to do our POST route testing.
 
-> Strictly speaking, this kind of test is not a _unit test_: we are testing our server, starting from the point where it receives a request to the moment it sends a response back to the client. You will hear people call this kind of test different names, but one common one is _end to end testing_. E2E tests involve more than one 'unit' of code, and they often follow the same path as a user making a request from the browser... we're just skipping the browser part!
+> Strictly speaking, this kind of test is not a _unit test_: we are testing our server, starting from the point where it receives a request to the moment it sends a response back to the client. Some tests involve more than one 'unit' of code, and they often follow the same path as a user making a request from the browser... we're just skipping the browser part!
+
 
 ### Example
 
