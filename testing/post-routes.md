@@ -5,7 +5,7 @@ We _could_ do this manually, by entering data into a form on a browser. However,
 > Strictly speaking, this kind of test is not a _unit test_: we are testing our server, starting from the point where it receives a request to the moment it sends a response back to the client. Some tests involve more than one 'unit' of code, and they often follow the same path as a user making a request from the browser... we're just skipping the browser part!
 
 
-### Example
+### Example: checking for confirmation
 
 Say we have a route that renders a Handlebars template and returns HTML confirming the form submission. We could test this like so:
 
@@ -60,3 +60,36 @@ Notice also that we're using the JavaScript string prototype function `.includes
 
 The route is obviously doing what it's told, but strictly speaking the text is different so the test will not pass. We could also `.trim` the string.
 
+
+### Example: server-side validation
+
+Sometimes users don't submit all the information they're supposed to! Maybe even most of the time. We shouldn't trust that all data we expect is actually being sent to our route. Try this on for size:
+
+```js
+test("POST '/' returns an error when name is missing", function (t) {
+  // Arrange
+  var formData = {
+    address: '1 Flargle Lane'
+  }
+  var expected = 'Error'
+
+  // Act
+  request(app)
+    .post('/')
+    .type('form')
+    .send(formData)
+    .end(function (err, res) {
+      var $ = cheerio.load(res.text)
+      var actual = $('body').html()
+
+      // Assert
+      t.error(err)
+      t.ok(actual.includes(expected))
+      t.end()
+    })
+})
+```
+
+This test looks for the word 'Error' in the HTML body as an indication that the route has returned with a notice letting the user know they didn't provide all the information we needed.
+
+Try writing the route so that both tests pass.
