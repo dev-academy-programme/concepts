@@ -9,6 +9,6 @@ Feature freeze is the time when you are not permitted to work on any new functio
 
 You've been pair programming for a couple of weeks now, but this is the first time you're going to build something on a team. Be sure you remain mindful during your group project. You're going to be under pressure to finish something under a time limit. You're going to want it to be great and something you can be proud of, and this could add to the pressure. You're going to need to depend on your teammates. Sometimes they won't disappoint you, and sometimes they will. How you react is up to you.
 
-Remember to have **I**ntegrity, **K**indness, and **E**ffort. Be open and honest with yourself and your team. Try to minimize surprises by being transparent. Keep the communication levels high and ask for help when you need it. Focus on setting up your teammates for success.
+Remember to have **I**ntegrity, **K**indness, and **E**ffort. Be open and honest with yourself and your team. Try to minimize surprises by being transparent. Keep the communication levels high and ask for help when you need it. Focus on setting up your teammates for success. And have fun!
 
 These group projects are as much about how you work together as what you build.
