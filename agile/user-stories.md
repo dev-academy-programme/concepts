@@ -5,7 +5,7 @@ One way to represent a feature you'd like your program to have is the [user stor
 
 User stories follow a distinct format:
 
-> As a _[ persona ]_ I want _[ feature ]_ so that I can _[ outcome ]_.
+> As a _[ persona ]_ I want _[ feature ]_ so that I can _[ justification ]_.
 
 Some examples:
 
@@ -17,4 +17,4 @@ Some examples:
 
 ### Why?
 
-User stories divide our programs into discrete 'chunks' that can easily be worked on separately. They help us understand and manage the _scope_ of our work: which features we should add next, and which are _must have_ as opposed to _nice to have_. They also help us to keep the end user in mind: you know, that person we're actually developing all this for!
+User stories divide our programs into discrete 'chunks' that can easily be worked on separately. They help us understand and manage the _scope_ and priority of our work: which features we should add next, and which are _must have_ as opposed to _nice to have_. They also help us keep the end user in mind: you know, that person we're actually developing all this for!
