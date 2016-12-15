@@ -27,6 +27,30 @@ Another useful way to specify a breakpoint in your code is by putting `debugger`
 Now anytime the debugger gets to line 3 it will automatically stop.
 
 
+## Visual Studio Code
+
+[VS Code](https://code.visualstudio.com) is an open source editor using the same Electron technology as Atom. It provides a debugging client that works without having to use the browser tools.
+
+To get started, we recommend you open the debugging tools (the little bug with a line through it on the toolbar) and click the start button (green arrow). It will ask you to choose an option from a list: choose _Node 6.3+_ for the most up-to-date debugger. It will show you a `launch.json` file which you can leave mostly unchanged. However, you may want to add a `skipFiles` option to your config:
+
+```json
+    "configurations": [
+        {
+            "name": "Launch Program",
+            "type": "node2",
+            "request": "launch",
+            "program": "${workspaceRoot}/app.js",
+            "cwd": "${workspaceRoot}",
+            "skipFiles": [
+                "node_modules/**/*.js"
+            ]
+        }
+    ]
+```
+
+This will avoid having the debugger stop on files that aren't your code: files that belong to packages like Express or Knex, for example. You should also change the "program" property to point to your main source file, probably `index.js` or `server.js`.
+
+
 ## Debugging in the browser and the `--inspect` flag
 
 Historically, one of the most popular debugging tools in Node development was [Node Inspector](https://github.com/node-inspector/node-inspector). More recent versions of Node support the `--inspect` flag, which allows the V8 Inspector to attach to a node process. This means that you can use the Chrome DevTools debugger without the need for Node Inspector (in fact, Node Inspector does not work with Node versions greater than 6.3, and the project appears to have been shelved or abandoned).
