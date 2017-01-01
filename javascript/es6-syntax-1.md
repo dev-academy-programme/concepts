@@ -4,7 +4,7 @@ While exploring the new ES6 syntax, you might consider using the Babel CLI (comm
 npm install -g babel-cli
 ```
 
-See [Babel CLI tools](https://babeljs.io/usage/cli/) for more information.
+See [Babel CLI tools](https://babeljs.io/docs/usage/cli/) for more information.
 
 
 ### Modules
