@@ -121,7 +121,7 @@ Notice that if you change `render` to `shallow`, the test will fail because shal
 
 ### Avoid 'brittle' tests
 
-It's very easy to take this kind of testing too far. We should test parts of the view that we know are essential to its correct operation. We should try to avoid testing minor details of view and layout that might change frequently. For example, if our test depends on their being a full-stop at the end of the page title and a designer later decides to take it out, our test will break for no good reason! This creates more work for the developer, and doesn't add much value.
+It's very easy to take this kind of testing too far. We should test parts of the view that we know are essential to its correct operation. We should try to avoid testing minor details of view and layout that might change frequently. For example, if our test depends on there being a full-stop at the end of the page title and a designer later decides to take it out, our test will break for no good reason! This creates more work for the developer, and doesn't add much value.
 
 
 ### How many?
