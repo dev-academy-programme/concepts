@@ -5,7 +5,7 @@ Sometimes forms in React can seem a bit clumsy, with lots of messing around in t
 
 Here's an example of a very simple RRF form:
 
-```
+```js
 import { Control, Form } from 'react-redux-form'
 
 // ...
