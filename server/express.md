@@ -175,12 +175,13 @@ test('routes.webapps response includes a querystring parameter', function (t) {
 
 You can see this route work by starting the server and running `curl http://localhost:3000/webapps?name=Robin` in your terminal.
 
+
 ### Route parameters
-Another way we can send data to the server from the client is by using route parameters. For example on github when you go to http://github.com/[org-name]/[repo-name] the github server is looking at those parts of the url to determine which data to show you.
+Another way we can send data to the server from the client is by using route parameters. For example on GitHub when you go to http://github.com/[org-name]/[repo-name] the GitHub server is looking at those parts of the URL to determine which data to show you.
 
 ```js
 app.get('/:org/:repo', function (req, res) {
-  res.send('Org: ' + req.params.org + ', Repo: ' + req.params.repo
+  res.send('Org: ' + req.params.org + ', Repo: ' + req.params.repo)
 })
 ```
 
