@@ -146,7 +146,7 @@ is just syntactic sugar for:
 
 ```js
   const setField = {}
-  setfield[evt.target.name] = evt.target.value
+  setField[evt.target.name] = evt.target.value
   Object.assign({}, this.state.item, setField) 
 ```
 
