@@ -19,9 +19,6 @@ We suggest not getting too tangled up in the debate. Learn the different ways to
 Here's an example of an uncontrolled component form:
 
 ```js
-export default React.createClass({
-  // ...
-
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
@@ -36,7 +33,6 @@ export default React.createClass({
       </form>
     )
   }
-})
 ```
 
 Here, each form element has a `ref` prop to which is assigned a very short anonymous function, setting whatever is passed to it as a property on `this` (here, `this` is the component).
