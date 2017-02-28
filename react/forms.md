@@ -40,7 +40,7 @@ Here's an example of an uncontrolled component form:
   }
 ```
 
-Each form element has a `ref` prop to which is assigned a very short anonymous function, setting whatever is passed to it as a property on `this` (the component). Using this approach, the value is grabbed from the element on the DOM and assigned to the component.
+Each form element has a `ref` prop to which is assigned a very short anonymous function, setting whatever is passed to it as a property on `this` (the component). Using this approach, the value is grabbed from the element on the DOM and assigned to the component. We don't have to define `this.name` and `this.description`, they're just places to keep the form data until we're ready to submit it. (Although you should take care not to choose names like `render` or anything that might conflict with existing properties on your component!)
 
 But here's the thing: there's actually no need for the `<form>` element at all! We could just as easily use something simpler:
 
@@ -155,7 +155,7 @@ is just syntactic sugar for:
   Object.assign({}, this.state.item, setField) 
 ```
 
-Translated again: if this.state.item used to be empty strings, after your form submission it'll look like this:
+After your form submission, the item will look like this in state:
 
 ```js
   {
