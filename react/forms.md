@@ -13,7 +13,7 @@ As usual on the Internet, lots of people have very strong opinions about how to 
 
 We suggest not getting too tangled up in the debate. Learn the different ways to work with forms, then pick the one that you think fits your need best. If it ends up not working so well for you, revisit this decision with your team to talk about what could have been improved.
 
-If you want a rule of thumb, try this:
+If you want a rule of thumb, here's one:
 
  - if your form is relatively simple, try using refs;
  - if it's complicated or likely to become so, try using controlled components.
