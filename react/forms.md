@@ -35,7 +35,7 @@ Here's an example of an uncontrolled component form:
   }
 ```
 
-Here, each form element has a `ref` prop to which is assigned a very short anonymous function, setting whatever is passed to it as a property on `this` (here, `this` is the component).
+Each form element has a `ref` prop to which is assigned a very short anonymous function, setting whatever is passed to it as a property on `this` (the component).
 
 But here's the thing: there's actually no need for the `<form>` element at all! We could just as easily use something simpler:
 
