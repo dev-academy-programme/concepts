@@ -11,7 +11,12 @@ There are various approaches to handling forms, but mostly they boil down to one
 
 As usual on the Internet, lots of people have very strong opinions about how to write forms! Facebook [recommends](https://facebook.github.io/react/docs/forms.html#alternatives-to-controlled-components) using controlled components for the most part, but not everyone agrees. [This comparison of the approaches](https://goshakkk.name/controlled-vs-uncontrolled-inputs-react/) is a fair summary.
 
-We suggest not getting too tangled up in the debate. Learn the different ways to work with forms, then pick the one that you think fits your need best. If it ends up not working so well for you, revisit this decision with your team to talk about what could have been improved. If you want a rule of thumb: if your form is relatively simple, try using refs; if it's complicated or likely to become so, try using controlled components.
+We suggest not getting too tangled up in the debate. Learn the different ways to work with forms, then pick the one that you think fits your need best. If it ends up not working so well for you, revisit this decision with your team to talk about what could have been improved.
+
+If you want a rule of thumb, try this:
+
+ - if your form is relatively simple, try using refs;
+ - if it's complicated or likely to become so, try using controlled components.
 
 
 ## Uncontrolled components
