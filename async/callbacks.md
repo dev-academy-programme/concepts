@@ -60,27 +60,6 @@ The first thing to notice about this example is that everything interesting happ
 The next thing to notice is that the callback has a very particular structure. It's an _error-first callback_, a common convention in the Node world which assumes that the first parameter of the callback will always be either an error object or `null`. We should always check the error to make certain it's `null` before we try to use the `data` parameter.
 
 
-## Writing to a file
-
-How about writing data to a file? It's almost exactly the same, with one more parameter: the data you want to write.
-
-```js
-var fs = require('fs')
-
-var content = 'This line goes into the file'
-
-fs.writeFile('animals.txt', content, 'utf8', function (err, data) {
-  if (err) {
-    console.error("Couldn't write file:", err.message)
-  } else {
-    console.log('Success!')
-  }
-})
-```
-
-Note that this will completely overwrite the previous contents of the file. You can _append_ content to an existing file with the `fs.appendFile` function.
-
-
 ## Callbacks in routes
 
 What would that look like in an Express route? Let's say we had to read a file in order to send the right response back to the user:
