@@ -44,11 +44,11 @@ Node programs often pass callback functions that handle the data you expect to r
 ```js
 var fs = require('fs')
 
-fs.readFile('animals.txt', 'utf8', function (err, data) {
+fs.readFile('animals.txt', 'utf8', function (err, animals) {
   if (err) {
     console.error("Couldn't read file:", err.message)
   } else {
-    console.log(data)
+    console.log(animals)
   }
 })
 ```
@@ -57,37 +57,27 @@ This program reads a file from the directory in which it was run, and outputs th
 
 The first thing to notice about this example is that everything interesting happens _inside the callback_. Remember, we're not making things happen ourselves: we're _defining_ what _will_ happen once `readFile` has finished its work: once it has either succeeded or failed to deliver the contents of the file.
 
-The next thing to notice is that the callback has a very particular structure. It's an _error-first callback_, a common convention in the Node world which assumes that the first parameter of the callback will always be either an error object or `null`. We should always check the error to make certain it's `null` before we try to use the `data` parameter.
-
-
-## Callbacks in routes
-
-What would that look like in an Express route? Let's say we had to read a file in order to send the right response back to the user:
-
-```js
-app.get('/users', function (req, res) {
-  // ...
-})
-```
-
-Well, before we get started, take a look at that: routes already use callbacks! We pass a function into `app.get` as the second argument. When it's ready, it will call it for us and provide us with the `req` and `res` parameters. So we've been using callbacks anyway without really thinking about it.
-
-```js
-app.get('/users', function (req, res) {
-  fs.readFile('users.txt', 'utf8', function (err, data) {
-    if (err) {
-      res.sendStatus(500)
-      return
-    }
-    res.send(data)
-  })
-})
-```
-
-Notice again that everything happens _inside_ the callback passed to `readFile` (which, if you want to get technical, is inside the callback passed to `app.get`)!
-
-1. First, we check for an error.
-2. If there's an error, we send a status 500 (server error) which reports a problem with the server.
-3. Otherwise, we send back the data we got from the file.
+The next thing to notice is that the callback has a very particular structure. It's an _error-first callback_, a common convention in the Node world which assumes that the first parameter of the callback will always be either an error object or `null`. We should always check the error to make certain it's `null` before we try to use the `animals` parameter.
 
 This is a really common pattern in JavaScript programs. You'll be seeing it a lot, so get some practice in!
+
+
+## Named callbacks
+
+The callback doesn't have to be an anonymous function. It's often better to use a named function, both because it can be re-used and because it can be more readable:
+
+```js
+fs.readFile('birds.txt', 'utf8', displayFileContents)
+fs.readFile('trees.txt', 'utf8', displayFileContents)
+
+function displayFileContents (err, contents) {
+  if (err) {
+    console.error("Couldn't read file:", err.message)
+  } else {
+    console.log(contents)
+  }
+})
+```
+
+Right away this makes our code a bit more DRY. We have to do the same thing with both files so why write the function twice? It can also make the code easier to debug since we only have to look in one location for the problem.
+
