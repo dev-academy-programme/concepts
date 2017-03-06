@@ -23,68 +23,38 @@ In this example, `para` refers to a property on the `data` object used as the da
 <p>Hi, I'm a paragraph.</p>
 ```
 
-### Manual rendering
 
-To see how to use the template engine, we'll first do this outside of Express by using only JavaScript, Node.js and the `handlebars` npm package.
+### Layouts and partials
 
-{% raw %}
-```js
-var handlebars = require('handlebars')
+One of the great things about using a templating engine is the ability to remove most of the HTML duplication from your web app. Layouts and partials are the feature that helps you do this. Layouts represent the structural part of each page. For example, if each of your pages had a header, a footer and navigation down the left side, you can define this structure in a layout file. Of course the main part of the page will depend on the route the user is navigating to. And this dynamic page needs to exist within the layout. Use `{{{body}}}` (that's right, 3 curly braces wrapping the word `body`) to specify where the rest of the page will go. Here is an example:
 
-var simpleTemplate = '<p>{{para}}</p>'
-var createSimpleResult = handlebars.compile(simpleTemplate)
-var simpleResult = createSimpleResult(data)
-
-console.log(simpleResult)
+```xml
+<body>
+  <header>...</header>
+  <div class="left-nav">...</div>
+  <div class="main-container">
+    {{{body}}}
+  </div>
+  <footer>...</footer>
+</body>
 ```
-{% endraw %}
 
-Notice how the `compile` step returns a function that accepts the data to apply to the template. How about the conditionals and iterations that was mentioned earlier?
+If you have some HTML that is repeated multiple times on a single page or throughout the app, the HTML can be placed within a partial and applied wherever it's needed. Using partials, you only need to make a change once, in the partial, and the change will take effect everywhere the partial is used. For example of how partials are used, consider this scenario. If you're showing a contact card for each user, you can define the markup of the contact card in a separate file and include it when you need it.
 
-{% raw %}
-```js
-var handlebars = require('handlebars')
+```xml
+<!-- contact-card.hbs -->
+<div class="contact-card">
+  <img src="{{imgUrl}}">
+  <div class="name">{{name}}</div>
+</div>
 
-var data = {
-  trueBool: true,
-  cool: 'okay, this is cool',
-  colours: ['red', 'green', 'blue'],
-  obj: {
-    prop: 'nested object property'
-  }
-}
-
-// conditional
-var conditionalTemplate = '<p>' +
-  '{{#if trueBool}}' +
-  'truthy :)' +
-  '{{else}}' +
-  'falsey :(' +
-  '{{/if}}' +
-  '</p>'
-var createConditionalResult = handlebars.compile(conditionalTemplate)
-var conditionalResult = createConditionalResult(data)
-console.log(conditionalResult)
-
-// iterator
-var iteratorTemplate = '<ul>\n' +
-  '{{#each colours}}' +
-  '  <li>{{this}}</li>\n' +
-  '{{/each}}' +
-  '</ul>'
-var createIteratorResult = handlebars.compile(iteratorTemplate)
-var iteratorResult = createIteratorResult(data)
-console.log(iteratorResult)
-
-// nested objects
-var nestedTemplate = '<p>{{obj.prop}}</p>'
-var createNestedResult = handlebars.compile(nestedTemplate)
-var nestedResult = createNestedResult(data)
-console.log(nestedResult)
+<!-- contacts.hbs -->
+{{#each contacts}}
+  {{> contact-card}}
+{{/each}}
 ```
-{% endraw %}
 
-In the iterator example, because we want to output the current item of the array, and it isn't named, we simply refer to it as `this`. While the syntax of the template doesn't change, the way we invoke the template engine is much easier when we're using Express.js.
+Partials are referenced based on their filename (without the file extension) and can be referenced from page templates, layouts or even other partials; pretty much from anywhere.
 
 
 ### Rendering with Express.js
@@ -100,16 +70,15 @@ var data = require('./data')
 
 var app = express()
 
-app.engine('hbs', hbs())
+app.engine('hbs', hbs(
+  extname: 'hbs',
+  defaultLayout: 'main'
+))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.get('/', function (req, res) {
   res.render('home', data.home)
-})
-
-app.listen(3000, function () {
-  console.log('Listening on 3000')
 })
 ```
 
