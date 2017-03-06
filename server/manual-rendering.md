@@ -61,5 +61,3 @@ console.log(nestedResult)
 
 In the iterator example, because we want to output the current item of the array, and it isn't named, we simply refer to it as `this`. While the syntax of the template doesn't change, the way we invoke the template engine is much easier when we're using Express.js.
 
-
-

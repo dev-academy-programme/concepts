@@ -28,6 +28,7 @@ In this example, `para` refers to a property on the `data` object used as the da
 
 One of the great things about using a templating engine is the ability to remove most of the HTML duplication from your web app. Layouts and partials are the feature that helps you do this. Layouts represent the structural part of each page. For example, if each of your pages had a header, a footer and navigation down the left side, you can define this structure in a layout file. Of course the main part of the page will depend on the route the user is navigating to. And this dynamic page needs to exist within the layout. Use `{{{body}}}` (that's right, 3 curly braces wrapping the word `body`) to specify where the rest of the page will go. Here is an example:
 
+{% raw %}
 ```xml
 <body>
   <header>...</header>
@@ -38,9 +39,11 @@ One of the great things about using a templating engine is the ability to remove
   <footer>...</footer>
 </body>
 ```
+{% endraw %}
 
 If you have some HTML that is repeated multiple times on a single page or throughout the app, the HTML can be placed within a partial and applied wherever it's needed. Using partials, you only need to make a change once, in the partial, and the change will take effect everywhere the partial is used. For example of how partials are used, consider this scenario. If you're showing a contact card for each user, you can define the markup of the contact card in a separate file and include it when you need it.
 
+{% raw %}
 ```xml
 <!-- contact-card.hbs -->
 <div class="contact-card">
@@ -53,6 +56,7 @@ If you have some HTML that is repeated multiple times on a single page or throug
   {{> contact-card}}
 {{/each}}
 ```
+{% endraw %}
 
 Partials are referenced based on their filename (without the file extension) and can be referenced from page templates, layouts or even other partials; pretty much from anywhere.
 
