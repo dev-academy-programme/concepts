@@ -76,38 +76,3 @@ var app = express()
 app.use(bodyParser.json())
 ```
 
-## Consuming APIs with jQuery
-
-The APIs we expose can be _consumed_ by any HTTP client. jQuery has a number of methods with varying features and complexity. The `$.ajax()` method is a low-level method the other methods use. It has a lot of features, but is also the most complex. Here is a simple way to use it:
-
-```js
-function getWidget () {
-  $.ajax('/widgets', {
-    success: function (widgets) {
-      // widgets is the response data
-      widgets.forEach(function (widget) {
-        $('#widgets').append('<p>' + widget.name + '</p>')
-      })
-    },
-    error: function (jqxhr) {
-      // jqxhr is the XMLHTTPResponse object
-      $('#status').text('Error: ' + jqxhr.responseText)
-    }
-  })
-}
-```
-
-jQuery also has a `$.get()` method which is a little easier to use, but is only for issuing HTTP GET requests.
-
-```js
-$.get('/widgets', function (widgets) {
-  // widgets is the response data
-  widgets.forEach(function (widget) {
-    $('#widgets').append('<p>' + widget.name + '</p>')
-  })
-})
-.fail(function (jqxhr) {
-  // jqxhr is the XMLHTTPResponse object
-  $('#status').text('Error: ' + jqxhr.responseText)
-})
-```
