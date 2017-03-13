@@ -26,9 +26,10 @@ In this example, `para` refers to a property on the `data` object used as the da
 
 ### Layouts and partials
 
+{% raw %}
+
 One of the great things about using a templating engine is the ability to remove most of the HTML duplication from your web app. Layouts and partials are the feature that helps you do this. Layouts represent the structural part of each page. For example, if each of your pages had a header, a footer and navigation down the left side, you can define this structure in a layout file. Of course the main part of the page will depend on the route the user is navigating to. And this dynamic page needs to exist within the layout. Use `{{{body}}}` (that's right, 3 curly braces wrapping the word `body`) to specify where the rest of the page will go. Here is an example:
 
-{% raw %}
 ```xml
 <body>
   <header>...</header>
