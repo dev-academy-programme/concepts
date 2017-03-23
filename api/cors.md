@@ -7,7 +7,7 @@ The origin of a resource is defined by its URL. Specifically, the part of the UR
 
 * http://foo.com and https://foo.com: **cross-origin** because of different [URI schemes](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) (http/https)
 * http://www.foo.com and http://blog.foo.com: **cross-origin** because of different [hostnames](https://en.wikipedia.org/wiki/Hostname) (www/blog)
-* http://foo.com:3000 and http://foo.com:8080: **cross-origin** because of different [ports](https://en.wikipedia.org/wiki/Port_(computer_networking) (3000/8080)
+* http://foo.com:3000 and http://foo.com:8080: **cross-origin** because of different [ports](https://en.wikipedia.org/wiki/Port_(computer_networking)) (3000/8080)
 * http://foo.com and http://bar.com: **cross-origin** because of different domain names (foo/bar)
 * http://foo.com/profile and http://foo.com/v1/users: **same-origin**
 
