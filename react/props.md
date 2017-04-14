@@ -4,15 +4,17 @@ Components receive their data in the form of props. If we wanted to make the hea
 // Header.jsx
 import React from 'react'
 
-export default React.createClass({
+class Header extends React.Component {
   render() {
     return (
-    <div>
-      <h1>{this.props.text}</h1>
-    </div>
+      <div>
+        <h1>{this.props.text}</h1>
+      </div>
     )
   }
-})
+}
+
+export default Header
 ```
 
 Notice how it is using `this.props.text` to get the value. This prop is passed in using what looks like an HTML attribute of the same name, `text`. Props can be named anything that is a valid JavaScript identifier.
@@ -22,13 +24,15 @@ Notice how it is using `this.props.text` to get the value. This prop is passed i
 import React from 'react'
 import Header from './Header'
 
-export default React.createClass({
+class App extends React.Component {
   render() {
     return (
-    <div>
-      <Header text="This Page is About Cats" />
-    </div>
+      <div>
+        <Header text="This Page is About Cats" />
+      </div>
     )
   }
-})
+}
+
+export default App
 ```

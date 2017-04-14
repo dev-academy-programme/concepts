@@ -6,7 +6,7 @@ This is an example of a component:
 // Header.jsx
 import React from 'react'
 
-export default React.createClass({
+class Header extends React.Component {
   render() {
     return (
     <div>
@@ -14,7 +14,9 @@ export default React.createClass({
     </div>
     )
   }
-})
+}
+
+export default Header
 ```
 
 This component will be imported into the app using:
@@ -24,7 +26,7 @@ This component will be imported into the app using:
 import React from 'react'
 import Header from './Header'
 
-export default React.createClass({
+class App extends React.Component {
   render() {
     return (
     <div>
@@ -32,5 +34,7 @@ export default React.createClass({
     </div>
     )
   }
-})
+}
+
+export default App
 ```
