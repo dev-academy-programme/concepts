@@ -16,9 +16,9 @@ class App extends React.Component {
 
 JSX works really well with React as we are using it to describe what the UI looks like (our View).
 
-While it **looks** like HTML, be warned, **JSX is not HTML**. JSX actually gets transpiled into javascript. As such, there are number of *gotchas* to be aware of:
+While it **looks** like HTML, be warned, **JSX is not HTML**. JSX actually gets transpiled into javascript. As such, there are a number of *gotchas* to be aware of:
 
-1. Adjacent JSX elements must be enclosed in an enclosing tags:
+1. Adjacent JSX elements must be enclosed in an enclosing tag:
 
 ```js
 // BAD
@@ -72,7 +72,7 @@ render () {
   const title = "Hello World!"
   return (
     <div>
-      <h1>title<h1>
+      <h1>title<h1> // outputs title
       <p>1+2+3</p> // outputs 1+2+3
     </div>
   )
@@ -83,7 +83,7 @@ render () {
   const title = "Hello World!"
   return (
     <div>
-      <h1>{title}</h1>
+      <h1>{title}</h1> // outputs Hello World!
       <p>{1+2+3}</p> // outputs 6
     </div>
   )
