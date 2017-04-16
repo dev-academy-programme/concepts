@@ -6,7 +6,6 @@ Previously, we've learnt to declare our routes directly within our `server.js` f
  */
 
 var express = require('express')
-var routes = require('./routes')
 
 var PORT = 3000
 var app = express()
