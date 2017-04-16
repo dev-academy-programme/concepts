@@ -118,3 +118,36 @@ Notice how the string is deliniated with backticks to indicate it is a template 
 For more information, check out [ES6 In Depth](https://hacks.mozilla.org/2015/05/es6-in-depth-template-strings-2/).
 
 There is a lot more about ES6 to learn, but that is enough for now. Feel free to explore - there are a lot of really nice additions. There are really good resources on ES6/2015 online.
+
+### Object.assign()
+
+This method is used to copy the properties of one or more objects to a target object. This is extremely useful when we need to create a new object using the properties of another object, but we don't want to change or *mutate* the original object.
+
+```js
+Object.assign(target, ...sources)
+```
+
+*target*: The first parameter is the target object, which will end up with all the properties we plan to copy over.
+
+*sources*: One or more objects separated by commas, which properties will be copied to the target object. It is important to note that the order in which you apply the source objects to the target object matters. Properties defined in later source objects will override the same property name in earlier source objects.
+
+For example, let's say that we had the following object:
+
+```js
+const userInfo = {
+  username: 'alice',
+  email: 'alice@gmail.com',
+  authenticated: false 
+}
+```
+
+Now, we want to modify the property `authenticated` to true, but we don't want to change the userInfo object, and instead create a whole new object. We can do this:
+
+```js
+const newUserInfo = Object.assign({}, userInfo, { authenticated: true })
+```
+
+Let's have a think about what the above line of code is doing:
+1. The first parameter is the target, which is an empty object.
+2. The second parameter is the user info that we want to copy into the first empty object
+3. The last parameter is another object, but it has a property `authenticated` which also exists in the *userInfo* object, and so overrides the same property in the *userInfo*.
