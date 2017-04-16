@@ -46,7 +46,7 @@ If we use `get`, we can extract the values using `req.query` like this:
 
 ```js
 ...
-app.get('/greetings', function (req, res) {
+router.get('/greetings', function (req, res) {
   var greeting = req.query.say
   var recipient = req.query.to
   ...
@@ -65,7 +65,7 @@ app.use(bodyParser.urlencoded())
 
 ...
 
-app.post('/greetings', function (req, res) {
+router.post('/greetings', function (req, res) {
   var greeting = req.body.say
   var recipient = req.body.to
   ...

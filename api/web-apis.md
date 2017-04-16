@@ -14,38 +14,9 @@ Routes are exposed for web APIs in the same way they are for routes that return 
 
 There are a few different things you should notice about the code samples below. The endpoints they define use an `:id` syntax and `req.params` rather than `req.query` we've seen before. Using route params is more explicit and much more common with REST web APIs.
 
-### Express.js routes
+### Returning JSON
 
-There are a number of different ways to expose routes in Express.js. 
-
-1. We can define them in the main file that starts the server. This is often done with an anonymous function.
-
-  ```js
-  app.get('/widgets/:id', function (req, res) {
-    var id = req.params.id
-    res.json({id: id, name: 'Good widget'})
-  })
-  ```
-
-2. We can define the route in the main server file, but delegate the function to a separate module.
-
-  ```js
-  // server.js
-  var routes = require('./routes')
-  app.get('/widgets/:id', routes.getWidget)
-
-  // routes.js
-  module.exports = {
-    getWidget: getWidget
-  }
-
-  function getWidget (req, res) {
-    var id = req.params.id
-    res.json({id: id, name: 'Better widget'})
-  }
-```
-
-3. Or we can define the base routes in the main server file and delegate all routes off of the base in separate route files.
+We use `res.json` to return JSON to the caller:
 
   ```js
   // server.js
@@ -64,9 +35,9 @@ There are a number of different ways to expose routes in Express.js.
   module.exports = router
   ```
 
-The code snippets above use `res.json` to return JSON to the caller. Notice how they just use a normal JavaScript object. The `.json()` method will take care of serialising the object to JSON.
+Notice how it just uses a normal JavaScript object. The `.json()` method will take care of serialising the object to JSON.
 
-Using the `body-parser` middleware module, Express.js is also capable of receiving JSON in the request body. This is common when using the POST and PUT verbs to insert and update resources.
+Don't forget Express.js is also capable of receiving JSON in the request body using the `body-parser` middleware module. This is common when using the POST and PUT verbs to insert and update resources.
 
 ```js
 // server.js
