@@ -1,4 +1,4 @@
-Previously, we've learnt to separate routes into their own file, by exporting them as functions and requiring them within our `server.js` file:
+Previously, we've learnt to declare our routes directly within our `server.js` file:
 
 ```js
 /*
@@ -11,32 +11,22 @@ var routes = require('./routes')
 var PORT = 3000
 var app = express()
 
-app.get('/', routes.index)
+app.get('/', function (req, res) {
+    res.send('<h1>Hello world</h1>')
+})
 
 app.listen(PORT, function () {
   console.log('The server is listening on port', PORT)
 })
-
-/*
- * routes.js
- */
-
-module.exports = {
-  index: index
-}
-
-function index (req, res) {
-  res.send('<h1>Hello world</h1>')
-}
 ```
 
-However, Express has built in functionality to take care of this also:
+However, as we add more routes to our Express server, this can become cumbersome. Express has built in functionality to separate our routes and make our code more modular:
 
 ### Express Router
 
 We can use `express.Router` to create modular route handlers. The following example creates a router as a module, defines some routes, and mounts the router module on a path in the main app (`server.js`).
 
-Let's say we wanted to create a `/birds` route where we can:
+Let's say we want to create a `/birds` route where we can:
 - view a list of birds via get `/birds`
 - view a single bird by id via get `/birds/:id`
 - add a new bird via post `/birds`
@@ -75,7 +65,7 @@ router.get('/:id', function (req, res) {
   // ...
 })
 
-router.post('/:id', function (req, res) {
+router.post('/', function (req, res) {
   // ...
 })
 
