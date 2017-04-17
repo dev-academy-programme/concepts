@@ -109,5 +109,6 @@ Understanding how to debug your applications with tools more robust than `consol
 Another debugging tool worth checking out is [Node Monkey](https://github.com/jwarkentin/node-monkey), which provides a way to show server output in the browser console, as well as issue debugging commands to your running program.
 
 
-**Challenge**: try to complete todays exercise without writing a single `console.log` for debugging!
+## Challenge
 
+Try to complete today's exercise without writing a single `console.log` for debugging!
