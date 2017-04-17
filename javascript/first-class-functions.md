@@ -32,12 +32,11 @@ Both `triple` and `engorgio` refer to the same function. But the fun does not st
 
 A good example of this is the filter function, probably the most basic and useful higher order function. It's a function that operates on an array, and accepts another function as an argument that it uses to return a new filtered version of the array.
 
-Let's pop over to this repl.it and have a play: [https://repl.it/CGjq](https://repl.it/CGjq).
+Let's pop over to this repl.it and have a play: [https://repl.it/CGjq](https://repl.it/CGjq/26).
 
 So, to recap:
 
-  - We can store functions in variables
-  - We can store functions as properties of other objects
-  - Functions can have properties
-  - We can pass functions as arguments into other functions
-
+* We can store functions in variables
+* We can store functions as properties of other objects
+* Functions can have properties
+* We can pass functions as arguments into other functions
