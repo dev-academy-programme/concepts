@@ -1,8 +1,8 @@
 React components use two different kinds of data: _state_ and _props_. State is data that undergoes change within a component, and props is data that is passed to a component for rendering, and should not change.
 
 One way to think of the difference is:
-- **State** is data created **within** a React Component and can be changed within a component using `this.setState()`
-- **Props** is data **passed down** from a parent Component and should not be changed.
+- **State** is data **created within** a React Component and can be changed within a component using `this.setState()`
+- **Props** is data **passed into** a Component from its parent and should not be changed.
 
 One use of state is the data returned from API calls. In this example, the `<App />` component consumes a web API to retrieve widgets.
 

@@ -1,4 +1,4 @@
-In order to respond to user events, component functions can be bound to [virtual ] DOM events. In this example, a `addToCart` function in the `<ItemList />` component is called when a button is clicked in the `<Item />` component.
+In order to respond to user events, component functions can be bound to [virtual] DOM events. In this example, an `addToCart` function in the `<ItemList />` component is called when a button is clicked in the `<Item />` component.
 
 ```js
 // ItemList.js

@@ -1,4 +1,4 @@
-When we're defining a component in React, we know that at least two methods are required: `constructor(props)`, and `render()`.
+When defining a stateful component in React, at least two methods are required: `constructor(props)`, and `render()`.
 
 There are other methods you can add which React components will pick up and use during the 'lifecycle' of a component.
 Read about them here : https://facebook.github.io/react/docs/component-specs.html#lifecycle-methods
