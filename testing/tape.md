@@ -20,7 +20,6 @@ test("test some basic js", function (t) {
 })
 ```
 
-You'll probably want to improve the output of the test run with one of the recommended modules on the Tape website, for example `tap-spec` which turns tests red when they fail, and green when they pass. Remember, *red | green | refactor*!
+You'll probably want to improve the output of the test run with one of the recommended modules on the Tape website, for example `tap-diff` which turns tests red when they fail, and green when they pass. Remember, *red | green | refactor*!
 
 Have a look at this [simple demo]({{ book.cohort }}tape-demo) of a Tape setup if you want to have a quick play yourself.
-
