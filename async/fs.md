@@ -16,19 +16,18 @@ var path = require('path')
 
 function readAsync () {
   var studentsFile = path.join(__dirname, 'students.json')
-  fs.readFile(studentsFile, showContents)
+  fs.readFile(studentsFile, 'utf-8', showContents)
 }
 
-function showContents (err, buffer) {
+function showContents (err, contents) {
   if (err) {
     return console.log(err.message)
   }
-  var studentJson = buffer.toString()
-  console.log(studentJson)
+  console.log(contents)
 }
 ```
 
-The contents of the file, `buffer`, will be passed into our error-first callback function. We're console logging the contents if no error was provided.
+The contents of the file, `contents`, will be passed into our error-first callback function. We're console logging the contents if no error was provided.
 
 
 ### Writing a text file
