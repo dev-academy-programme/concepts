@@ -9,7 +9,7 @@ class ItemList extends React.Component {
    
   constructor(props) {
     super(props)
-    this.addToCart.bind(this)
+    this.addToCart = this.addToCart.bind(this)
   }
 
   addToCart (itemID) {
@@ -22,6 +22,7 @@ class ItemList extends React.Component {
         {this.props.items.map((item) => {
           return <Item
             key={item.id}
+            id={item.id}
             name={item.name}
             addToCart={this.addToCart}
           />
