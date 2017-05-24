@@ -10,27 +10,6 @@
 
 Object orientation is a paradigm or style of designing software, which models the solution into _objects_. Objects are constructs that include both data (called properties) and behaviour (called methods). For example, a `dog` object could have a `hairColor` and `isTired` properties as well as `bark()` and `sleep()` methods. By combining the data and behaviour into a single construct, it is possible for the behaviour of an object to modify the data of the object. Objects are often designed around real world objects.
 
-Object orientation promotes some notable concepts in software design.
-
-* Encapsulation: the ability to hide data within an object and only provide access through its methods.
-* Inheritance: the ability to create `is-a-type-of` object heirarchies (e.g. a Labrador is a type of Dog is a type of Mammal).
-* Polymorphism: the ability for a method call to invoke the correct implementation based on the object's type.
-
-### Encapsulation
-
-When properties and methods are defined on a class, they can be designated with access modifiers (public, private, protected, etc.) that define which parts of the program have access to them.
-
-
-## Classical inheritance
-
-Objects are _instances_ of a _class_. A class is a type definition that describes the name and data type of the properties and the signatures of methods.
-
-
-## Prototypal inheritance
-
-Constructor functions (the ones that are capitalised) each have a property on them called `prototype` (this comes from the prototype of `Function`). When an instance of a type is created, that instance is simply a copy of that `prototype` property. To create a _is type of_ relationship, a constructor function just needs its `prototype` property to be linked with the prototype chain of the super-type.
-
-
 ## Notes/progression from the lecture
 
 Order that we built the demo files:
@@ -43,9 +22,69 @@ Flow of the discussion:
 
 * We want a construct that has data and behaviour (the defining characteristic of OO)
   - Create an object with `{}`
-* Now we want a lot of them (all with the same shape)
+```js
+  const rectangle = {
+    width: 100,
+    height: 200,
+    getArea: () => {
+      return this.width * this.height
+    }
+  }
+```
+`this` is always going to be in a function, and refers to the object the function belonged to when it was called.
+
+* This is fine when you want one, but what happens when you want a lot of them (all with the same properties/shape)
   - Refactor into a function that takes arguments
-* Now we want an object that's mostly similar to an existing one
+  
+```js
+function getRectangle (width, height) {
+  return {
+    width: width,
+    height: height,
+    getArea: () => {
+      return this.width * this.height
+    }
+  }
+}
+```
+* Now we want an object that's mostly similar to an existing one (i.e. a subtype - square from a rectangle)
+
+```js
+function getSquare (size, color) {
+  return {
+    width: size,
+    height: size,
+    color: color,
+    getArea: () => {
+      return this.width * this.height
+    }
+  }
+}
+```
+
+* Now we have some duplication when we really don't need it. Let's reuse the rectangle from the square.
+
+```js
+function getSquare (size, color) {
+  const square = getRectangle(size, size)
+  square.color = color
+  return square
+}
+```
+
+* the drawbacks of this approach is that a rectangle is created for every square we created
+* we need a prototype of a rectangle to base the square off (not the rectangle itself)
+
+```js
+function getSquares (size, colors) {
+  const rectangle = getRectangle(size, size)
+  return colors.map(color => {
+    const square = Object.create(rectangle)
+    square.color = color
+    return square
+  })
+}
+```
   - Refactor the factory function into a constructor function
   - Describe what `new` does
   - But how do we connect the two types?
@@ -65,7 +104,6 @@ Flow of the discussion:
   - If you decide to (or have to) apply OO principles
     * Do NOT create object heirarchies
     * Consider all object immutable (behaviour should NOT change object state/properties)
-
 
 ## For more information
 
