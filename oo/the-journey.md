@@ -26,10 +26,12 @@ Flow of the discussion:
   const rectangle = {
     width: 100,
     height: 200,
-    getArea: () => {
+    getArea: function () {
       return this.width * this.height
     }
   }
+  
+  console.log(rectangle)
 ```
 `this` is always going to be in a function, and refers to the object the function belonged to when it was called.
 
@@ -41,7 +43,7 @@ function getRectangle (width, height) {
   return {
     width: width,
     height: height,
-    getArea: () => {
+    getArea: function () {
       return this.width * this.height
     }
   }
@@ -55,7 +57,7 @@ function getSquare (size, color) {
     width: size,
     height: size,
     color: color,
-    getArea: () => {
+    getArea: function () {
       return this.width * this.height
     }
   }
@@ -74,6 +76,7 @@ function getSquare (size, color) {
 
 * the drawbacks of this approach is that a rectangle is created for every square we created
 * we need a prototype of a rectangle to base the square off (not the rectangle itself)
+* Don's picture
 
 ```js
 function getSquares (size, colors) {
@@ -85,8 +88,107 @@ function getSquares (size, colors) {
   })
 }
 ```
-  - Refactor the factory function into a constructor function
-  - Describe what `new` does
+* The `Object.create` function links the provided object as the returned object's prototype
+
+* We need to change the squares prototype (Rectangle), but we shouldn't change `__proto__` directly.
+* We need direct access to the square prototype (Rectangle).
+* Instead of a factory function, we will use a constructor function
+* Refactor the factory function into a constructor function
+
+```js
+function Rectangle (width, height) {
+  // data of the prototype
+  this.width = width
+  this.height = height
+}
+
+// behaviour of the prototype
+Rectangle.prototype.getArea = function () {
+  return this.width * this.height
+}
+
+function Square (size, color) {
+  Rectangle.call(this, size, size)
+}
+
+Square.prototype = Object.create(Rectangle.prototype)
+Square.prototype.constructor = Square
+
+const square = new Square(10, 'red')
+
+class RectangleClass {
+  
+  constructor(width, height) {
+    this.width = width
+    this.height = height
+  }
+  
+  getArea () {
+    return this.width * this.height
+  }
+  
+}
+
+class SquareClass extends RectangleClass {
+  
+  constructor (size, color) {
+    super(size, size)
+    this.color = color
+  }
+  
+}
+
+const squareClass = new SquareClass(10, 'red')
+
+
+```
+
+* Again the drawbacks of this approach is that the getArea function is created for every Rectangle we created
+* We need to put this function onto the Rectangle's prototype
+
+```js
+function Rectangle (width, height) {
+  // data of the prototype
+  this.width = width
+  this.height = height
+}
+
+// behaviour of the prototype
+Rectangle.prototype.getArea = function () {
+  return this.width * this.height
+}
+
+const rectangle = new Rectangle(5, 10)
+```
+
+* This keyword `new` creates a copy of the constructor function's prototype (similar to a factory function)
+
+```js
+function getSquares (size, colors) {
+  const rectangle = new Rectangle(size, size)
+  return colors.map(color => {
+    const square = Object.create(rectangle)
+    square.color = color
+    return square
+  })
+}
+
+const squares = getSquares(10, ['red', 'green', 'blue'])
+Rectangle.prototype.width = Rectangle.prototype.height = 20;
+
+```
+
+
+```js
+
+function Square (size, color) {
+  Rectangle.call(this, size, size)
+  this.color = color
+}
+```
+
+
+
   - But how do we connect the two types?
   - Describe what the prototype is
     * `.prototype` versus `__proto__`
