@@ -4,13 +4,13 @@
 * Prototypal inheritance
 * Classical inheritance
 
-
 ## Object-orientation in general
 
 Object orientation is a paradigm or style of designing software, which models the solution into _objects_. Objects are constructs that include both data (called properties) and behaviour (called methods). For example, a `dog` object could have a `hairColor` and `isTired` properties as well as `bark()` and `sleep()` methods. By combining the data and behaviour into a single construct, it is possible for the behaviour of an object to modify the data of the object. Objects are often designed around real world objects.
 
-
 ## Flow of the discussion
+
+### Part 1 - Prototypal Inheritance
 
 * We want a construct that has data and behaviour (the defining characteristic of OO).
 
@@ -24,7 +24,7 @@ Object orientation is a paradigm or style of designing software, which models th
         return this.width * this.height
       }
     }
-    
+
     console.log(rectangle)
   ```
 
@@ -71,7 +71,7 @@ Object orientation is a paradigm or style of designing software, which models th
   }
   ```
 
-* The drawbacks of this approach is that a rectangle is created for every square we create. For example,
+* The drawbacks of this approach is that a rectangle is created for every square we create. For example:
 
   ```js
   function getSquares (size, colors) {
@@ -85,7 +85,7 @@ Object orientation is a paradigm or style of designing software, which models th
 
 This duplication is a problem if we create a **lot** of squares because it uses much more memory than we need to. We would rather share a single rectangle to base the square off of. We call this shared object a prototype.
 
-[Include an illustration that shows the before and after of using a prototype]()
+[Include an illustration that shows the before and after of using a prototype](#illustration)
 
   ```js
   function getSquares (size, colors) {
@@ -168,7 +168,7 @@ This duplication is a problem if we create a **lot** of squares because it uses 
   const area = squares[0].getArea() // 400
   ```
 
-* 
+### Part 2 - Call, Apply and Bind
 
 ```js
 function Square (size, color) {
@@ -177,28 +177,29 @@ function Square (size, color) {
 }
 ```
 
+### Part 3 - Classes
 
-```
+```js
 class RectangleClass {
-  
+
   constructor(width, height) {
     this.width = width
     this.height = height
   }
-  
+
   getArea () {
     return this.width * this.height
   }
-  
+
 }
 
 class SquareClass extends RectangleClass {
-  
+
   constructor (size, color) {
     super(size, size)
     this.color = color
   }
-  
+
 }
 
 const squareClass = new SquareClass(10, 'red')
@@ -206,25 +207,25 @@ const squareClass = new SquareClass(10, 'red')
 
 ```
 
-  - But how do we connect the two types?
-  - Describe what the prototype is
-    * `.prototype` versus `__proto__`
+* But how do we connect the two types?
+* Describe what the prototype is
+  * `.prototype` versus `__proto__`
     * `Object.create()`
-  - Show (using the debugger) how the prototype looks
-  - Create a new object and show how it has a `hasOwnProperty` property even though we didn't explicitly add it
-  - Illustrate in code how the prototype chain works
+  * Show (using the debugger) how the prototype looks
+  * Create a new object and show how it has a `hasOwnProperty` property even though we didn't explicitly add it
+  * Illustrate in code how the prototype chain works
 * How does the syntax change in ES6?
-  - `class`
-  - `constructor`
-  - `extends`
-  - `super`
+  * `class`
+  * `constructor`
+  * `extends`
+  * `super`
 * How do we use this according to best practices?
-  - Try to avoid OO in JS (opt for a functional design)
-  - If you decide to (or have to) apply OO principles
+  * Try to avoid OO in JS (opt for a functional design)
+  * If you decide to (or have to) apply OO principles
     * Do NOT create object heirarchies
     * Consider all object immutable (behaviour should NOT change object state/properties)
 
 ## For more information
 
-* https://developer.mozilla.org/en/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
-* https://gist.github.com/don-smith/f8af54042cdafc5e95c59e33fa349427
+* <https://developer.mozilla.org/en/docs/Web/JavaScript/Inheritance_and_the_prototype_chain>
+* <https://gist.github.com/don-smith/f8af54042cdafc5e95c59e33fa349427>
