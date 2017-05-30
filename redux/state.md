@@ -1,5 +1,6 @@
 In React there are two kinds of components: those that are aware of and respond to state changes, called stateful _containers_, and those that only render the data supplied to them, called stateless _components_. This does not change when using Redux &mdash; it actually makes it easier. Both of these things necessary to get these libraries working well together can be placed in a stateful component &mdash; the only kind that knows about Redux.
 
+
 ### Making the store available
 
 Stateful components will exist inside of stateless components and visa versa for potentially many layers deep. We don't want to have to pass the Redux store through all of the layers &mdash; especially if they aren't going to use it. The `react-redux` package provides the `Provider` component that makes the store available to all containers regardless of their location in the hierarchy.
@@ -15,6 +16,7 @@ ReactDOM.render(
 )
 ```
 
+
 ### State change notifications
 
 The first thing we listed above that needs to happen to use these libraries together is for React components to be re-rendered during Redux state changes. The `react-redux` package provides the `connect()` function for this very reason. In our stateful containers, we pass `connect` two functions we want to be called during state changes: `mapStateToProps` and `mapDispatchToProps`.
@@ -28,7 +30,8 @@ const ListOfAllThings = connect(
 export default ListOfAllThings
 ```
 
-In the function `connect()` returns, we pass the stateless component we want the data applied to (`ThingList` in our example). But where does its data (props) come from?
+In the function that `connect()` returns, we pass the stateless component we want the data applied to (`ThingList` in our example above). But where does its data (props) come from?
+
 
 ### Mapping Redux state to React props
 
@@ -43,6 +46,7 @@ const mapStateToProps = (state) => {
 ```
 
 In our example, `ThingList` is expecting a prop called `things` so we populate it with the array from the state being passed in.
+
 
 ### Mapping bound Redux actions to React props
 
