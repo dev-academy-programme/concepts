@@ -1,3 +1,5 @@
+# Integration Testing
+
 Automated integration testing treats the application like a black box and tests the graphical user interface (GUI) directly to assert it is displaying and behaving exactly like it should for a user. To do this, it launches a browser, navigates to the application, and interacts with the user interface (UI) the same way a user would. However, it does this automatically according to the instructions we give it - hands free!
 
 This type of testing is very different from unit testing. Unlike unit testing, integration testing determines how well all parts of an application are working together instead of directly testing small units of code. 

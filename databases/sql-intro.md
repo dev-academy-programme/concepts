@@ -18,3 +18,4 @@ WHERE id=123;
 
 Delete
 `DELETE FROM Users WHERE id=123`
+

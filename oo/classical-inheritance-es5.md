@@ -1,6 +1,9 @@
+# Pseudo-classical Inheritance (ES5)
+
 Many programming languages use the concepts of `class`, `subclass` and `inheritance` to assist with code reuse. When we create objects of a particular subclass these objects inherit properties and methods from their parent class. This allows us to write code once on the parent class and have it inherited and reused on its descendants. 
 
 JavaScript ES5 does not implement "classical inheritance" in the same way as other languages. Instead its common to use "prototypal inheritance" to mimic classical inheritance with constructor functions. Its also possible to use factory functions to implement inheritance. As these are not true classes we sometimes call these "pseudo-classes". The examples below show how to implement the classical inheritance pattern with the tools available in ES5:
+
 
 ## Prototypal inheritance with constructor functions
 
@@ -60,7 +63,6 @@ console.log(frodoComment === oneRingDiscussion.getCommentAtIndex(0))
 
 console.log(frodoComment instanceof Comment)
 // true
-
 ```
 
 The code above implements a parent constructor function `Post` and its two child constructor functions `Discussion` and `Comment`. We might imagine that this code drives an online discussion forum. `Post` has three properties `author`, `content` and `createdAt` and one method `getCreatedAt()`. When we define `Comment` and `Discussion` we call the parent constructor method passiing in a reference the current context `this` and the child's `arguments`. This lets `Discussion` and `Comment` inherit `Post`'s properties and the `getCreatedAt()` method (this is equivalent to calling `super` in ES6). Child constructor functions can also implement their own properties and methods.
@@ -134,14 +136,14 @@ console.log(frodoComment instanceof Comment)
 // false
 console.log(frodoComment instanceof Object)
 // true
-
 ```
+
 
 ## Differences
 
 We call Constructor functions using the `new` keyword while we call factory functions like regular functions. Constructor function instances can be checked against their constructor with the `instanceof` keyword while factory function instances are regular `Object` instances.
 
-The more informative `instanceof` behaviour of constructor functions may be useful in codebases where checking the pseudo-class of instances is important for error catching, e.g.:
+The more informative `instanceof` behaviour of constructor functions may be useful in codebases where checking the pseudo-class of instances is important for error catching, for example:
 
 ```js
 Discussion.prototype.addComment = function (comment) {
@@ -151,6 +153,7 @@ Discussion.prototype.addComment = function (comment) {
   this.comments.push(comment)
 }
 ```
+
 
 ## Further Information
 
@@ -162,3 +165,4 @@ Discussion.prototype.addComment = function (comment) {
   * [Factory constructor pattern](http://javascript.info/tutorial/factory-constructor-pattern)
   * [Defending constructors](http://www.2ality.com/2013/07/defending-constructors.html)
   * [instanceof](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/instanceof)
+

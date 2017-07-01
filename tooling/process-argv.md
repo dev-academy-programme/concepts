@@ -1,1 +1,0 @@
-Process.argv is how you can see the arguments that were passed to a command line application. Checkout the [node docs](https://nodejs.org/docs/latest/api/process.html#process_process_argv) for more information.

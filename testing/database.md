@@ -1,3 +1,5 @@
+# Database Testing
+
 We can write tests for code that touches a database in a similar way to testing for any other asynchronous function, but there is some infrastructure that makes writing such tests a little easier.
 
 
@@ -15,15 +17,15 @@ Another trick: ideally, we want our test database to be an _in-memory_ database.
 We can create such a creature using SQLite3, by adding a `test` property to our `knexfile.js`:
 
 ```js
-  test: {
-    client: 'sqlite3',
-    connection: {
-      filename: ':memory:'
-    },
-    seeds: {
-      filename: './tests/helper/seeds'
-    }
+test: {
+  client: 'sqlite3',
+  connection: {
+    filename: ':memory:'
+  },
+  seeds: {
+    filename: './tests/helper/seeds'
   }
+}
 ```
 
 The `seeds` property might be new to you: the ordinary seeds will still run when we execute `npm run knex seed:run`. However, when we're using the `test` config the specified directory above will be used instead. This lets us isolate our seeds and provide very specific values just for the tests.

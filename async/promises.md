@@ -1,7 +1,6 @@
-Promises are a pattern/ style/ opinion about how to write synchronous functions.
-They are a direct response to Callback Hell.
+Promises are a pattern/style for writing synchronous functions. They are a direct response to Callback Hell.
 
-Here's an example of what a promisified superagent function looks like :
+Here's an example of what a promisified superagent function looks like:
 
 ```js
 var Promise = require('promise');
@@ -16,7 +15,7 @@ request.get('http://google.com')
   });
 ```
 
-from : https://www.npmjs.com/package/superagent-promise
+From: https://www.npmjs.com/package/superagent-promise
 
 Here's a more 'nested' example of Promises, which also using `Promise.denodeify` to convert callback-style async functions into promise-style async functions:
 

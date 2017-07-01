@@ -1,6 +1,8 @@
-If you want to do anything more complex that a single command, like including some conditional logic, or loops, you a shell script is what you want.
+# Shell scripts
 
-Make a file called `findTrailingSpace`
+If you want to do anything more complex that a single command, like including some conditional logic, or loops, a shell script is what you want. And you can create them in JavaScript.
+
+Make a file called `findTrailingSpace`:
 
 ```js
 #!/usr/bin/env node
@@ -34,26 +36,27 @@ fs.readFile( targetFile, 'utf8', function(err, data) {
 
 ```
 
-You can run this by running `node findTrailingSpace somefile` - in this mode this is a javascript script.
-Notice unix doesn't care you didn't put `.js` on the end of your filename... while file extensions are polite, if you don't add them, it just doesn't care.
+You can run this by running `node findTrailingSpace somefile`. In this mode, this is a JavaScript script. Notice that Unix doesn't care that you didn't put `.js` on the end of your filename. While file extensions are polite, if you don't add them, your shell doesn't care.
 
-To make this a full shell script we want to make it executable (as in can run it without calling node in front of it all the time)
+To make this a full shell script, we want to make it executable so we can run it without including `node` in front of it all the time.
 
-Do this by running:
+Make it executable by running:
 
-```
+```sh
 chmod +x findTrailingSpace
 ```
 
-(where +x means 'add executeable'. Run `man chmod` to read more about what chmod is about)
+`+x` means 'add executeable'. Run `man chmod` to read more about what chmod is about.
 
-Now the terminal will read the first line, determine you want to run the contents with node, so we can run our script by just calling:
+Now the shell will read the first line (called a hashbang or shebang) to find out what to run the rest of the script with; `node` in our case. Now we can run our script by calling:
 
 ```
 ./findTrailingSpace somefile
 ```
 
-Extras for experts:
-- link the concept of an alias and a script so you can call the script from anywhere
-- read about unix _path_ and how to put your script in the path
-- check out this link for some more interesting shell scripts [Cool shell scripts](http://intuitive.com/wicked/wicked-cool-shell-script-library.shtml), try and implement them yourself!
+More to consider:
+
+- Link the concept of an alias and a script so you can call the script from anywhere.
+- Read about the Unix _path_ and how to put your script in the path.
+- Check out this link for more interesting shell scripts: [Cool shell scripts](http://intuitive.com/wicked/wicked-cool-shell-script-library.shtml). Have a go at implementing them yourself.
+

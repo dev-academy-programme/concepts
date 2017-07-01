@@ -1,4 +1,7 @@
+# Environments
+
 It's common to have several different 'environments' that an application is run in.
+
 They are :
   - dev environment: for building locally and observing
   - test environment: just for running tests, may have fake test data or a fake database
@@ -23,3 +26,4 @@ The package [dotenv](https://www.npmjs.com/package/dotenv) helps us set up envir
 
 **VERY IMPORTANT** : make sure you have added `.env` to your `.gitignore` file, otherwise you might accidentally post your API keys on GitHub.
 Worst case someone will use your keys to move money, post tweets, or max out your credit card. There are bots that trawl GitHub looking for API keys that have been commited by mistake, do not do it!
+

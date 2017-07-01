@@ -1,3 +1,5 @@
+# Testing Client-side Template Rendering
+
 Templates are often compiled before the data is applied. The compilation of a template usually results in a function that accepts a single input and returns HTML. This is great from a testing perspective because we can test the result given a known input. For client-side rendering, we can either perform this in the browser or directly in the terminal.
 
 ```js
@@ -14,3 +16,4 @@ test('test the greeting template', function (t) {
   t.end()
 })
 ```
+

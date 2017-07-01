@@ -1,3 +1,5 @@
+# JSX
+
 JSX is a syntax extension to JavaScript which can be thought of as a hybrid between HTML and JavaScript:
 
 ```js
@@ -90,3 +92,4 @@ render () {
 }
 ```
 For more information, the React documentation introducing JSX is a great read: https://facebook.github.io/react/docs/introducing-jsx.html
+
