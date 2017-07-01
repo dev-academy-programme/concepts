@@ -1,3 +1,5 @@
+# Redux Forms
+
 Sometimes forms in React can seem a bit clumsy, with lots of messing around in the component state. Several libraries have been developed which attempt to address the problem by keeping the form in the Redux store. [Redux Form](http://redux-form.com/6.5.0/) is perhaps the best-known of these. We're going to show you how to use [React Redux Form](https://github.com/davidkpiano/react-redux-form) (RRF) which in some ways is a little easier to get your head around!
 
 
@@ -211,3 +213,4 @@ const store = createStore(reducers)
 ```
 
 Notice that in this example, `combineForms` takes the place of `combineReducers`. (You can actually use them together, but it's a bit more fiddly and you're probably better off using `createForms` for non-trivial cases.)
+

@@ -286,3 +286,4 @@ const squareClass = new SquareClass(10, 'red')
 
 * <https://developer.mozilla.org/en/docs/Web/JavaScript/Inheritance_and_the_prototype_chain>
 * <https://gist.github.com/don-smith/f8af54042cdafc5e95c59e33fa349427>
+

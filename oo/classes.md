@@ -1,11 +1,14 @@
-In Javascript, classes have only just been added with ES6.
-Check out the docs here : https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes, in particular :
+# Classes
+
+In JavaScript, classes have only just been added with ES6. Check out the docs here: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes, in particular:
+
   - constructor
   - prototype methods
   - extends  (note sub-classing is another way to say inheritance)
   - super
 
-#### Using classes in your code
+
+## Using classes in your code
 
 You'll need to transpile (convert) your new ES6 standard code into code that all browsers will support.
 
@@ -30,5 +33,5 @@ var OrangeTree = require('../OrangeTree')
 
 import OrangeTree from '../OrangeTree'
 import {pruneTree} from '../OrangeTree'
-
 ```
+

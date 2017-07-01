@@ -6,6 +6,7 @@ So what does mobile first actually look like in a development practice context? 
 
 Luckily we have lots of fabulous tools to help us!
 
+
 ## Stylesheets
 
 Let's just spend a quick moment on stylesheets.
@@ -16,6 +17,7 @@ This approach will need a fairly open communication with your designer (if the p
 Kotare's final project did a really good job of mobile first approach,
 
 - [tandem](https://github.com/Tandem-NZ/tandem/blob/master/public/styles/sass/_desktop.scss)
+
 
 ## Debugging mobile
 
@@ -50,7 +52,6 @@ This works for any ios devices, so all the ipads ect, which is SUPER USEFUL!
 
 http://appletoolbox.com/2014/05/use-web-inspector-debug-mobile-safari/
 
-
 Xcode also has a new simulator, though this is only for iphone 6 and above
 
 - open xcode
@@ -63,8 +64,10 @@ Pretty much exactly the same applies with Chrome and android devices. In the pho
 here is a useful blog on how to do this:
 https://developer.chrome.com/devtools/docs/remote-debugging
 
+
 ## Extra excitment, demo-ing your mobile things on desktop
 
 - Have your iphone plugged in
 - Open quicktime player on your mac
 - select the little arrow on the dropdown, and select your phone
+

@@ -1,3 +1,5 @@
+# Cucumber Tests
+
 Cucumber is a flavour of integration tests that aim to improve collaboration between technical and non-technical people in developing software. 
 
 Tests are written in [Gherkin syntax](https://cucumber.io/docs/reference) which means that:
@@ -7,9 +9,9 @@ Tests are written in [Gherkin syntax](https://cucumber.io/docs/reference) which 
   * tests can be linked directly to the the team and client's broader intentions for the software such as User Stories or [Jobs-to-be-done](https://blog.intercom.io/using-job-stories-design-features-ui-ux/)
 
 
-## Cucumber in a BDD cycle
+## Cucumber in a Behaviour-driven Development (BDD) cycle
 
-A Behaviour Driven Development cycle that uses Cucumber might follow the following steps.
+A Behaviour-driven Development cycle that uses Cucumber might follow the following steps.
 
 
 ### 1. Intention clarification (user stories / jobs to be done)
@@ -22,7 +24,6 @@ For example, for a weather app we may define a User Story as the following:
 As a User,
 I want to view the likelihood of rain for my GPS coordinates
 So that, when I go outside I know whether or not I need to take my jacket
-
 ```
 
 We could re-write the same intention as a Job Story like so:
@@ -34,6 +35,7 @@ So I know whether or not to take my jacket
 ```
 
 Most people use user stories, but either is fine. 
+
 
 ### 2. Gherkin feature specification
 
@@ -83,9 +85,11 @@ Note: to get this code to work we're spoofing the browser location `browser.loca
 
 In the later steps we will write code to automate a browser that interacts with our software in the specific way detailed in the specification.
 
+
 ### 3. App scaffolding
 
 The team can begin scaffolding the app, setting up the directory, the testing, build and deployment script etc. We'll need a basic server for our automated browser to interact with.  
+
 
 ### 4. Cucumber automation
 
@@ -130,13 +134,16 @@ A good thing about cucumber steps is that many of them will be reusable in other
 
 The above  example code is specific to the Webdriver API and could be written with a different browser automation library.
 
+
 ### 5. Development
 
 We can now start developing our features. With the features spec'd out, developers can estimate their relative complexity. The Client or the Product Owner can prioritise the features they would like developed. As development progresses, a set of passing cucumber specs provide living documentation about what the software can and cannot do. 
 
+
 ### 6. User acceptance tests
 
 When a feature is complete and its cucumber tests pass, the development team can deploy the latest version of the app to a staging server. This allows the client to see a live version of the app and provide feedback and clarifications before features go live on production and the development team to conduct user testing. Near the end of the release cycle the team and the client may sit down and work through the new features on the staging app and their specs before the features are formally accepted. 
+
 
 ## Further information
 
@@ -148,10 +155,11 @@ This document references the following concepts and tools:
   * [User Sories](../agile/user-stories.md)
   * [Job Stories](https://jtbd.info/replacing-the-user-story-with-the-job-story-af7cdee10c27#.g9p9ceubs)
   * [User Acceptance tests](http://www.tutorialspoint.com/software_testing_dictionary/use_acceptance_testing.htm)
-  
-  
+
+
 Tools: 
-  
+
   * [Gherkin syntax](https://github.com/cucumber/cucumber/wiki/Gherkin)
   * [Webdriver](http://webdriver.io/)
   * [Selenium](http://www.seleniumhq.org/)
+

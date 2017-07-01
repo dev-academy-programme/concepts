@@ -1,3 +1,4 @@
+# Joins
 
 Imagine I wanted to find the names of all the pets who belonged to Jane. This could be done with two queries
 
